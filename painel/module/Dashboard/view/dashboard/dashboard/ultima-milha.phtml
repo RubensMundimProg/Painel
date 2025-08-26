@@ -1,0 +1,35 @@
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+
+<div class="menu" data-menu="ultima-milha"></div>
+
+<div class="container-ultima-milha" id="map">
+    <div class="container-table-ultima-milha">
+        <div class="">
+            <table class="table equal-2 head-fixo-b darker">
+                <thead>
+                    <tr>
+                        <th title="Unidade Federativa">UF</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="rodar-tabela">
+            <table class="table table-condensed equal-2">
+                <tbody class="tbody-ultima tabela-ultima-milha"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="camadas" style="width: 100px;">
+    <h6>LEGENDA</h6>
+    <div class="legenda">
+        <ul>
+            <li><img src="/dashboard-assets/img/pins/ultimamilha-verde.png" alt=""> 100%</li>
+            <li><img src="/dashboard-assets/img/pins/ultimamilha-amarelo.png" alt=""> 67%~99%</li>
+            <li><img src="/dashboard-assets/img/pins/ultimamilha-laranja.png" alt=""> 34%~66%</li>
+            <li><img src="/dashboard-assets/img/pins/ultimamilha-vermelho.png" alt=""> 0%~33%</li>
+        </ul>
+    </div>
+</div>

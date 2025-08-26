@@ -1,0 +1,57 @@
+<div class="modal fade" id="detalhe-evento">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><span class="nome-evento"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 detalhes-evento">
+                        <strong>Descrição</strong>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row visualizar-data">
+                    <div class="col-md-6 inicio-esperado"><strong>Início Previsto:</strong> <span></span></div>
+                    <div class="col-md-6 fim-esperado"><strong>Fim Previsto:</strong> <span></span> <a href="javascript:void(0)" class="editar-data pull-right">Editar</a></div>
+                    <div class="col-md-6 inicio-evento"><strong>Início:</strong> <span></span></div>
+                    <div class="col-md-6 fim-evento"><strong>Fim:</strong> <span></span></div>
+
+                </div>
+                <div class="row editar-data hide">
+                    <div class="col-md-6"><strong>Início Previsto:</strong> <input type="text" class="form-control datepicker dateEdit" data-field="ExpectedStart" data-mask="datepicker" data-code=""></div>
+                    <div class="col-md-6"><strong>Fim Previsto:</strong> <input type="text" class="form-control datepicker dateEdit" data-field="ExpectedEnd" data-mask="datepicker" data-code=""></div>
+                    <div class="col-md-6"><strong>Início:</strong> <input type="text" class="form-control datepicker dateEdit" data-field="StartDate" data-mask="datepicker" data-code=""></div>
+                    <div class="col-md-6"><strong>Fim:</strong> <input type="text" class="form-control datepicker dateEdit" data-field="EndDate" data-mask="datepicker" data-code=""></div>
+                    <div class="col-md-12">
+                        <br>
+                        <a type="javascript:void(0)" class="btn btn-salvar salvar-data">Salvar</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                        <strong>Progresso</strong>
+                        <div class="progress-list-wrap">
+                            <ul class="progress-list"></ul>
+                        </div>
+                        <form action="" method="post" id="form_new_progress">
+                            <input type="hidden" name="code" value="">
+                            <div class="form-group">
+                                <label for="municipio">Novo Progresso</label>
+                                <textarea name="newProgress" class="form-control" cols="30" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-salvar">Salvar</button>
+                            <button type="button" class="btn btn-cancelar" data-dismiss="modal">Fechar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="modal-footer">-->
+            <!--                <button type="button" class="btn btn-cancelar" data-dismiss="modal">Fechar</button>-->
+            <!--                <a href="" class="btn btn-assinatura btn-evento" target="_blank">Mais Detalhes</a>-->
+            <!--            </div>-->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

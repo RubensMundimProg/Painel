@@ -1,0 +1,57 @@
+<div class="container-fluid content" data-menu="Configuração de Período">
+    <div class="row content-title">
+        <h1>Configuração de Período
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+<!--    FORMULARIOS-->
+    <form action="/configuracao/cadastro" method="post" id="cadastro" enctype="multipart/form-data">
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exame">* Exame</label>
+                    <?=$this->formRowNoLabel($form->get('Exame'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ano">* Ano</label>
+                    <?=$this->formRowNoLabel($form->get('Ano'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="DataInicio">* Data Incio</label>
+                    <?=$this->formRowNoLabel($form->get('DataInicio'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="DataFim">* Data Final</label>
+                    <?=$this->formRowNoLabel($form->get('DataFim'));?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-salvar">Salvar</button>
+                <a href="<?=$this->basePath('/');?>" class="btn btn-cancelar">Cancelar</a>
+            </div>
+        </div>
+    </form>
+
+</div>

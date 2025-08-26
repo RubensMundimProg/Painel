@@ -1,0 +1,115 @@
+<?php
+$container = new Zend\Session\Container('UsuarioApi');
+$usuario = $container->offsetGet("nome");
+?>
+
+<div class="navbar menu-principal navbar-fixed-top navbar-blackblue">
+    <!--    <ul class="nav navbar-nav">-->
+    <!--        <li class="hide-coluna-esquerda"><a href="javascript:void(0)"><i class="material-icons">arrow_back</i></a></li>-->
+    <!--    </ul>-->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand cgi-bkg" href="/">CGI <p>.::Centro de Gestão Integrada::.</p></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+            <li data-menu="aplicacao"><a href="/"><i class="material-icons">web</i>&nbsp;Aplicação&nbsp;<span class="pag-aplicacao"></span></a></li>
+            <li data-menu="dashboard"><a href="/dashboard"><i class="material-icons">dashboard</i>&nbsp;Dashboard&nbsp;<span class="pag-dashboard"></span></a></li>
+            <li data-menu="midia"><a href="/dashboard/midia"><i class="material-icons">share</i>&nbsp;Mídia&nbsp;<span class="pag-midia"></span></a></li>
+            <li data-menu="mapa-alerta"><a href="/dashboard/mapa-alerta"><i class="material-icons">map</i>&nbsp;Mapas&nbsp;<span class="pag-alerta"></span></a></li>
+            <li data-menu="mapa-atividades"><a href="/dashboard/mapa-atividades"><i class="material-icons">map</i>&nbsp;Horários&nbsp;<span class="pag-atividades"></span></a></li>
+            <!--<li data-menu="ultima-milha"><a href="/dashboard/ultima-milha"><i class="material-icons">local_shipping</i>&nbsp;Última Milha&nbsp;<span class="pag-midia"></span></a></li>-->
+            <li data-menu="ultima-milha"><a href="/dashboard/ultima-milha"><i class="material-icons">local_shipping</i>&nbsp;Entrega/Coleta&nbsp;<span class="pag-midia"></span></a></li>
+            <li data-menu="download"><a href="/plano/plano.pdf" target="_blank"><i class="material-icons">file_download</i>&nbsp;Plano de Comunicação&nbsp;<span class="pag-midia"></span></a></li>
+            <li data-menu="relatorio" class="dropdown hide">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">description</i>&nbsp;Relatório <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li data-menu="relatorio"><a href="#" data-toggle="modal" data-target="#modal-report">Relatório CGI</a></li>
+                </ul>
+            </li>
+        </ul>
+
+<!--        <form class="navbar-form navbar-left form-auto-update">-->
+<!--            <div class="form-group">-->
+<!--                <div class="togglebutton toggle-auto-update">-->
+<!--                    <label>-->
+<!--                        <input type="checkbox" name="privacidade" class="auto-update"><i class="material-icons">refresh</i>&nbsp;Auto-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+
+        <ul class="nav navbar-nav navbar-right">
+            <?php
+                $controller = str_replace('\\','',$this->currentRequest()->get('controller'));
+                $action = $this->currentRequest()->get('action');
+            if($controller == 'dashboard' && $action == 'midia') :
+            ?>
+<!--                <li data-menu=""><a href="#" target="_blank" class="" title="Configurações do Twitter" data-toggle="modal" data-target="#modal-configuracao"><i class="material-icons">settings</i></a></li>-->
+            <?php endif; ?>
+            <li data-menu="filtro" class="hide"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-filter"><i class="material-icons">filter_list</i>&nbsp;Filtro&nbsp;<span class="filtrar"></span></a></li>
+            <li data-menu="ajuda"><a href="/ajuda" target="_blank" class="" title="Baixe o manual guia rápido"><i class="material-icons">help_outline</i></a></li>
+            <li data-menu="usuario" class="dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?=$usuario?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/index/sair">Sair</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="ultimo-alerta"></div>
+
+<?php
+$form = new \Dashboard\Form\AvaliacaoPedagogica();
+$form->get('AvaliacaoPedagogica')->setAttribute('data-sistema',1);
+?>
+
+<div id="form-frame" class="AvaliacaoPedagogica">
+    <form action="">
+        <div class="form-group">
+            <label for="">Avaliação Pedagógica</label>
+            <?=$this->formRow($form->get('AvaliacaoPedagogica'))?>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="modal-report">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Filtro do Relatório</h4>
+            </div>
+            <form action="/cgi/report" method="post" target="_blank">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Data</label>
+                                <input type="text" class="form-control datepicker" name="date-filter-report" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="progressivo-filter-report"> Relatório Progressivo?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Baixar PDF</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

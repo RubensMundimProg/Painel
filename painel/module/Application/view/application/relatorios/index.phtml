@@ -1,0 +1,86 @@
+<div id="PageRelatorios">
+    <div class="menu" data-menu="Relatórios"></div>
+
+    <div class="container-fluid content">
+        <div class="row content-title">
+            <h1>Relatórios - <?=$sistema?>
+                <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+            </h1>
+
+        </div>
+
+        <!--    FORMULARIOS-->
+        <form action="/relatorios/gerar" method="post" enctype="multipart/form-data" class="cadastro-alerta">
+
+            <div class="row content-body">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="municipio">*Data Início</label>
+                        <?=$this->formRowNoLabel($form->get('dataInicio'));?>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="municipio">*Data Fim</label>
+                        <?=$this->formRowNoLabel($form->get('dataFim'));?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-body">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="municipio">Hora Início</label>
+                        <?=$this->formRowNoLabel($form->get('horaInicio'));?>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="municipio">*Hora Fim</label>
+                        <?=$this->formRowNoLabel($form->get('horaFim'));?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-body">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="municipio">Categoria</label>
+                        <?=$this->formRowNoLabel($form->get('categoria'));?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-body subcategorias">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="municipio">Subcategoria</label>
+                        <?=$this->formRowNoLabel($form->get('subcategoria'));?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-body">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="municipio">*UF</label>
+                        <?=$this->formRowNoLabel($form->get('uf'));?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-body">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-relatorio">Gerar</button>
+                    <a href="<?=$this->basePath('/');?>" class="btn btn-cancelar">Cancelar</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

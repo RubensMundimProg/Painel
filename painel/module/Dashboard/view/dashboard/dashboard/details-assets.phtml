@@ -1,0 +1,10 @@
+<?php
+if (!is_bool($ativo['customAttributes']) && count($ativo['customAttributes'])) {
+    foreach($ativo['customAttributes'] as $key => $value){
+        echo '<h6>'.$atributos[$key].'</h6><h5>'.$value.'</h5>';
+    }
+} else {
+    echo '<h5>sem dados</h5>';
+}
+
+?>

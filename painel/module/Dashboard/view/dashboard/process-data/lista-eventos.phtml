@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="rodar-tabela">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <?php foreach(array_keys($retorno[0]) as $key){?>
+                        <th><?php try{ echo $form->get($key)->getLabel(); }catch(\Exception $e){echo $key;}?></th>
+                    <?php }; ?>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($retorno as $keyA => $value){?>
+                    <tr>
+                        <?php foreach(array_keys($retorno[0]) as $key){
+                            $valor =$value[$key];
+                            if(preg_match('/Date/', $valor)){
+                                $valor = $evento->epocToDate($valor, 'd/m/Y H:i:s');
+                            }
+                            ?>
+                            <td><?=$valor?></td>
+                        <?php }; ?>
+                    </tr>
+                <?php }; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

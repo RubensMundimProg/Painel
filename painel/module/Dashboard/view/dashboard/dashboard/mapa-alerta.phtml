@@ -1,0 +1,46 @@
+<div class="menu" data-menu="mapa-alerta"></div>
+
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+<!--<div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--        <iframe src="--><?//=$urlPainel;?><!--" frameborder="0" id="frame-mapa" class="inteiro" width="100%"></iframe>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="container-ultima-milha" id="map"></div>
+
+<!--<div class="busca-mapa">-->
+<!--    <input type="text" id="busca-municipio" class="autocomplete">-->
+<!--</div>-->
+
+<form class="busca-mapa form-inline">
+    <div class="form-group">
+        <input type="text" id="busca-municipio" class="autocomplete" placeholder="Pesquisar município">
+    </div>
+    <button type="button" class="btn btn-primary" id="btn-center-mapa"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+
+<div id="camadas">
+    <h6>CAMADAS</h6>
+    <div class="botao"><p class="breakline"><a href="javascript:void(0)" data-menu="alertas" data-status="Aberto" style="font-size: 10px">ALERTAS ABERTOS</a></p></div>
+    <div class="botao"><p class="breakline"><a href="javascript:void(0)" data-menu="alertas" data-status="Fechado" style="font-size: 10px">ALERTAS FECHADOS</a></p></div>
+    <div class="botao active"><p><a href="javascript:void(0)" data-menu="aplicadores" style="font-size: 10px">MUNICÍPIOS</a></p></div>
+    <div class="botao"><p class="breakline"><a href="javascript:void(0)" data-menu="alerta-pre" style="font-size: 10px">PRÉ-APLICAÇÃO</a></p></div>
+    <div class="botao hide"><p><a href="javascript:void(0)" data-menu="municipios" style="font-size: 10px">MUNICÍPIOS</a></p></div>
+    <div class="clearfix"></div>
+    <h6 style="margin-top: 5px">LEGENDA</h6>
+
+    <div class="legenda">
+        <ul>
+            <li class="hide"><img src="/dashboard-assets/img/pins/pin_10.png" alt=""> Município</li>
+            <li><img src="/dashboard-assets/img/pins/pin_1.png" alt=""> CESGRANRIO</li><br>
+            <li><img src="/dashboard-assets/img/pins/pin_3.png" alt=""> FGV</li><br>
+            <li><img src="/dashboard-assets/img/pins/pin_13.png" alt=""> CAEd</li><br>
+            <li><img src="/dashboard-assets/img/pins/pin_6.png" alt=""> Cebraspe</li><br>
+            <li><img src="/dashboard-assets/img/pins/pin_12.png" alt=""> Alerta Aberto</li>
+            <li><img src="/dashboard-assets/img/pins/pin_12_fechado.png" alt=""> Alerta Fechado</li>
+            <li><img src="/dashboard-assets/img/pins/pin_12_anexo.png" alt=""> Alerta com Anexo</li>
+            <li><img src="/dashboard-assets/img/pins/pin_9.png" alt=""> Alerta Pré Aplicação</li>
+        </ul>
+    </div>
+</div>

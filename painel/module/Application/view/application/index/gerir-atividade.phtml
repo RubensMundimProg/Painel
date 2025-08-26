@@ -1,0 +1,103 @@
+<div class="container-fluid content" data-menu="Configuração de Período">
+    <div class="row content-title">
+        <h1>Gerenciar Atividades - <?=$sistema?>
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Cadastro Atividade</h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                <?=$this->formRow($form->get('Id'))?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Avaliação Pedagógica:</label>
+                            <?=$this->formRow($form->get('Sistema'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Titulo" class="control-label">Descrição:</label>
+                            <?=$this->formRow($form->get('Descricao'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Data:</label>
+                            <?=$this->formRow($form->get('Data'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Hora Início:</label>
+                            <?=$this->formRow($form->get('HoraInicio'))?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Hora Fim:</label>
+                            <?=$this->formRow($form->get('HoraFim'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                        <a href="<?=$this->basePath('/');?>" class="btn btn-cancelar">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <h4>Atividades Cadastradas:</h4>
+            <table class="table table-striped datatable">
+                <thead>
+                    <tr>
+                        <th class="icon"></th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Hora Início</th>
+                        <th>Hora Fim</th>
+                        <th class="icon"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($lista as $item){?>
+                    <tr>
+                        <td>
+                            <a href="/index/gerir-atividade/<?=$item->getId()?>">
+                                <img src="<?=$this->basePath("/assets/img/ico/ico_edit.png")?>" alt="Editar Atividade" title="Editar Atividade"/>
+                            </a>
+                        </td>
+                        <td><?=$item->getDescricao()?></td>
+                        <td><?=$item->toDate('Data')->format('d/m/Y')?></td>
+                        <td><?=$item->getHoraInicio()?></td>
+                        <td><?=$item->getHoraFim()?></td>
+
+                        <td>
+                            <a href="javascript:void(0)" data-url="/index/excluir-atividade/<?=$item->getId()?>" class="exibir-confirmacao">
+                                <img src="<?=$this->basePath("/assets/img/ico/ico_excluir.png")?>" alt="Excluir Atividade" title="Excluir Atividade"/>
+                            </a>
+                        </td>
+                    </tr>
+                <?php }; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br><br>
+
+</div>

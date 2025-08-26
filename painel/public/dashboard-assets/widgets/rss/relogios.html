@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/customizado.css"/>
+    <style>
+        body{
+            background-image: none;
+        }
+    </style>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row relogios text-center">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="rio-branco"></h3>
+            <h5>Rio Branco (AC)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="manaus"></h3>
+            <h5>Manaus (AM)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="brasilia"></h3>
+            <h5>Brasília (DF)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="fernando-noronha"></h3>
+            <h5>F. Noronha (PE)</h5>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/assets/jquery/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/assets/moment/moment.js"></script>
+<script type="text/javascript" src="/assets/moment/moment-with-locales.js"></script>
+<script type="text/javascript" src="/assets/moment/moment-timezone-with-data-2010-2020.js"></script>
+
+<script>
+
+    function sformat(s) {
+        var fm = [
+//            Math.floor(s / 60 / 60 / 24), // DAYS
+//            Math.floor(s / 60 / 60) % 24, // HOURS
+            Math.floor(s / 60) % 60, // MINUTES
+            s % 60 // SECONDS
+        ];
+        return $.map(fm, function(v, i) { return ((v < 10) ? '0' : '') + v; }).join(':');
+    }
+
+
+//    RELOGIOS
+    function relogios(){
+//        $('#data-hoje').empty().append(moment().tz("America/Sao_Paulo").format('dddd[,] D [de] MMMM [de] YYYY'));
+        $('#rio-branco').empty().append(moment().tz("America/Rio_Branco").format('H:mm'));
+        $('#manaus').empty().append(moment().tz("America/Manaus").format('H:mm'));
+        $('#brasilia').empty().append(moment().tz("America/Sao_Paulo").format('H:mm'));
+        $('#fernando-noronha').empty().append(moment().tz("America/Recife").format('H:mm'));
+    }
+
+    function iniciarRelogios(){
+        moment.locale('pt-br');
+        relogios();
+        setInterval(function(){
+            relogios();
+        },1000)
+    }
+
+    $(document).ready(function(){
+        iniciarRelogios();
+    });
+</script>
+</body>
+</html>

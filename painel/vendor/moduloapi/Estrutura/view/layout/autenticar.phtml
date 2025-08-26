@@ -1,0 +1,71 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pt-br">
+<head>
+    <script src="/assets/js/jquery.js"></script>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Administrador - Login')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendName('description', '')
+        ->appendName('keywords', '')
+    ?>
+
+    <!-- Le styles -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        ->prependStylesheet('/assets_admin/css/estilo.css')
+        ->prependStylesheet('/assets/bootstrap/css/bootstrap.css')
+    ?>
+
+    <style>
+        body{
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+        .form-signin{
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            margin: 0 auto 20px;
+            max-width: 300px;
+            padding: 19px 29px 29px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container ferramenta">
+    <?php echo $this->render("mensagens")?>
+    <?php echo $this->content; ?>
+</div> <!-- /container conteudo -->
+
+<script type="text/javascript">
+    $('body').on('blur','#repetirsenha',function(){
+        var senha = $('#senha').val();
+        var repetir = $('#repetirsenha').val();
+
+        if(senha != repetir){
+            alert('As senhas devem ser iguais');
+            $('#senha').val('');
+            $('#repetirsenha').val('');
+        }
+    }).on('blur','#senha',function(){
+        if($('#repetirsenha').val() != ''){
+            var senha = $('#senha').val();
+            var repetir = $('#repetirsenha').val();
+
+            if(senha != repetir){
+                alert('As senhas devem ser iguais');
+                $('#senha').val('');
+                $('#repetirsenha').val('');
+            }
+        }
+    })
+</script>
+
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

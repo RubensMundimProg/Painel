@@ -1,0 +1,45 @@
+<?php
+  /** @var $form \Usuario\Form\Usuario */
+  /** @var $lista \Usuario\Service\Usuario[] */
+?>
+<div class="page-head">
+    <h2>Usuários</h2>
+</div>
+<div class="cl-mcont">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block-flat">
+                <div class="content">
+
+                    <table class="table table-bordered dataTable">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php foreach($lista as $item){ ?>
+                            <tr>
+                                <td><?=$item->getNome()?></td>
+                                <td><?=$item->getEmail()?></td>
+                                <td style="width: 100px">
+                                    <?=\Estrutura\Service\HtmlHelper::botaoAlterar($this->url('usuario-home',array('controller'=>$controller,'action'=>'cadastro','id'=>$item->getId())))?>
+                                    <?=\Estrutura\Service\HtmlHelper::botaoExcluir($this->url('usuario-home',array('controller'=>$controller,'action'=>'excluir','id'=>$item->getId())))?>
+                                </td>
+                            </tr>
+                        <?php }; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success pull-right" href="<?=$this->url('usuario-home',array('action'=>'cadastro'))?>">Cadastrar</a>
+        </div>
+    </div>
+</div>

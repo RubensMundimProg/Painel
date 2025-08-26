@@ -1,0 +1,17 @@
+/*!
+ * Datepicker Jquery UI
+ * Bruno Rosa / 22-11-2016
+ */
+.ui-widget-content {
+  border-color: #ebebeb !important;
+  background: #4e5d6c url(images/ui-bg_inset-hard_100_fcfdfd_1x100.png) 50% bottom repeat-x !important;
+}
+
+.ui-widget-header {
+  border-color: #4e5d6c !important;
+  background: #2b3e50 url(images/ui-bg_gloss-wave_55_356191_500x100.png) 50% 50% repeat-x !important;
+}
+
+.ui-datepicker table {
+  background-color: #485563 !important;
+}

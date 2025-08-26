@@ -1,0 +1,128 @@
+<form action="/triagem/editar-triagem" method="post" id="editar-triagem" enctype="multipart/form-data" class="cadastro-alerta">
+    <?=$this->formRowNoLabel($form->get('Id'));?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="municipio">* Município</label>
+                <br>
+                <?= $service->getMunicipio() ?>
+                <?=$this->formRowNoLabel($form->get('Municipio'));?>
+            </div>
+        </div>
+        <?=$this->formRowNoLabel($form->get('Uf'));?>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="categoria">Coordenação</label>
+                <br>
+                <?= ($service->getCoordenacao())?$service->getCoordenacao():'-'; ?>
+                <?=$this->formRowNoLabel($form->get('Coordenacao'));?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="categoria">* Categoria</label>
+                <?php 
+                $options = $form->get('Categoria')->getOptions();
+                $selected = '';
+                ?>
+                <select name="Categoria" class="form-control pop obrigatorio">
+                    <?php foreach($options["value_options"] as $opt) : if ($opt == 'Selecione') continue; ?>
+                        <?php
+                            $selected = '';
+                            if ($opt == $service->getCategoria()) $selected = 'selected';
+                        ?>
+                        <option value="<?= $opt ?>" <?=$selected?>><?= $opt ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row subcategorias editar-cadastro-triagem">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="categoria">* Subcategoria</label>
+                <?=$this->formRowNoLabel($form->get('SubCategoria'));?>
+            </div>
+        </div>
+    </div>
+    <div class="row impacto-aplicacao">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="">* Impacto na Aplicação?</label>
+                <?=$this->formRowNoLabel($form->get('ImpactoAplicacao'));?>
+            </div>
+        </div>
+    </div>
+    <div class="row nro-processo">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="">* N° Processo</label>
+                <?=$this->formRowNoLabel($form->get('NroProcesso')->setAttribute('disabled','disabled'));?>
+            </div>
+        </div>
+    </div>
+
+    <?=$this->formRowNoLabel($form->get('Titulo'));?>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="descricao">* Descrição do Evento</label>
+                <?=$this->formRowNoLabel($form->get('Descricao')->setAttribute('readonly',true));?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="descricao">Providências Adotadas</label>
+                <?=$this->formRowNoLabel($form->get('ProvidenciasAdotadas')->setAttribute('readonly',true));?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="descricao">Informações Adicionais</label>
+                <?=$this->formRowNoLabel($form->get('InformacoesAdicionais'));?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="descricao">Anexar Arquivos (Imagens e/ou Documentos)</label>
+                <?=$this->formRowNoLabel($form->get('Anexo'));?>
+            </div>
+        </div>
+    </div>
+
+    <?php if($service->fetchAnexos()) :?>
+    <div class="form-group">
+        <?php foreach($service->fetchAnexos() as $item) : if(!$item) continue; ?>
+            <?php $ret = explode('/',$item) ?>
+            <?php $urlArquivo = str_replace(['./public','/public','public'], '', $item); ?>
+            <p>
+                <a href="<?=$urlArquivo?>" target="_blank"><?= end($ret) ?></a> <a href="" class="remover-anexo" data-id="<?=$service->getId()?>" data-file="<?=$item?>">
+                    <img src="/assets/img/ico/ico_excluir.png" alt="">
+                </a>
+            </p>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+
+    <div class="clearfix">&nbsp;</div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-salvar">Salvar</button>
+            <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
+            |<a href="javascript:void(0)" data-url="/triagem/confirmar-triagem/<?=$service->getId()?>" class="btn-confirma btn btn-check">Confirmar Ocorrência</a>
+        </div>
+    </div>
+</form>

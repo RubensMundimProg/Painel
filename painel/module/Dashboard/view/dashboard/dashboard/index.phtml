@@ -1,0 +1,85 @@
+<div class="menu" data-menu="dashboard"></div>
+
+<div id="carousel-paginas" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+<!--    <ol class="carousel-indicators">-->
+<!--        <li data-target="#carousel-paginas" data-slide-to="0" class="active"></li>-->
+<!--        <li data-target="#carousel-paginas" data-slide-to="1"></li>-->
+<!--    </ol>-->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-a')?>
+        </div>
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-dia')?>
+        </div>
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-b')?>
+        </div>
+
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-g')?>
+        </div>
+
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-c')?>
+        </div>
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-d')?>
+        </div>
+        <?php if($isAdmin){?>
+        <!--    <div class="item active">
+                <?=$this->render('pag-aplicacao-h')?>
+            </div>-->
+        <?php }; ?>
+
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-e')?>
+        </div>
+        <div class="item active">
+            <?=$this->render('pag-aplicacao-f')?>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#carousel-paginas" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+
+    <a class="right carousel-control" href="#carousel-paginas" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>
+
+<div class="modal fade" id="modal-filter">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Filtro do Dashboard</h4>
+            </div>
+            <form action="" class="form-inline range-date-dashboard" method="post" target="_blank">
+                <div class="modal-body">
+                    <div class="form-range-date">
+                        <div class="form-group">
+                            <label for="">Período:</label>
+                            <?=$this->formRow($form->get('start-date'))?> à
+                            <?=$this->formRow($form->get('end-date'))?>
+                        </div>
+                        <button type="submit" class="btn btn-primary">OK</button>
+                        <button type="reset" class="btn btn-default">LIMPAR</button>
+                    </div>
+
+                    <div class="clearfix">&nbsp;</div>
+
+                    <p class="small"><b>Obs.: </b>Com a aplicação do filtro, o dashboard não será auto atualizado. Utilize o filtro para datas passadas.</p>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="filtro-date-frame"></div>

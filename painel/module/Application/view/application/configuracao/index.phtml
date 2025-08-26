@@ -1,0 +1,267 @@
+<div class="container-fluid content" data-menu="Configurações Gerais">
+    <div class="row content-title">
+        <h1>Configurações Gerais
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 divisor-direito">
+
+            <form action="/configuracao/gravar-ultima-milha" method="post" enctype="multipart/form-data">
+
+                <?=$this->formRowNoLabel($form->get('Id'));?>
+
+                <div class="row content-body">
+                    <div class="col-md-6">
+
+                        <table class="table dados-validos">
+                            <thead>
+                                <tr>
+                                    <th>UF</th>
+                                    <th>% Entrega/Coleta</th>
+                                    <th>% Abstenção</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($form->getElements() as $item) :
+                                if($item->getAttribute('type') == 'hidden') continue; ?>
+                                <tr>
+                                    <td><?=$item->getLabel()?></td>
+                                    <td><?=$this->formRowNoLabel($item->setAttribute('data-tipo','ultima_milha'))?></td>
+                                    <td><?=$this->formRowNoLabel($item->setAttribute('data-tipo','abstencao'))?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+
+            <form action="/configuracao/gravar-twitter" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Filtro Twitter/RSS</label>
+                            <textarea name="words-twitter" class="form-control" rows="10"></textarea>
+                            <p class="help-block">Separar palavras ou conjunto de palavras por ; (ponto e vírgula)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-salvar botao-salvar-filtro-twitter">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+
+            <form action="/configuracao/upload-plano" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Plano de Comunicação</label>
+                            <input type="file" class="form-control" name="plano" accept="application/pdf" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+
+            <form action="/configuracao/upload-manual" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Manual</label>
+                            <input type="file" class="form-control" name="manual" accept="application/pdf" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+
+            <form action="/configuracao/upload-coordenacao" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">CSV das Coordenações</label> <br>
+                            <strong><?=$exame?></strong>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="coordenacoes" accept="text/csv" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        *planilha modelo <a href="/modelo_coordenacoes.csv">Download</a>
+                    </div>
+                </div>
+
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/configuracao/lock-ssi" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Bloquear Acesso SSI?</label>
+                            <select name="lockSsi" id="lockSsi" class="form-control">
+                                <option value="0" <?=($lockSsi) ? '' : 'selected'?>>Não</option>
+                                <option value="1" <?=($lockSsi) ? 'selected' : ''?>>Sim</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/configuracao/download-anexo" method="post" enctype="multipart/form-data">
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Download Anexo do Progresso?</label>
+                            <select name="download_anexo" id="download_anexo" class="form-control">
+                                <option value="0" <?=($downloadAnexo) ? '' : 'selected'?>>Não</option>
+                                <option value="1" <?=($downloadAnexo) ? 'selected' : ''?>>Sim</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/configuracao/set-avaliacao-pedagogica-padrao" method="post" enctype="multipart/form-data">
+
+                <?php
+                $form = new \Dashboard\Form\AvaliacaoPedagogica();
+                $form->get('AvaliacaoPedagogica')->setValue($avaliacaoPedagogicaPadrao);
+                ?>
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Defina uma avaliação pedagógica padrão</label>
+                            <?=$this->formRow($form->get('AvaliacaoPedagogica'))?>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/configuracao/set-dia-aplicacao-padrao" method="post" enctype="multipart/form-data">
+
+                <?php
+                $form = new \Application\Form\Triagem();
+                $form->get('DiaAplicacao')->setValue($diaAplicacaoPadrao);
+                ?>
+
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Defina o dia de aplicação padrão</label>
+                            <?=$this->formRowNoLabel($form->get('DiaAplicacao'));?>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row content-body" style="margin-top: 0;">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(function(){
+        $.ajax({
+            url:'/configuracao/data-milha',
+            success:function(res){
+                $.each(res, function(i,e){
+                    $('input[name="'+e.uf+'"][data-tipo="ultima_milha"]').val(e.ultima_milha);
+                    $('input[name="'+e.uf+'"][data-tipo="abstencao"]').val(e.abstecao);
+                })
+            }
+        })
+    })
+</script>

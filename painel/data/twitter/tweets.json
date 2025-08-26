@@ -1,0 +1,2755 @@
+{"statuses": [
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:20 +0000 2015",
+        "id": 656541979464085504,
+        "id_str": "656541979464085504",
+        "text": "@luantipatico e pra quem n\u00e3o for fazer o enem esse ano?",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": 656541408376045568,
+        "in_reply_to_status_id_str": "656541408376045568",
+        "in_reply_to_user_id": 2253915434,
+        "in_reply_to_user_id_str": "2253915434",
+        "in_reply_to_screen_name": "luantipatico",
+        "user": {
+            "id": 953743614,
+            "id_str": "953743614",
+            "name": "vanessa",
+            "screen_name": "vaanazevedo",
+            "location": "RJ",
+            "description": "INSTA: @vaanazevedo \r\nTT\/FC: @_legiaosantana\r\nINSTA\/FC: @legiaosantana\r\n*LEGIAO SANTANA*",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 389,
+            "friends_count": 272,
+            "listed_count": 0,
+            "created_at": "Sat Nov 17 15:05:44 +0000 2012",
+            "favourites_count": 1322,
+            "utc_offset": -7200,
+            "time_zone": "Brasilia",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 3151,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "F0F4F5",
+            "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+            "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/654031814806401025\/kRB8ERoh_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/654031814806401025\/kRB8ERoh_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/953743614\/1444768503",
+            "profile_link_color": "9266CC",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "EFEFEF",
+            "profile_text_color": "333333",
+            "profile_use_background_image": false,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "luantipatico",
+                    "name": "Laun Castro",
+                    "id": 2253915434,
+                    "id_str": "2253915434",
+                    "indices": [0, 13]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:20 +0000 2015",
+        "id": 656541979245981697,
+        "id_str": "656541979245981697",
+        "text": "RT @faleipravcs: enem chegando http:\/\/t.co\/0lzEywzbLX",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 302817303,
+            "id_str": "302817303",
+            "name": "Thain\u00e1",
+            "screen_name": "thai_razera",
+            "location": "",
+            "description": "Tudo que me desejar de negativo,bater\u00e1 no peito e voltar\u00e1 pra voc\u00ea em forma de amor e paz \u2693\ufe0f\u26c5\ufe0f",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 645,
+            "friends_count": 509,
+            "listed_count": 1,
+            "created_at": "Sat May 21 20:16:47 +0000 2011",
+            "favourites_count": 300,
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 3266,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "332026",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/606671481993633792\/gA8IzyhS.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/606671481993633792\/gA8IzyhS.jpg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/641822996030717952\/6fVcJ5BC_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/641822996030717952\/6fVcJ5BC_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/302817303\/1440432609",
+            "profile_link_color": "B40B43",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "F6F6F6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Sun Oct 18 21:20:27 +0000 2015",
+            "id": 655855988315062272,
+            "id_str": "655855988315062272",
+            "text": "enem chegando http:\/\/t.co\/0lzEywzbLX",
+            "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2977562507,
+                "id_str": "2977562507",
+                "name": "Saulo",
+                "screen_name": "faleipravcs",
+                "location": "Manaus",
+                "description": "eita. snap: faleipravcs",
+                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                                "expanded_url": "https:\/\/instagram.com\/sauloaraujo8",
+                                "display_url": "instagram.com\/sauloaraujo8",
+                                "indices": [0, 23]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 945,
+                "friends_count": 53,
+                "listed_count": 1,
+                "created_at": "Wed Jan 14 03:54:38 +0000 2015",
+                "favourites_count": 103,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 270,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2977562507\/1434641768",
+                "profile_link_color": "000000",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 1265,
+            "favorite_count": 653,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [],
+                "media": [
+                    {
+                        "id": 650691384081518592,
+                        "id_str": "650691384081518592",
+                        "indices": [14, 36],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "url": "http:\/\/t.co\/0lzEywzbLX",
+                        "display_url": "pic.twitter.com\/0lzEywzbLX",
+                        "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "large": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "small": {
+                                "w": 340,
+                                "h": 247,
+                                "resize": "fit"
+                            },
+                            "medium": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            }
+                        },
+                        "source_status_id": 650736666462687233,
+                        "source_status_id_str": "650736666462687233",
+                        "source_user_id": 995660906,
+                        "source_user_id_str": "995660906"
+                    }
+                ]
+            },
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 1265,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "faleipravcs",
+                    "name": "Saulo",
+                    "id": 2977562507,
+                    "id_str": "2977562507",
+                    "indices": [3, 15]
+                }
+            ],
+            "urls": [],
+            "media": [
+                {
+                    "id": 650691384081518592,
+                    "id_str": "650691384081518592",
+                    "indices": [31, 53],
+                    "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "url": "http:\/\/t.co\/0lzEywzbLX",
+                    "display_url": "pic.twitter.com\/0lzEywzbLX",
+                    "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                    "type": "photo",
+                    "sizes": {
+                        "large": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 340,
+                            "h": 247,
+                            "resize": "fit"
+                        },
+                        "medium": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        }
+                    },
+                    "source_status_id": 650736666462687233,
+                    "source_status_id_str": "650736666462687233",
+                    "source_user_id": 995660906,
+                    "source_user_id_str": "995660906"
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:20 +0000 2015",
+        "id": 656541978402926592,
+        "id_str": "656541978402926592",
+        "text": "RT @1Dattebayo: As vezes a gente s\u00f3 quer saber qual vai ser o tema da reda\u00e7\u00e3o do ENEM",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 1347689634,
+            "id_str": "1347689634",
+            "name": "Mariana Gillies",
+            "screen_name": "MarianaGillies",
+            "location": "Brazil",
+            "description": "HELP IMPROVE THE WORLD! #ISF Love: Queen, Bon Jovi, The Beatles, Bob Marley, SDRR... Victorious, TVD, RBD ... Gillian, Dobrevic... #RipCory! follow back!",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 1559,
+            "friends_count": 1486,
+            "listed_count": 3,
+            "created_at": "Fri Apr 12 20:50:18 +0000 2013",
+            "favourites_count": 450,
+            "utc_offset": -7200,
+            "time_zone": "Brasilia",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 13850,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "D91E11",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/619714890996035584\/k5WJjhbU.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/619714890996035584\/k5WJjhbU.jpg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/642160822375084032\/8BNJd5po_normal.png",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/642160822375084032\/8BNJd5po_normal.png",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1347689634\/1441938958",
+            "profile_link_color": "DD2E44",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "99CC33",
+            "profile_text_color": "3E4415",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:20:28 +0000 2015",
+            "id": 656535467844894721,
+            "id_str": "656535467844894721",
+            "text": "As vezes a gente s\u00f3 quer saber qual vai ser o tema da reda\u00e7\u00e3o do ENEM",
+            "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 311171945,
+                "id_str": "311171945",
+                "name": "Fernando",
+                "screen_name": "1Dattebayo",
+                "location": "Brazil",
+                "description": "\u201cEu me apaixonaria quantas vezes fosse necess\u00e1rio. Por voc\u00ea vale a pena fazer aquelas loucuras de amor que a gente ouve por a\u00ed.\u201d @EitaSuzane \u2665 10.10.2021",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 39920,
+                "friends_count": 18459,
+                "listed_count": 19,
+                "created_at": "Sun Jun 05 00:57:09 +0000 2011",
+                "favourites_count": 0,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 57026,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "89C9FA",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/635652869186789376\/0N96_-ie.jpg",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/635652869186789376\/0N96_-ie.jpg",
+                "profile_background_tile": true,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/651899966085054464\/ibR44qkV_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/651899966085054464\/ibR44qkV_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/311171945\/1443885071",
+                "profile_link_color": "3B94D9",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "FFFFFF",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 11,
+            "favorite_count": 6,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 11,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "1Dattebayo",
+                    "name": "Fernando",
+                    "id": 311171945,
+                    "id_str": "311171945",
+                    "indices": [3, 14]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:19 +0000 2015",
+        "id": 656541976502927360,
+        "id_str": "656541976502927360",
+        "text": "Eu sou o menino, e o enem \u00e9 o el\u00e1stico https:\/\/t.co\/Lh7gtXTvby",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 589393123,
+            "id_str": "589393123",
+            "name": "Bilili",
+            "screen_name": "BiiaTeves",
+            "location": "",
+            "description": "A vida \u00e9 muito curta pra gente ficar guardando magoas.\n(Obs: dan\u00e7o ax\u00e9 quando n\u00e3o tem ngm olhando)",
+            "url": "http:\/\/t.co\/2FghlYj9qW",
+            "entities": {
+                "url": {
+                    "urls": [
+                        {
+                            "url": "http:\/\/t.co\/2FghlYj9qW",
+                            "expanded_url": "http:\/\/www.facebook.com\/beatriz.oliveira24",
+                            "display_url": "facebook.com\/beatriz.olivei\u2026",
+                            "indices": [0, 22]
+                        }
+                    ]
+                },
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 365,
+            "friends_count": 590,
+            "listed_count": 0,
+            "created_at": "Thu May 24 20:14:31 +0000 2012",
+            "favourites_count": 5161,
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 9504,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "61595E",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000013906754\/2c406dce29e09a914ca65b0a4500d367.png",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000013906754\/2c406dce29e09a914ca65b0a4500d367.png",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/624798378141032448\/Rv3ggAar_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/624798378141032448\/Rv3ggAar_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/589393123\/1440819993",
+            "profile_link_color": "000000",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": {
+            "id": "76744cb6a6fed3af",
+            "url": "https:\/\/api.twitter.com\/1.1\/geo\/id\/76744cb6a6fed3af.json",
+            "place_type": "city",
+            "name": "Amparo",
+            "full_name": "Amparo, S\u00e3o Paulo",
+            "country_code": "BR",
+            "country": "Brasil",
+            "contained_within": [],
+            "bounding_box": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [-46.931626, -22.852895],
+                        [-46.681535, -22.852895],
+                        [-46.681535, -22.541159],
+                        [-46.931626, -22.541159]
+                    ]
+                ]
+            },
+            "attributes": {}
+        },
+        "contributors": null,
+        "quoted_status_id": 656534127567486976,
+        "quoted_status_id_str": "656534127567486976",
+        "quoted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:15:08 +0000 2015",
+            "id": 656534127567486976,
+            "id_str": "656534127567486976",
+            "text": "eu sou o menino e a vida \u00e9 o el\u00e1stico https:\/\/t.co\/vFFO6qHFrs",
+            "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2216000111,
+                "id_str": "2216000111",
+                "name": "O melhor do Vine",
+                "screen_name": "OmelhorDoVine",
+                "location": "",
+                "description": "Os melhores v\u00eddeos do Vine. Aberto 24hrs para reclama\u00e7\u00f5es. Sugest\u00f5es e contato por DM \u2709\ufe0f. (N\u00e3o h\u00e1 v\u00ednculo desta conta com o @vine).",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 158598,
+                "friends_count": 17,
+                "listed_count": 46,
+                "created_at": "Mon Dec 09 16:37:02 +0000 2013",
+                "favourites_count": 81,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 1189,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "EDECE9",
+                "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme3\/bg.gif",
+                "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme3\/bg.gif",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/649098076204990464\/ugVo0qNO_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/649098076204990464\/ugVo0qNO_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2216000111\/1436498939",
+                "profile_link_color": "088253",
+                "profile_sidebar_border_color": "D3D2CF",
+                "profile_sidebar_fill_color": "E3E2DE",
+                "profile_text_color": "634047",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 96,
+            "favorite_count": 47,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https:\/\/t.co\/vFFO6qHFrs",
+                        "expanded_url": "https:\/\/vine.co\/v\/OjatumtLxK6",
+                        "display_url": "vine.co\/v\/OjatumtLxK6",
+                        "indices": [38, 61]
+                    }
+                ]
+            },
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "pt"
+        },
+        "is_quote_status": true,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": [
+                {
+                    "url": "https:\/\/t.co\/Lh7gtXTvby",
+                    "expanded_url": "https:\/\/twitter.com\/OmelhorDoVine\/status\/656534127567486976",
+                    "display_url": "twitter.com\/OmelhorDoVine\/\u2026",
+                    "indices": [39, 62]
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:18 +0000 2015",
+        "id": 656541969070596096,
+        "id_str": "656541969070596096",
+        "text": "RT @lwtsick: vai cai no enem o que aconteceu em wellington",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2503006475,
+            "id_str": "2503006475",
+            "name": "vickPERFECT!",
+            "screen_name": "spacelarrys",
+            "location": "sc",
+            "description": "roses are red violets are blue five years ago green eyes met blue",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 5009,
+            "friends_count": 3580,
+            "listed_count": 16,
+            "created_at": "Wed Apr 23 01:41:47 +0000 2014",
+            "favourites_count": 4006,
+            "utc_offset": -7200,
+            "time_zone": "Brasilia",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 43163,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "FFFFFF",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/614835403586174976\/m7Mg2MpZ.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/614835403586174976\/m7Mg2MpZ.jpg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655506688460484608\/NyoZcBJZ_normal.png",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655506688460484608\/NyoZcBJZ_normal.png",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2503006475\/1445032924",
+            "profile_link_color": "703F64",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:34:40 +0000 2015",
+            "id": 656539044353056768,
+            "id_str": "656539044353056768",
+            "text": "vai cai no enem o que aconteceu em wellington",
+            "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2455855147,
+                "id_str": "2455855147",
+                "name": "lara",
+                "screen_name": "lwtsick",
+                "location": "",
+                "description": "louis e o resto",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 1495,
+                "friends_count": 435,
+                "listed_count": 6,
+                "created_at": "Mon Apr 21 02:32:44 +0000 2014",
+                "favourites_count": 4335,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 15700,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "FFFFFF",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/591303993415970816\/e11DrzNZ.jpg",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/591303993415970816\/e11DrzNZ.jpg",
+                "profile_background_tile": true,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656523104810831875\/xzidvvru_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656523104810831875\/xzidvvru_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2455855147\/1445362259",
+                "profile_link_color": "000000",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": false,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 4,
+            "favorite_count": 0,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 4,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "lwtsick",
+                    "name": "lara",
+                    "id": 2455855147,
+                    "id_str": "2455855147",
+                    "indices": [3, 11]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:17 +0000 2015",
+        "id": 656541966289780736,
+        "id_str": "656541966289780736",
+        "text": "RT @faleipravcs: enem chegando http:\/\/t.co\/0lzEywzbLX",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 3170409665,
+            "id_str": "3170409665",
+            "name": "bru",
+            "screen_name": "blmartinss",
+            "location": "",
+            "description": "Sem Deus, eu nada seria. \/ snap e insta: blmartinss \u25ab\u25fd\u25fb",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 45,
+            "friends_count": 45,
+            "listed_count": 0,
+            "created_at": "Wed Apr 15 15:34:21 +0000 2015",
+            "favourites_count": 230,
+            "utc_offset": -10800,
+            "time_zone": "Atlantic Time (Canada)",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 1249,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "ABB8C2",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/591012403300564993\/J1ABuVZ5.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/591012403300564993\/J1ABuVZ5.jpg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/652864395362574336\/EMjiEM0u_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/652864395362574336\/EMjiEM0u_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/3170409665\/1438496738",
+            "profile_link_color": "F5ABB5",
+            "profile_sidebar_border_color": "C0DEED",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Sun Oct 18 21:20:27 +0000 2015",
+            "id": 655855988315062272,
+            "id_str": "655855988315062272",
+            "text": "enem chegando http:\/\/t.co\/0lzEywzbLX",
+            "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2977562507,
+                "id_str": "2977562507",
+                "name": "Saulo",
+                "screen_name": "faleipravcs",
+                "location": "Manaus",
+                "description": "eita. snap: faleipravcs",
+                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                                "expanded_url": "https:\/\/instagram.com\/sauloaraujo8",
+                                "display_url": "instagram.com\/sauloaraujo8",
+                                "indices": [0, 23]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 945,
+                "friends_count": 53,
+                "listed_count": 1,
+                "created_at": "Wed Jan 14 03:54:38 +0000 2015",
+                "favourites_count": 103,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 270,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2977562507\/1434641768",
+                "profile_link_color": "000000",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 1265,
+            "favorite_count": 653,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [],
+                "media": [
+                    {
+                        "id": 650691384081518592,
+                        "id_str": "650691384081518592",
+                        "indices": [14, 36],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "url": "http:\/\/t.co\/0lzEywzbLX",
+                        "display_url": "pic.twitter.com\/0lzEywzbLX",
+                        "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "large": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "small": {
+                                "w": 340,
+                                "h": 247,
+                                "resize": "fit"
+                            },
+                            "medium": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            }
+                        },
+                        "source_status_id": 650736666462687233,
+                        "source_status_id_str": "650736666462687233",
+                        "source_user_id": 995660906,
+                        "source_user_id_str": "995660906"
+                    }
+                ]
+            },
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 1265,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "faleipravcs",
+                    "name": "Saulo",
+                    "id": 2977562507,
+                    "id_str": "2977562507",
+                    "indices": [3, 15]
+                }
+            ],
+            "urls": [],
+            "media": [
+                {
+                    "id": 650691384081518592,
+                    "id_str": "650691384081518592",
+                    "indices": [31, 53],
+                    "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "url": "http:\/\/t.co\/0lzEywzbLX",
+                    "display_url": "pic.twitter.com\/0lzEywzbLX",
+                    "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                    "type": "photo",
+                    "sizes": {
+                        "large": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 340,
+                            "h": 247,
+                            "resize": "fit"
+                        },
+                        "medium": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        }
+                    },
+                    "source_status_id": 650736666462687233,
+                    "source_status_id_str": "650736666462687233",
+                    "source_user_id": 995660906,
+                    "source_user_id_str": "995660906"
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:17 +0000 2015",
+        "id": 656541965417390080,
+        "id_str": "656541965417390080",
+        "text": "tudo isso e mais revis\u00e3o pr\u00e9 enem ao mesmo tempo",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 33642635,
+            "id_str": "33642635",
+            "name": "nat",
+            "screen_name": "natishmym",
+            "location": "S\u00e3o Paulo, Brasil",
+            "description": "",
+            "url": "http:\/\/t.co\/0GZL2UnwjB",
+            "entities": {
+                "url": {
+                    "urls": [
+                        {
+                            "url": "http:\/\/t.co\/0GZL2UnwjB",
+                            "expanded_url": "http:\/\/Instagram.com\/natishmym",
+                            "display_url": "Instagram.com\/natishmym",
+                            "indices": [0, 22]
+                        }
+                    ]
+                },
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 193,
+            "friends_count": 100,
+            "listed_count": 12,
+            "created_at": "Mon Apr 20 20:05:27 +0000 2009",
+            "favourites_count": 843,
+            "utc_offset": -7200,
+            "time_zone": "Brasilia",
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 31486,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "EDECE9",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/533657037054300162\/FFNqrR2f.jpeg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/533657037054300162\/FFNqrR2f.jpeg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/654494350827749376\/xYwmJTQO_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/654494350827749376\/xYwmJTQO_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/33642635\/1443674218",
+            "profile_link_color": "DD2E44",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "E3E2DE",
+            "profile_text_color": "634047",
+            "profile_use_background_image": true,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:16 +0000 2015",
+        "id": 656541961701203968,
+        "id_str": "656541961701203968",
+        "text": "eu nem falo enem vou passar https:\/\/t.co\/bhVrOpkCxF",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 300619624,
+            "id_str": "300619624",
+            "name": "Mr. Torrance",
+            "screen_name": "frankeinschmitt",
+            "location": "",
+            "description": "se precisar eu t\u00f4 morto",
+            "url": "http:\/\/t.co\/55CFq0KQJ3",
+            "entities": {
+                "url": {
+                    "urls": [
+                        {
+                            "url": "http:\/\/t.co\/55CFq0KQJ3",
+                            "expanded_url": "http:\/\/last.fm\/user\/Eoferwic",
+                            "display_url": "last.fm\/user\/Eoferwic",
+                            "indices": [0, 22]
+                        }
+                    ]
+                },
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 611,
+            "friends_count": 297,
+            "listed_count": 22,
+            "created_at": "Wed May 18 02:21:39 +0000 2011",
+            "favourites_count": 7079,
+            "utc_offset": 7200,
+            "time_zone": "Bern",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 102744,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "992222",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000156676961\/wtwYzlFA.jpeg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000156676961\/wtwYzlFA.jpeg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/654368621796401152\/5jTLadMl_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/654368621796401152\/5jTLadMl_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/300619624\/1444929867",
+            "profile_link_color": "000000",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "FFFFFF",
+            "profile_use_background_image": false,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "quoted_status_id": 656541857552465920,
+        "quoted_status_id_str": "656541857552465920",
+        "quoted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:45:51 +0000 2015",
+            "id": 656541857552465920,
+            "id_str": "656541857552465920",
+            "text": "Fala tanto de Enem, enem vai passar em porra nenhuma",
+            "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 134338767,
+                "id_str": "134338767",
+                "name": "XUPISCO",
+                "screen_name": "matheus_pontani",
+                "location": "",
+                "description": "",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 1077,
+                "friends_count": 199,
+                "listed_count": 31,
+                "created_at": "Sun Apr 18 04:12:59 +0000 2010",
+                "favourites_count": 1138,
+                "utc_offset": -10800,
+                "time_zone": "Santiago",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 23441,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "0000FF",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000019857375\/663116a4be09447a2efd9541bef62de2.jpeg",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000019857375\/663116a4be09447a2efd9541bef62de2.jpeg",
+                "profile_background_tile": true,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/646509212693065728\/v0MDe-50_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/646509212693065728\/v0MDe-50_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/134338767\/1442972882",
+                "profile_link_color": "445888",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 0,
+            "favorite_count": 1,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": true,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": [
+                {
+                    "url": "https:\/\/t.co\/bhVrOpkCxF",
+                    "expanded_url": "https:\/\/twitter.com\/matheus_pontani\/status\/656541857552465920",
+                    "display_url": "twitter.com\/matheus_pontan\u2026",
+                    "indices": [28, 51]
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:16 +0000 2015",
+        "id": 656541961436975104,
+        "id_str": "656541961436975104",
+        "text": "RT @faleipravcs: enem chegando http:\/\/t.co\/0lzEywzbLX",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 3427169673,
+            "id_str": "3427169673",
+            "name": "Sabrina Bernardo",
+            "screen_name": "Sabrina_Berr",
+            "location": "",
+            "description": "",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 236,
+            "friends_count": 392,
+            "listed_count": 0,
+            "created_at": "Mon Aug 17 02:43:50 +0000 2015",
+            "favourites_count": 252,
+            "utc_offset": -25200,
+            "time_zone": "Pacific Time (US & Canada)",
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 1274,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "F5ABB5",
+            "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+            "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656181805436022784\/2nP80Roi_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656181805436022784\/2nP80Roi_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/3427169673\/1445310646",
+            "profile_link_color": "DD2E44",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "000000",
+            "profile_text_color": "000000",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Sun Oct 18 21:20:27 +0000 2015",
+            "id": 655855988315062272,
+            "id_str": "655855988315062272",
+            "text": "enem chegando http:\/\/t.co\/0lzEywzbLX",
+            "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2977562507,
+                "id_str": "2977562507",
+                "name": "Saulo",
+                "screen_name": "faleipravcs",
+                "location": "Manaus",
+                "description": "eita. snap: faleipravcs",
+                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                                "expanded_url": "https:\/\/instagram.com\/sauloaraujo8",
+                                "display_url": "instagram.com\/sauloaraujo8",
+                                "indices": [0, 23]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 945,
+                "friends_count": 53,
+                "listed_count": 1,
+                "created_at": "Wed Jan 14 03:54:38 +0000 2015",
+                "favourites_count": 103,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 270,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2977562507\/1434641768",
+                "profile_link_color": "000000",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 1264,
+            "favorite_count": 652,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [],
+                "media": [
+                    {
+                        "id": 650691384081518592,
+                        "id_str": "650691384081518592",
+                        "indices": [14, 36],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "url": "http:\/\/t.co\/0lzEywzbLX",
+                        "display_url": "pic.twitter.com\/0lzEywzbLX",
+                        "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "large": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "small": {
+                                "w": 340,
+                                "h": 247,
+                                "resize": "fit"
+                            },
+                            "medium": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            }
+                        },
+                        "source_status_id": 650736666462687233,
+                        "source_status_id_str": "650736666462687233",
+                        "source_user_id": 995660906,
+                        "source_user_id_str": "995660906"
+                    }
+                ]
+            },
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 1264,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "faleipravcs",
+                    "name": "Saulo",
+                    "id": 2977562507,
+                    "id_str": "2977562507",
+                    "indices": [3, 15]
+                }
+            ],
+            "urls": [],
+            "media": [
+                {
+                    "id": 650691384081518592,
+                    "id_str": "650691384081518592",
+                    "indices": [31, 53],
+                    "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "url": "http:\/\/t.co\/0lzEywzbLX",
+                    "display_url": "pic.twitter.com\/0lzEywzbLX",
+                    "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                    "type": "photo",
+                    "sizes": {
+                        "large": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 340,
+                            "h": 247,
+                            "resize": "fit"
+                        },
+                        "medium": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        }
+                    },
+                    "source_status_id": 650736666462687233,
+                    "source_status_id_str": "650736666462687233",
+                    "source_user_id": 995660906,
+                    "source_user_id_str": "995660906"
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:15 +0000 2015",
+        "id": 656541957494280192,
+        "id_str": "656541957494280192",
+        "text": "RT @faleipravcs: enem chegando http:\/\/t.co\/0lzEywzbLX",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 2829830422,
+            "id_str": "2829830422",
+            "name": "Rafa \u2693\ufe0f",
+            "screen_name": "rafaelarosasccp",
+            "location": "Rio de Janeiro, Brasil",
+            "description": "Loucamente e eternamente apaixonada pelo Corinthians, taurina e futura engenheira\u270c\ufe0f",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 303,
+            "friends_count": 324,
+            "listed_count": 2,
+            "created_at": "Tue Oct 14 16:20:11 +0000 2014",
+            "favourites_count": 1011,
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 2204,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "C0DEED",
+            "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+            "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+            "profile_background_tile": false,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/633634058342432769\/ZCnVhZUb_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/633634058342432769\/ZCnVhZUb_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2829830422\/1438724215",
+            "profile_link_color": "0084B4",
+            "profile_sidebar_border_color": "C0DEED",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": true,
+            "default_profile": true,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Sun Oct 18 21:20:27 +0000 2015",
+            "id": 655855988315062272,
+            "id_str": "655855988315062272",
+            "text": "enem chegando http:\/\/t.co\/0lzEywzbLX",
+            "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 2977562507,
+                "id_str": "2977562507",
+                "name": "Saulo",
+                "screen_name": "faleipravcs",
+                "location": "Manaus",
+                "description": "eita. snap: faleipravcs",
+                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https:\/\/t.co\/OYmO5hkmdP",
+                                "expanded_url": "https:\/\/instagram.com\/sauloaraujo8",
+                                "display_url": "instagram.com\/sauloaraujo8",
+                                "indices": [0, 23]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 945,
+                "friends_count": 53,
+                "listed_count": 1,
+                "created_at": "Wed Jan 14 03:54:38 +0000 2015",
+                "favourites_count": 103,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 270,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/611735847457656832\/OXa_t0sO.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655492327746703360\/SUC8n6-D_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2977562507\/1434641768",
+                "profile_link_color": "000000",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 1264,
+            "favorite_count": 652,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [],
+                "media": [
+                    {
+                        "id": 650691384081518592,
+                        "id_str": "650691384081518592",
+                        "indices": [14, 36],
+                        "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                        "url": "http:\/\/t.co\/0lzEywzbLX",
+                        "display_url": "pic.twitter.com\/0lzEywzbLX",
+                        "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                        "type": "photo",
+                        "sizes": {
+                            "large": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            },
+                            "thumb": {
+                                "w": 150,
+                                "h": 150,
+                                "resize": "crop"
+                            },
+                            "small": {
+                                "w": 340,
+                                "h": 247,
+                                "resize": "fit"
+                            },
+                            "medium": {
+                                "w": 480,
+                                "h": 349,
+                                "resize": "fit"
+                            }
+                        },
+                        "source_status_id": 650736666462687233,
+                        "source_status_id_str": "650736666462687233",
+                        "source_user_id": 995660906,
+                        "source_user_id_str": "995660906"
+                    }
+                ]
+            },
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 1264,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "faleipravcs",
+                    "name": "Saulo",
+                    "id": 2977562507,
+                    "id_str": "2977562507",
+                    "indices": [3, 15]
+                }
+            ],
+            "urls": [],
+            "media": [
+                {
+                    "id": 650691384081518592,
+                    "id_str": "650691384081518592",
+                    "indices": [31, 53],
+                    "media_url": "http:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQe4XcaWEAAjPAJ.jpg",
+                    "url": "http:\/\/t.co\/0lzEywzbLX",
+                    "display_url": "pic.twitter.com\/0lzEywzbLX",
+                    "expanded_url": "http:\/\/twitter.com\/umvirge\/status\/650736666462687233\/photo\/1",
+                    "type": "photo",
+                    "sizes": {
+                        "large": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        },
+                        "thumb": {
+                            "w": 150,
+                            "h": 150,
+                            "resize": "crop"
+                        },
+                        "small": {
+                            "w": 340,
+                            "h": 247,
+                            "resize": "fit"
+                        },
+                        "medium": {
+                            "w": 480,
+                            "h": 349,
+                            "resize": "fit"
+                        }
+                    },
+                    "source_status_id": 650736666462687233,
+                    "source_status_id_str": "650736666462687233",
+                    "source_user_id": 995660906,
+                    "source_user_id_str": "995660906"
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:14 +0000 2015",
+        "id": 656541952863805440,
+        "id_str": "656541952863805440",
+        "text": "RT @hunterpatrono: to procurando umas formas de suic\u00eddio r\u00e1pido pra utilizar horas antes do enem",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 263232963,
+            "id_str": "263232963",
+            "name": "mari ",
+            "screen_name": "louisviathans",
+            "location": "may 8th, 2014",
+            "description": "",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 4597,
+            "friends_count": 4441,
+            "listed_count": 11,
+            "created_at": "Wed Mar 09 17:12:47 +0000 2011",
+            "favourites_count": 3037,
+            "utc_offset": 10800,
+            "time_zone": "Volgograd",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 120404,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "141414",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/622586785625964544\/JFXrguqv.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/622586785625964544\/JFXrguqv.jpg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/644288469292982272\/0xif9ceh_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/644288469292982272\/0xif9ceh_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/263232963\/1442445291",
+            "profile_link_color": "544654",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "252429",
+            "profile_text_color": "666666",
+            "profile_use_background_image": true,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Mon Oct 19 21:06:39 +0000 2015",
+            "id": 656214902428844032,
+            "id_str": "656214902428844032",
+            "text": "to procurando umas formas de suic\u00eddio r\u00e1pido pra utilizar horas antes do enem",
+            "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 1076585694,
+                "id_str": "1076585694",
+                "name": "triste",
+                "screen_name": "hunterpatrono",
+                "location": "",
+                "description": "a solid\u00e3o me fez f\u00e3 de tudo que \u00e9 considerado sat\u00e2nico",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 2120,
+                "friends_count": 1853,
+                "listed_count": 4,
+                "created_at": "Thu Jan 10 13:18:40 +0000 2013",
+                "favourites_count": 1753,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 29532,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "FFFFFF",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/458683466368815104\/sDOA6cHY.png",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/458683466368815104\/sDOA6cHY.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656297205066801152\/x8EKCLSt_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656297205066801152\/x8EKCLSt_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1076585694\/1445291794",
+                "profile_link_color": "97ADBF",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 3,
+            "favorite_count": 0,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 3,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "hunterpatrono",
+                    "name": "triste",
+                    "id": 1076585694,
+                    "id_str": "1076585694",
+                    "indices": [3, 17]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:13 +0000 2015",
+        "id": 656541948434628608,
+        "id_str": "656541948434628608",
+        "text": "Gostei de um v\u00eddeo @YouTube https:\/\/t.co\/Lp8DJoa5r9 IMPORTANTES PRA PROVA DE HUMANAS DO ENEM",
+        "source": "\u003ca href=\"http:\/\/www.google.com\/\" rel=\"nofollow\"\u003eGoogle\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 255043258,
+            "id_str": "255043258",
+            "name": "ane",
+            "screen_name": "hanbinllion",
+            "location": "Bel\u00e9m, Par\u00e1",
+            "description": "[15\/09] lias soulmate",
+            "url": "https:\/\/t.co\/bRmS6H4PEY",
+            "entities": {
+                "url": {
+                    "urls": [
+                        {
+                            "url": "https:\/\/t.co\/bRmS6H4PEY",
+                            "expanded_url": "https:\/\/listography.com\/junhoew",
+                            "display_url": "listography.com\/junhoew",
+                            "indices": [0, 23]
+                        }
+                    ]
+                },
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 509,
+            "friends_count": 297,
+            "listed_count": 13,
+            "created_at": "Sun Feb 20 15:08:28 +0000 2011",
+            "favourites_count": 4004,
+            "utc_offset": -10800,
+            "time_zone": "Santiago",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 107335,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "FFFFFF",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/621487887465508865\/dzdE5lNl.jpg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/621487887465508865\/dzdE5lNl.jpg",
+            "profile_background_tile": false,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/655503790418849792\/I4eY3drX_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/655503790418849792\/I4eY3drX_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/255043258\/1444857413",
+            "profile_link_color": "CAE1FF",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "EFEFEF",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "YouTube",
+                    "name": "YouTube",
+                    "id": 10228272,
+                    "id_str": "10228272",
+                    "indices": [19, 27]
+                }
+            ],
+            "urls": [
+                {
+                    "url": "https:\/\/t.co\/Lp8DJoa5r9",
+                    "expanded_url": "http:\/\/youtu.be\/sbMWPqdmeew?aCOISAS",
+                    "display_url": "youtu.be\/sbMWPqdmeew?aC\u2026",
+                    "indices": [28, 51]
+                }
+            ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:12 +0000 2015",
+        "id": 656541947809681408,
+        "id_str": "656541947809681408",
+        "text": "RT @extrouxa_: - vai fazer o enem?\n- vou\n- e vai fazer oq se passar?\n- ficar muito surpreso",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 3402119841,
+            "id_str": "3402119841",
+            "name": "Postei Romances",
+            "screen_name": "PosteiRomances",
+            "location": "Brasil",
+            "description": "Twitter de reflex\u00f5es e de frases famosas. Sigam-nos e ative as notifica\u00e7\u00f5es \u2661",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 24679,
+            "friends_count": 242,
+            "listed_count": 7,
+            "created_at": "Tue Aug 04 02:37:41 +0000 2015",
+            "favourites_count": 19,
+            "utc_offset": -25200,
+            "time_zone": "Pacific Time (US & Canada)",
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 183,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "000000",
+            "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+            "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+            "profile_background_tile": false,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/654320486554447872\/I_GMwZ25_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/654320486554447872\/I_GMwZ25_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/3402119841\/1444837177",
+            "profile_link_color": "3299CC",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "000000",
+            "profile_text_color": "000000",
+            "profile_use_background_image": false,
+            "has_extended_profile": false,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 09:26:35 +0000 2015",
+            "id": 656401115676844032,
+            "id_str": "656401115676844032",
+            "text": "- vai fazer o enem?\n- vou\n- e vai fazer oq se passar?\n- ficar muito surpreso",
+            "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 1369759141,
+                "id_str": "1369759141",
+                "name": "ex trouxa",
+                "screen_name": "extrouxa_",
+                "location": "Brasil",
+                "description": "ELEITO POR MIM O TWITTER MAIS CRIATIVO DO BRASIL. Linda, maravilhosa e ex trouxa!",
+                "url": "https:\/\/t.co\/e2dEiNRFVe",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https:\/\/t.co\/e2dEiNRFVe",
+                                "expanded_url": "http:\/\/fb.com\/lutyano.evangelista",
+                                "display_url": "fb.com\/lutyano.evange\u2026",
+                                "indices": [0, 23]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 60232,
+                "friends_count": 91,
+                "listed_count": 15,
+                "created_at": "Sun Apr 21 14:52:01 +0000 2013",
+                "favourites_count": 20,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 14726,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme10\/bg.gif",
+                "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme10\/bg.gif",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656258912690307076\/CaSyxlID_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656258912690307076\/CaSyxlID_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1369759141\/1445273363",
+                "profile_link_color": "4A913C",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": false,
+                "has_extended_profile": false,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 133,
+            "favorite_count": 82,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 133,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "extrouxa_",
+                    "name": "ex trouxa",
+                    "id": 1369759141,
+                    "id_str": "1369759141",
+                    "indices": [3, 13]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:12 +0000 2015",
+        "id": 656541944466640897,
+        "id_str": "656541944466640897",
+        "text": "RT @PauloArana: J\u00e1 estou at\u00e9 com pregui\u00e7a antecipada das piadinhas de \"aprendi no Enem\" e dos v\u00eddeos de gente chegando atrasado na prova.",
+        "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 25328289,
+            "id_str": "25328289",
+            "name": "Amanda Lira",
+            "screen_name": "AmaandaLiira",
+            "location": "Brasil",
+            "description": "\u262f Futura jornalista. Apaixonada por livros. Viciada em moda. Blogueira nas horas vagas. Instagram: @AmandaLiira_",
+            "url": "http:\/\/t.co\/a3LG0vTjwY",
+            "entities": {
+                "url": {
+                    "urls": [
+                        {
+                            "url": "http:\/\/t.co\/a3LG0vTjwY",
+                            "expanded_url": "http:\/\/cuteandrude.blogspot.com\/",
+                            "display_url": "cuteandrude.blogspot.com",
+                            "indices": [0, 22]
+                        }
+                    ]
+                },
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 623,
+            "friends_count": 392,
+            "listed_count": 10,
+            "created_at": "Thu Mar 19 16:17:09 +0000 2009",
+            "favourites_count": 1348,
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 70749,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "0A0A0A",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000006258706\/1fea503fd01da3b7a53e8889142016dd.gif",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000006258706\/1fea503fd01da3b7a53e8889142016dd.gif",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/649400885961957376\/R-xHbp6a_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/649400885961957376\/R-xHbp6a_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/25328289\/1438282774",
+            "profile_link_color": "DD2E44",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "050505",
+            "profile_text_color": "F0E8F0",
+            "profile_use_background_image": true,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:41:16 +0000 2015",
+            "id": 656540702390751236,
+            "id_str": "656540702390751236",
+            "text": "J\u00e1 estou at\u00e9 com pregui\u00e7a antecipada das piadinhas de \"aprendi no Enem\" e dos v\u00eddeos de gente chegando atrasado na prova.",
+            "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 36536165,
+                "id_str": "36536165",
+                "name": "Paulo Aran\u00e3",
+                "screen_name": "PauloArana",
+                "location": "BH\/Itambacuri - Minas - Brasil",
+                "description": "Taurino que n\u00e3o acredita em hor\u00f3scopo. Conserta abajures, largou duas faculdades, virou pe\u00e3o de fazenda e nunca namorou. Instagram e Medium: @PauloArana",
+                "url": "http:\/\/t.co\/qVCuvkhj3I",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "http:\/\/t.co\/qVCuvkhj3I",
+                                "expanded_url": "http:\/\/about.me\/pauloarana",
+                                "display_url": "about.me\/pauloarana",
+                                "indices": [0, 22]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 26326,
+                "friends_count": 15336,
+                "listed_count": 353,
+                "created_at": "Thu Apr 30 00:31:07 +0000 2009",
+                "favourites_count": 287,
+                "utc_offset": -7200,
+                "time_zone": "Brasilia",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 165892,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "9AE4E8",
+                "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/484711156376809472\/nB-S3cXK.jpeg",
+                "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/484711156376809472\/nB-S3cXK.jpeg",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/626153426431426560\/5qzRwdo3_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/626153426431426560\/5qzRwdo3_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/36536165\/1359754217",
+                "profile_link_color": "0084B4",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "4DCED5",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 7,
+            "favorite_count": 3,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 7,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "PauloArana",
+                    "name": "Paulo Aran\u00e3",
+                    "id": 36536165,
+                    "id_str": "36536165",
+                    "indices": [3, 14]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    },
+    {
+        "metadata": {
+            "iso_language_code": "pt",
+            "result_type": "recent"
+        },
+        "created_at": "Tue Oct 20 18:46:09 +0000 2015",
+        "id": 656541934849269760,
+        "id_str": "656541934849269760",
+        "text": "RT @seupeguete: O ENEM \u00e9 semana q vem, ENEM estudei pra prova",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+            "id": 104572870,
+            "id_str": "104572870",
+            "name": "Pamela Pereira",
+            "screen_name": "YouGotTheWorld",
+            "location": "BRASIL",
+            "description": "o teu sorriso pra mim \u00e9 tudo, e eu nao vou te perder, eu juro @cunhaguri 03.06.2014",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 1310,
+            "friends_count": 1485,
+            "listed_count": 7,
+            "created_at": "Wed Jan 13 18:59:29 +0000 2010",
+            "favourites_count": 1138,
+            "utc_offset": -7200,
+            "time_zone": "Greenland",
+            "geo_enabled": true,
+            "verified": false,
+            "statuses_count": 48127,
+            "lang": "pt",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "C718C7",
+            "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/439051159085383680\/mbHzAz4U.jpeg",
+            "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/439051159085383680\/mbHzAz4U.jpeg",
+            "profile_background_tile": true,
+            "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656335724174819330\/7fPt30f5_normal.jpg",
+            "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656335724174819330\/7fPt30f5_normal.jpg",
+            "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/104572870\/1444481083",
+            "profile_link_color": "EB8DC5",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "F5F5F5",
+            "profile_text_color": "09BCF2",
+            "profile_use_background_image": true,
+            "has_extended_profile": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+            "metadata": {
+                "iso_language_code": "pt",
+                "result_type": "recent"
+            },
+            "created_at": "Tue Oct 20 18:19:45 +0000 2015",
+            "id": 656535288735510528,
+            "id_str": "656535288735510528",
+            "text": "O ENEM \u00e9 semana q vem, ENEM estudei pra prova",
+            "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+            "truncated": false,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 3557036783,
+                "id_str": "3557036783",
+                "name": "crush",
+                "screen_name": "seupeguete",
+                "location": "",
+                "description": "fumei toda minha bio.",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 1538,
+                "friends_count": 593,
+                "listed_count": 0,
+                "created_at": "Sat Sep 05 16:11:09 +0000 2015",
+                "favourites_count": 0,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": false,
+                "verified": false,
+                "statuses_count": 21,
+                "lang": "pt",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "C0DEED",
+                "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/656507994826379264\/YY67uQu8_normal.jpg",
+                "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/656507994826379264\/YY67uQu8_normal.jpg",
+                "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/3557036783\/1445364688",
+                "profile_link_color": "0084B4",
+                "profile_sidebar_border_color": "C0DEED",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": true,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 28,
+            "favorite_count": 18,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "favorited": false,
+            "retweeted": false,
+            "lang": "pt"
+        },
+        "is_quote_status": false,
+        "retweet_count": 28,
+        "favorite_count": 0,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "seupeguete",
+                    "name": "crush",
+                    "id": 3557036783,
+                    "id_str": "3557036783",
+                    "indices": [3, 14]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "pt"
+    }
+], "search_metadata": {
+    "completed_in": 0.059,
+    "max_id": 656541979464085504,
+    "max_id_str": "656541979464085504",
+    "next_results": "?max_id=656541934849269759&q=enem&include_entities=1",
+    "query": "enem",
+    "refresh_url": "?since_id=656541979464085504&q=enem&include_entities=1",
+    "count": 15,
+    "since_id": 0,
+    "since_id_str": "0"
+}}

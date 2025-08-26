@@ -1,0 +1,254 @@
+<style>
+    .anexos-body .col-md-3{
+
+    }
+</style>
+<div class="menu" data-menu="Atualizar Progresso dos Alertas"></div>
+
+<div class="container-fluid content" data-menu="Alertas Validados">
+    <div class="row content-title">
+        <h1>Visualizar Alertas Fechados - <?=$sistema?>
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+    </div>
+
+    <div class="clearfix">&nbsp;</div>
+
+    <div class="row content-body">
+        <div class="col-md-12">
+            <div class="row">
+                <form action="">
+                    <div class="well">
+                        <div class="col-md-12">
+                            <h4>Filtros:</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group checkbox">
+                                <label class="control-label">Categorias:</label><br>
+                                <?php $options = $form->get('Categoria')->getOptions(); ?>
+                                <?php foreach ($options['value_options'] as $option) : ?>
+                                    <?php if ($option == 'Selecione') continue; ?>
+                                    <?php
+                                    $checked = '';
+                                    if (in_array($option, $categoriasSelecionadas)) $checked = 'checked="checked"';
+                                    ?>
+                                    <label>
+                                        <input type="checkbox" name="Categoria[]"
+                                               value="<?= $option ?>" <?= $checked ?>>
+                                        <?= $option ?>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="" class="control-label">Origem da Ocorrência</label>
+                                <?=$this->formRow($form->get('OrigemInformacao'))?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <?=$this->formRow($form->get('UfFiltro'))?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="" class="control-label">Data</label>
+                                <?=$this->formRow($form->get('DataRegistro'))?>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-filtro" value="Filtrar">
+                            <a href="/validados/limpar/fechados" class="btn btn-filtro">Limpar Filtro</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <a type="button" class="btn btn-pasta" href="/validados"> Alertas Abertos </a>
+                <table class="table table-condensed table-striped datatable">
+                    <thead>
+                    <tr>
+                        <th>Municipio</th>
+                        <th>Coordenação</th>
+                        <th>Categoria - Subcategoria</th>
+                        <th>Descrição</th>
+                        <th>Providências Adotadas</th>
+                        <th>Usuário</th>
+                        <th>Usuário Triagem</th>
+                        <th>Origem da Ocorrência</th>
+                        <th>Status</th>
+                        <th>Data/Hora</th>
+                        <th>Anexo</th>
+                        <th class="icon"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($lista as $item){
+                        $anexo = $item->getCustomAttribute('anexo');
+                        $nome = explode("/",$item->getTitle());
+
+                        $local = explode('-', $nome[0]);
+                        $uf = $local[0];
+
+                        if(strlen($uf) != 3){
+                            $uf = '';
+                            $cidade = '';
+                            $titulo = $item->getTitle();
+                        }else{
+                            $cidade = $local[0].'-'.$local[1];
+                            $titulo = str_replace($cidade.'/ ','',$item->getTitle());
+                        }
+
+                        //   $status = [1=>'Aberto',2=>'Fechado',0=>'Cancelado'];
+                        $item->setCode($item->getCustomAttribute('EventID'));
+
+                        ?>
+                        <tr>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('municipio_de_aplicacao')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('coordenacao')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('categoria_evento')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getDescription()?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('providencias_adotadas')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('usuario_cadastro')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('usuario_triagem')?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->getCustomAttribute('origem_informacao')?></td>
+                            <td class=" status-registro" data-id="<?=$item->getCode()?>"><?=$item->getStatus()?></td>
+                            <td class="" data-id="<?=$item->getCode()?>"><?=$item->epocToDate($item->getCreated(),'d/m/Y H:i:s')?></td>
+                            <td class="anexo">
+                                <?php if(count($anexo)){ /// Evento tem Anexo?>
+                                    <a href="javascript:void(0);" class="view-anexo" data-anexo="<?=implode('|', $anexo)?>" title="Visualizar Anexo">
+                                        <img src="/assets/img/ico/anexo.png" alt=""/>
+                                    </a>
+                                <?php }; ?>
+                            </td>
+                            <td class="hidden-print action">
+                                <a href="javascript:void(0);" class="view-progress" data-id="<?=$item->getCode()?>" title="Visualizar Progresso">
+                                    <img src="/assets/img/ico/ico_eye.png" alt=""/>
+                                </a>
+                                <?php if($item->getStatus() == 'Fechado'){ /// Alerta Fechado ?>
+                                    <a href="javascript:void(0);" class="update-status change-status" data-id="<?=$item->getCode()?>" data-status="1" title="Abrir Alerta">
+                                        <img src="/assets/img/ico/ico_success.png" alt=""/>
+                                    </a>
+                                <?php }; ?>
+                            </td>
+                        </tr>
+                    <?php }; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--    fim-->
+
+    <!-- ESPAÇAMENTOS -->
+    <div class="clearfix">&nbsp;</div>
+</div>
+
+
+
+<!--POPS DE CONFIRMAÇÃO DE AÇÃO-->
+
+<!--EXCLUSÃO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-exclusao" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_delete_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="code" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick=""> Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--ENCERRAMENTO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-encerramento" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_close_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="registro" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick=""> Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--CANCELAMENTO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-cancelamento" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_cancel_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="registro" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick=""> Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

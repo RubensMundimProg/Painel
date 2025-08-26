@@ -1,0 +1,28 @@
+<!--    FORMULARIOS-->
+<form action="/autenticacao/entrar" method="post">
+
+    <div class="row content-body">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Login</label>
+                <?=$this->formRowNoLabel($form->get('login'));?>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Senha</label>
+                <?=$this->formRowNoLabel($form->get('password'));?>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-sm btn-primary">Entrar</button>
+        </div>
+
+        <div class="col-md-12 hide">
+            <br>
+            <p>A</p>
+            <p class="hide">Usuário do Risk Manager, <a href="/autenticar">clique aqui</a>.</p>
+        </div>
+    </div>
+
+</form>

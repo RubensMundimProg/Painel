@@ -1,0 +1,85 @@
+<!--FONTE: http://www.apolo11.com/tictoc/fuso_horario.php-->
+
+<style>
+    body{
+        /*cursor: crosshair;*/
+    }
+    .ol-popup-closer{
+        display: none;
+    }
+    .ol-popup{
+        width: 100px;
+    }
+</style>
+<div id="relogios"></div>
+<div class="menu" data-menu="mapa-atividades"></div>
+<div class="texto-float text-center" style="position:absolute;
+top: 0px;
+left: 0px;
+height: 50px;
+width: 90px;
+background-color:#fff;
+z-index: 99999999; padding: 5px; display: none">
+    <p><strong class="gmt">GMT -03:00</strong><br>
+    <span class="hora">12:01:22</span></p>
+</div>
+
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+<!--<div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--        <iframe src="--><?//=$urlPainel;?><!--" frameborder="0" id="frame-mapa" class="inteiro" width="100%"></iframe>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="container-ultima-milha" id="map"></div>
+
+<div class="eventos bloco_avisos">
+    <h6>AVISOS - <?=date('d/m/Y')?></h6>
+    <div class="lista scroll-pane">
+        <ul class="list-unstyled details">
+            <li><a href="#">Sem Avisos</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="bloco_atividades bloco" id="camadas">
+    <h6>ATIVIDADE - <?=date('d/m/Y')?></h6>
+    <div id="timeline">
+        <div class="text-center">
+            Sem Atividades
+        </div>
+    </div>
+</div>
+
+<!--<div class="busca-mapa">-->
+<!--    <input type="text" id="busca-municipio" class="autocomplete">-->
+<!--</div>-->
+
+<form class="busca-mapa form-inline hide">
+    <div class="form-group">
+        <input type="text" id="busca-municipio" class="autocomplete" placeholder="Pesquisar município">
+    </div>
+    <button type="button" class="btn btn-primary" id="btn-center-mapa"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+
+<div id="camadas" class="hide">
+    <h6>CAMADAS</h6>
+    <div class="botao"><p><a href="javascript:void(0)" data-menu="alertas" style="font-size: 10px">ALERTAS</a></p></div>
+    <div class="botao active"><p><a href="javascript:void(0)" data-menu="aplicadores" style="font-size: 10px">MUNICÍPIOS</a></p></div>
+    <div class="botao hide"><p><a href="javascript:void(0)" data-menu="municipios" style="font-size: 10px">MUNICÍPIOS</a></p></div>
+    <div class="clearfix"></div>
+    <h6 style="margin-top: 5px">LEGENDA</h6>
+
+    <div class="legenda">
+        <ul>
+            <li class="hide"><img src="/dashboard-assets/img/pins/pin_10.png" alt=""> Município</li>
+            <li><img src="/dashboard-assets/img/pins/pin_3.png" alt=""> CEBRASPE</li>
+            <li><img src="/dashboard-assets/img/pins/pin_1.png" alt=""> CESGRANRIO</li>
+            <li><img src="/dashboard-assets/img/pins/pin_12.png" alt=""> Alerta Aberto</li>
+            <li><img src="/dashboard-assets/img/pins/pin_12_fechado.png" alt=""> Alerta Fechado</li>
+            <li><img src="/dashboard-assets/img/pins/pin_12_anexo.png" alt=""> Alerta com Anexo</li>
+        </ul>
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,12 @@
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <iframe src="http://inep.ctweb.inweb.org.br/dashboard/analise/exibir/5?w=full" frameborder="0" id="frame-media-twitter" width="100%"></iframe>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <iframe src="<?=$urlPainel;?>/painel/widgets/rss/rss.html" frameborder="0" id="frame-media-rss" width="100%"></iframe>
+    </div>
+</div>

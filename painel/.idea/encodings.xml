@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/module/Application/config/acl.config.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/Application/view/layout/clean.phtml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/Dashboard/src/Dashboard/Controller/ProcessDataController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/Dashboard/view/dashboard/process-data/detalhe-milha.phtml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/Dashboard/view/dashboard/process-data/lista-eventos.phtml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/moduloapi/Estrutura/src/Estrutura/View/Helper/Perfil.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

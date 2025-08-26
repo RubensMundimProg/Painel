@@ -1,0 +1,160 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<style>
+    *{
+        font-family: Arial;
+    }
+    table{
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    table tr:first-child td{
+         background: #ccc;
+        font-weight:bold;
+    }
+</style>
+
+
+
+<div style="width: 50%;float: left">
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</div>
+<div style="width: 50%;float: left">
+    <div id="saldo" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <td style="background-color: #00b44b">Disponível</td>
+            <td>S1</td>
+            <td>S2</td>
+            <td>S3</td>
+            <td>S4</td>
+            <td>S5</td>
+            <td>S6</td>
+            <td>S7</td>
+            <td>S8</td>
+        </tr>
+        <tr>
+            <td><?=$resumo['restante']?></td>
+            <td><?=(isset($totais['S1'])) ? $totais['S1'] : '-'?></td>
+            <td><?=(isset($totais['S2'])) ? $totais['S2'] : '-'?></td>
+            <td><?=(isset($totais['S3'])) ? $totais['S3'] : '-'?></td>
+            <td><?=(isset($totais['S4'])) ? $totais['S4'] : '-'?></td>
+            <td><?=(isset($totais['S5'])) ? $totais['S5'] : '-'?></td>
+            <td><?=(isset($totais['S6'])) ? $totais['S6'] : '-'?></td>
+            <td><?=(isset($totais['S7'])) ? $totais['S7'] : '-'?></td>
+            <td><?=(isset($totais['S8'])) ? $totais['S8'] : '-'?></td>
+        </tr>
+        <tr>
+            <td><?='R$ '.number_format($resumo['restante']*240,2,',','.')?></td>
+            <td><?=(isset($totais['S1'])) ? 'R$ '.number_format($totais['S1']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S2'])) ? 'R$ '.number_format($totais['S2']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S3'])) ? 'R$ '.number_format($totais['S3']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S4'])) ? 'R$ '.number_format($totais['S4']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S5'])) ? 'R$ '.number_format($totais['S5']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S6'])) ? 'R$ '.number_format($totais['S6']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S7'])) ? 'R$ '.number_format($totais['S7']*240,2,',','.') : '-'?></td>
+            <td><?=(isset($totais['S8'])) ? 'R$ '.number_format($totais['S8']*240,2,',','.') : '-'?></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var lang = {
+        downloadJPEG:'Baixar gráfico no formato JPEG',
+        downloadPDF:'Baixar gráfico no formato PDF',
+        downloadPNG:'Baixar gráfico no formato PNG',
+        downloadSVG:'Baixar gráfico no formato SVG',
+        printChart:'Imprimir Gráfico'
+    }
+    $(document).ready(function () {
+        Highcharts.chart('container', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            lang:lang,
+            title: {
+                text: '<?=$contrato->getName()?>'
+            },
+            subtitle: {
+                text: 'Utilizado/Disponível'
+            },
+            tooltip: {
+                pointFormat: '<b>{point.percentage:.1f}%</b> <br> {series.name}s: <b>{point.y}</b> <br> <b>{point.money}</b>'
+            },
+            colors: ['#f94b23', '#6ce8a1'],
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'UST',
+                colorByPoint: true,
+                data: [
+                    {
+                        name: 'Utilizado',
+                        y: <?=$resumo['utilizado']?>,
+                        money: 'R$ <?=number_format($resumo['utilizado']*240,2,',','.')?>'
+                    },
+                    {
+                        name: 'Disponível',
+                        y: <?=$resumo['restante']?>,
+                        money: 'R$ <?=number_format($resumo['restante']*240,2,',','.')?>'
+                    }
+                ]
+            }]
+        });
+
+        Highcharts.chart('saldo', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<?=$contrato->getName()?>'
+            },
+            lang:lang,
+            subtitle: {
+                text: 'Detalhes por Tipo de Serviço'
+            },
+            tooltip: {
+                pointFormat: '<b>{point.percentage:.1f}%</b> <br> {series.name}s: <b>{point.y}</b> <br> <b>{point.money}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'UST',
+                colorByPoint: true,
+                data: [<?php foreach($totais as $indice => $grafico){?>{
+                    name: '<?=$indice?>',
+                    y: <?=$grafico?>,
+                    money: 'R$ <?=number_format($grafico*240,2,',','.')?>'
+                },<?php }; ?>]
+            }]
+        });
+    });
+</script>
