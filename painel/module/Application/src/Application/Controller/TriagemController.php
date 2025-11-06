@@ -57,6 +57,9 @@ class TriagemController extends AbstractEstruturaController
 
         $filtro = [];
         $categorias = [];
+        //MEXIDO RUBENS
+        $dataFiltro = $dataFiltro ?? [];
+        //ATE AQUI
         if (count($dataFiltro) > 0) {
             $filtro = $dataFiltro;
             if (isset($filtro['Categoria'])) {

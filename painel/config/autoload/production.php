@@ -20,6 +20,12 @@ return array(
         'secretRM' => '0727110ceb4b46b785d06c8b8ab67164', /// Secret da aplicação
 
     ],
+
+    'API_MOBILE' => [
+        'client_id'     => '74c85729bf8a4e1094a8e858d21350bc',
+        'client_secret' => 'c0102dd184684dd8b5e3e7fe0501c57a',
+        'redirect_uri'  => 'https://painel.gestaoderiscos.inep.gov.br/callmobileback',
+    ],
     'url_painel'=>'https://painel.gestaoderiscos.inep.gov.br/aplicacao',
     'local_arquivo_configuracao'=>'C:\inetpub\wwwroot\aplicacao\\',
     'service_manager' => array(

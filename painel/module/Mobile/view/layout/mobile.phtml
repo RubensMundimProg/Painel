@@ -1,0 +1,51 @@
+<?php
+// Caminho: module/Application/view/layout/mobile.phtml
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Painel Risk Manager - Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <?php 
+    // CORREÇÃO CRÍTICA CSS: Usando appendStylesheet() para garantir que o mobile-form.css seja o ÚLTIMO na fila.
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets/img/logo/favicon-64.ico'))
+        // 1. Estilos base
+        ->appendStylesheet($this->basePath('assets/bootstrap/css/bootstrap.min.css')) 
+        ->appendStylesheet($this->basePath('assets/jquery/jquery-ui-1.11.4/jquery-ui.min.css'))
+        // 2. Estilos legados da aplicação
+        ->appendStylesheet($this->basePath('assets/css/risk-manager.css'))
+        // 3. NOSSO CSS CUSTOMIZADO (VENCE OS CONFLITOS DE ESTILO)
+        ->appendStylesheet($this->basePath('assets/css/mobile-form.css')); 
+    ?>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <img src="<?php echo $this->basePath('assets/img/logo/modulo-inep-nova.png'); ?>" alt="Logo" style="margin: 20px 0; max-width: 250px;" />
+            </div>
+        </div>
+        
+        <?php echo $this->content; ?>
+    </div>
+    
+    <?php 
+    // CORREÇÃO CRÍTICA JS: Usando appendFile() e listando na ORDEM CORRETA de DEPENDÊNCIA para evitar erros de inicialização.
+    echo $this->headScript()
+        // 1. jQuery Core (FUNDAÇÃO) - DEVE VIR ANTES DE TODOS OS PLUGINS
+        ->appendFile($this->basePath('assets/jquery/jquery-2.1.3.min.js')) 
+        // 2. jQuery UI (Dependente do Core, essencial para Autocomplete)
+        ->appendFile($this->basePath('assets/jquery/jquery-ui-1.11.4/jquery-ui.min.js'))
+        // 3. Bootstrap JS (Dependente do Core)
+        ->appendFile($this->basePath('assets/js/bootstrap.min.js'))
+        // 4. Utilitários (Máscara, Loading)
+        ->appendFile($this->basePath('assets/jquery-mask/jquery.mask.js'))
+        ->appendFile($this->basePath('assets/js/isLoading.js')) 
+        // 5. Lógica da Aplicação (Dependente de todos, inicializa o Autocomplete)
+        ->appendFile($this->basePath('assets/js/risk-manager.js')); 
+    ?>
+    
+</body>
+</html>

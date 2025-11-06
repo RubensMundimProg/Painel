@@ -157,7 +157,14 @@ class ParseCSV {
     function parseCSV ($input = null, $offset = null, $limit = null, $conditions = null) {
         if ( $offset !== null ) $this->offset = $offset;
         if ( $limit !== null ) $this->limit = $limit;
-        if ( count($conditions) > 0 ) $this->conditions = $conditions;
+        //if ( count($conditions) > 0 ) $this->conditions = $conditions;
+            //MexidoRubens
+            if ((is_array($conditions) || $conditions instanceof Countable) && count($conditions) > 0) {
+                $this->conditions = $conditions;
+            }
+                //MexidoRubens
+
+        
         if ( !empty($input) ) $this->parse($input);
     }
 
@@ -175,7 +182,16 @@ class ParseCSV {
         if ( !empty($input) ) {
             if ( $offset !== null ) $this->offset = $offset;
             if ( $limit !== null ) $this->limit = $limit;
-            if ( count($conditions) > 0 ) $this->conditions = $conditions;
+            //if ( count($conditions) > 0 ) $this->conditions = $conditions;
+
+
+            //MexidoRubens
+            if ((is_array($conditions) || $conditions instanceof Countable) && count($conditions) > 0) {
+                $this->conditions = $conditions;
+            }
+                //MexidoRubens
+
+
             if ( is_readable($input) ) {
                 $this->data = $this->parse_file($input);
             } else {

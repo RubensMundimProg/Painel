@@ -565,12 +565,14 @@ $(document).ready(function(){
                             value: '',
                             text : 'Selecione'
                         }));
-                        $.each(json.dados, function (i, item) {
+                        
+                        $.each(json.dados, function (key, value) {
                             $('#autocomplete-coordenacao').append($('<option>', {
-                                value: item,
-                                text : item
+                                value: key,
+                                text : value
                             }));
                         });
+
 
                         if($('#autocomplete-coordenacao').attr('data-chosen')){
                             $('#autocomplete-coordenacao').siblings('.chosen-container').removeClass('loading');

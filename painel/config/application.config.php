@@ -12,6 +12,7 @@ return array(
         'Modulo',
         'RiskManager',
         'Base',
+        'Mobile',
         'Classes',
     ),
     'module_listener_options' => array(

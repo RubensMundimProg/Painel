@@ -54,6 +54,9 @@ class ValidadosController extends AbstractEstruturaController
 
         $filtro = [];
         $categorias = [];
+        //MEXIDO RUBENS
+        $dataFiltro = $dataFiltro ?? [];
+        //ATE AQUI
         if (count($dataFiltro) > 0) {
             $filtro = $dataFiltro;
             if (isset($filtro['Categoria'])) {
@@ -183,6 +186,9 @@ class ValidadosController extends AbstractEstruturaController
 
         $filtro = [];
         $categorias = [];
+        //MEXIDO RUBENS
+        $dataFiltro = $dataFiltro ?? [];
+        //ATE AQUI
         if (count($dataFiltro) > 0) {
             $filtro = $dataFiltro;
             if (isset($filtro['Categoria'])) {
@@ -281,9 +287,26 @@ class ValidadosController extends AbstractEstruturaController
             $post = $this->getRequest()->getPost();
             $event = new Event();
 
+            // [GUARDIÃO DO PAINEL]: INÍCIO DA CORREÇÃO
+            // 1. Recupera a Avaliação Pedagógica ('sistema') da sessão, conforme definido nas actions de listagem.
+            $filtroSistema = new Container('SistemaSelecionado');
+            $sistema = $filtroSistema->offsetGet('sistema');
+            
+            if (!$sistema) {
+                // Se não houver sistema na sessão, lança exceção para informar o usuário.
+                throw new \Exception('O campo "Sistema" (Avaliação Pedagógica) é obrigatório e não está definido na sessão. Selecione-o na barra superior antes de prosseguir.');
+            }
+            // [GUARDIÃO DO PAINEL]: FIM DA CORREÇÃO (Recuperação da sessão)
+
+
             $customAttributes = new CustomAttributes();
             $customAttributes->set('status_tratamento', 'Em Tratamento');
             $customAttributes->set('etapas_do_cronograma', 'Exame');
+            
+            // [GUARDIÃO DO PAINEL]: INÍCIO DA CORREÇÃO
+            // 2. Adiciona o campo 'sistema' com o valor da Avaliação Pedagógica recuperado da sessão.
+            $customAttributes->set('sistema', $sistema); 
+            // [GUARDIÃO DO PAINEL]: FIM DA CORREÇÃO (Adição do atributo)
 
             if (isset($post['Status'])) {
                 if ($post['Status'] == 1) {

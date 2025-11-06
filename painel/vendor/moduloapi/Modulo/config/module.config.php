@@ -23,6 +23,19 @@ return array(
                     ),
                 ),
             ),
+            
+            // NOVA ROTA PARA O CALLBACK DO MOBILE
+            'callmobileback' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/callmobileback',
+                    'defaults' => array(
+                        'controller' => 'Callback', // O mesmo controller do callback principal
+                        'action'     => 'callmobileback', // Uma nova action que criaremos
+                    ),
+                ),
+            ),
+            
             'autenticar' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

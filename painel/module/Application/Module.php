@@ -42,88 +42,100 @@ class Module
      * @param MvcEvent $e
      * @return null|\Zend\Http\PhpEnvironment\Response
      */
-    public function controllerDispatch(MvcEvent $e)
+   public function controllerDispatch(MvcEvent $e)
     {
 
         AbstractEstruturaService::setServiceManager($e->getTarget()->getServiceLocator());
         AbstractForm::setServiceManager($e->getTarget()->getServiceLocator());
         $locator = $e->getTarget()->getServiceLocator();
-        $route    = $e->getTarget()->getEvent()->getRouteMatch()->getParams();
+        $route     = $e->getTarget()->getEvent()->getRouteMatch()->getParams();
         $controller  = $e->getTarget();
 
-        /// Rota de Console
-        if($controller->getRequest() instanceof \Zend\Console\Request) return true;
-
-        //return true;  
-
-        /// Callback da autenticação
-        if($route['controller']=='Callback') return true;
-
-        /// Autenticação
-        if($route['controller']=='Auth') return true;
-        if($route['controller']=='autenticacao') return true;
-
-        //TWITTER
-        if($route['controller']=='twitter') return true;
-        if($route['controller']=='api') return true;
-
-        if($route['controller'] == 'api'){
-            try{
-                /// Rota da api tira o tempo de resposta
-                ini_set('max_exection_time',0);
-                set_time_limit(0);
-
-                $header = $controller->getRequest()->getHeaders();
-                $header = $header->toArray();
-
-                if(!isset($header['Usuario'])) throw new \Exception('Usuário não autenticado');
-
-                return true;
-            }catch (\Exception $e){
-                echo json_encode(['error'=>true,'details'=>$e->getMessage()]);
-                die;
-            }
+        // Rotas que não precisam de verificação de sessão
+        $listaBranca = ['Callback', 'Auth', 'autenticacao', 'twitter', 'api'];
+        if ($controller->getRequest() instanceof \Zend\Console\Request || in_array($route['controller'], $listaBranca)) {
+            return true;
         }
 
-        if(!$locator->get("UsuarioApi"))
-        {
-            $config = \Estrutura\Service\Config::getConfig('API');
-            $controller->addErrorMessage('Conecte-se para utilizar o sistema');
-            $controller->plugin('redirect')->toUrl('/autenticacao');
+        // Se o usuário não estiver logado, inicia o processo de autenticação
+        if (!$locator->get("UsuarioApi")) {
+            // Pega o nome da rota atual
+            $routeName = $e->getRouteMatch()->getMatchedRouteName();
+
+            // LÓGICA DE REDIRECIONAMENTO DIFERENCIADA
+            if ($routeName === 'mobile') {
+                // Se for a rota 'mobile', adiciona o parâmetro de origem
+                $redirectUrl = '/autenticacao?redirect=' . urlencode('/mobile') . '&origem=mobile';
+            } else {
+                // Comportamento padrão para todas as outras rotas
+                $requestUri = $e->getApplication()->getRequest()->getUriString();
+                $redirectUrl = '/autenticacao?redirect=' . urlencode($requestUri);
+            }
+            
+            $controller->plugin('redirect')->toUrl($redirectUrl);
             $e->stopPropagation();
             return false;
         }
 
-        if(!in_array($route['controller'],['dashboard','twitter','rss'])){ // REGRA DE INATIVIDADE NÃO SE APLICA PARA O DASHBOARD, TWITTER e RSS
+        // Lógica da API
+                                                     
+                                                             
 
-            $container = new Container('UsuarioApi');
+                 
+                                                        
+                                                    
+
+        if ($route['controller'] == 'api') {
+            try {
+                                                        
+                ini_set('max_exection_time', 0);
+                set_time_limit(0);
+
+                $header = $controller->getRequest()->getHeaders()->toArray();
+                                             
+
+                if (!isset($header['Usuario'])) throw new \Exception('Usuário não autenticado');
+
+                return true;
+            } catch (\Exception $ex) {
+                echo json_encode(['error' => true, 'details' => $ex->getMessage()]);
+                die;
+            }
+        }
+
+        // Se estiver logado, continua com a verificação de inatividade
+         
+         
+        if (!in_array($route['controller'], ['dashboard', 'twitter', 'rss', 'mobile'])) {
+
+                                                     
             $acessoContainer = new Container('ChaveAcesso');
 
-            if(!$acessoContainer->offsetGet('chave')){
+            if (!$acessoContainer->offsetGet('chave')) {
                 $controller->addErrorMessage('Sessão desativada por tempo de inatividade');
-                if(!$route['action'] == 'sair' && $route['controller'] == 'index'){
+                if (!$route['action'] == 'sair' && $route['controller'] == 'index') {
                     $controller->plugin('redirect')->toUrl('/index/sair');
-                }else{
+                } else {
                     $controller->plugin('redirect')->toUrl('/autenticacao');
                 }
                 $e->stopPropagation();
                 return false;
             }
 
-            $acesso = new Acesso();
+            $acesso      = new Acesso();
             $acesso->setId($acessoContainer->offsetGet('chave'));
             $dadosAcesso = $acesso->filtrarObjeto()->current();
 
-            if(!$dadosAcesso){
+            if (!$dadosAcesso) {
                 $controller->addErrorMessage('Sessão desativada por tempo de inatividade');
-                if(!$route['action'] == 'sair' && $route['controller'] == 'index'){
+                if (!$route['action'] == 'sair' && $route['controller'] == 'index') {
                     $controller->plugin('redirect')->toUrl('/index/sair');
-                }else{
+                } else {
                     $controller->plugin('redirect')->toUrl('/autenticacao');
                 }
                 $e->stopPropagation();
                 return false;
-            }else{
+            } else {
                 $dadosAcesso->setDataAcesso(date('Y-m-d H:i:s'));
                 $dadosAcesso->salvar();
             }

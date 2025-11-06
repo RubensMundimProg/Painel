@@ -129,7 +129,7 @@ class ApiController extends AbstractEstruturaController{
 
         $service = new \Classes\Service\Alertas();
         $service->exchangeArray($post);
-        $service->setSistema('Enem');//PROVISORIAMENTE FIXADO
+        $service->setSistema('Prova Nacional Docente');//PROVISORIAMENTE FIXADO
         $service->setAno(date('Y'));
         $service->salvar();
 
@@ -185,7 +185,7 @@ class ApiController extends AbstractEstruturaController{
         $ocorrencia = new Alertas();
         if($filtro){
             $ocorrencia->setAno(date('Y'));
-            $ocorrencia->setSistema('Enem');
+            $ocorrencia->setSistema('Prova Nacional Docente');
         }
         $dadosOcorrencias = $ocorrencia->filtrarObjeto();
         echo count($dadosOcorrencias).' Ocorrencias Localizados'.PHP_EOL;
