@@ -8,6 +8,7 @@ $(document).ready(function(){
     if($('#rss').length){
         loadRss();
         ajustarTela();
+        compactRssTicker();
         setInterval(loadRss,INTERVALO_RSS);
     }
 });
@@ -33,31 +34,7 @@ function loadRss()
 function feedRss(data)
 {
     var navegacao = '<nav class="navbar navbar-default acessibilidade">' +
-        '<div class="container">' +
-        '<ul class="nav navbar-nav navbar-right">' +
-        '<li><a href="#" onclick="" class="jfontsize-button left" id="jfontsize-m2"><i class="fa fa-minus"></i></a></li>' +
-        '<li><a href="#" onclick="" class="jfontsize-button" id="jfontsize-d2"><i class="fa">A</i></a></li>' +
-        '<li><a href="#" onclick="" class="jfontsize-button" id="jfontsize-p2"><i class="fa fa-plus"></i></a></li>' +
-        '<li><a href="#">Tamanho da Fonte</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '</nav>';
-
-    var containerRss = '<div class="row news" data-channel="">' +
-        '<div class="col-xs-12 col-sm-12 col-md-12">' +
-        '<h5 class="gray rss-channel"></h5>' +
-        '<h4 class="marquee light-gray rss-messages"></h4>' +
-        '</div>' +
-        '</div>';
-
-    //$('#rss').append($(navegacao));
-
-    $('.row.news').remove();
-
-    var msg='',copy;
-    $.each(data,function(i){
-        $.each(data[i],function(i,v){
-            msg += v.date+' '+v.title+'  |  ';
+@@ -61,45 +62,67 @@ function feedRss(data)
         });
         copy = $(containerRss);
         $(copy).find('.rss-channel').text(changeTitle(i));
@@ -83,6 +60,7 @@ function feedRss(data)
     });
 
     ajustarTela();
+    compactRssTicker();
     $('body').css('overflow','hidden');
 }
 
@@ -102,4 +80,25 @@ function changeTitle(title)
         'climatempo-capitais':'ClimaTempo - Capitais'
     };
     return titles[title];
+}
+
+function compactRssTicker()
+{
+    var $ticker = $('#rss');
+
+    if (!$ticker.length) {
+        return;
+    }
+
+    $ticker.addClass('rss-ticker--compact')
+        .css({
+            height: 'auto',
+            'min-height': '0',
+            'margin-bottom': '0'
+        });
+
+    $ticker.find('.row.news').css({
+        height: 'auto',
+        margin: 0
+    });
 }

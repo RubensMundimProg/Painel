@@ -30,7 +30,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Configurações</h4>
+                 <h4 class="modal-title">Configurações</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -55,14 +55,9 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">Filtro Twitter</label>
-                            <textarea name="words-twitter" class="form-control" cols="30" rows="3"></textarea>
-                            <p class="help-block">Separar palavras ou conjunto de palavras por ; (ponto e vírgula)</p>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-sm btn-primary botao-salvar-filtro-twitter">Salvar</button>
-                        </div>
+                        <p class="text-muted small">
+                            Os avisos meteorológicos exibidos no painel são obtidos diretamente do INMET e atualizados automaticamente.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -88,17 +83,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="form-detalhes">
-    <form action="/dashboard-data/lista-eventos" method="post" target="_blank" id="formListaEventos">
-        <input type="hidden" name="get" value="aplicacao-categoria">
-        <input type="hidden" name="color" value="#90ee7e">
-        <input type="hidden" name="category" value="Segurança Pública">
-        <input type="hidden" name="status" value="">
+@@ -102,26 +97,26 @@
     </form>
 </div>
 
