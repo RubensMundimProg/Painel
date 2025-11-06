@@ -8,6 +8,7 @@ $(document).ready(function(){
     if($('#rss').length){
         loadRss();
         ajustarTela();
+        compactRssTicker();
         setInterval(loadRss,INTERVALO_RSS);
     }
 });
@@ -83,6 +84,7 @@ function feedRss(data)
     });
 
     ajustarTela();
+    compactRssTicker();
     $('body').css('overflow','hidden');
 }
 
@@ -102,4 +104,25 @@ function changeTitle(title)
         'climatempo-capitais':'ClimaTempo - Capitais'
     };
     return titles[title];
+}
+
+function compactRssTicker()
+{
+    var $ticker = $('#rss');
+
+    if (!$ticker.length) {
+        return;
+    }
+
+    $ticker.addClass('rss-ticker--compact')
+        .css({
+            height: 'auto',
+            'min-height': '0',
+            'margin-bottom': '0'
+        });
+
+    $ticker.find('.row.news').css({
+        height: 'auto',
+        margin: 0
+    });
 }

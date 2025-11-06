@@ -3,39 +3,30 @@
 <?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
 <div class="row">
     <div class="col-md-12">
-        <div id="twitter"></div>
+        <section class="panel panel-default weather-panel">
+            <div class="panel-heading weather-panel__header">
+                <div class="weather-panel__title">
+                    <i class="fa fa-cloud weather-panel__icon" aria-hidden="true"></i>
+                    <span>Clima e tempo</span>
+                </div>
+                <div class="weather-panel__meta">
+                    <span id="weather-status-message" class="weather-panel__status"></span>
+                    <span id="weather-updated-at" class="weather-panel__updated"></span>
+                </div>
+            </div>
+            <div class="panel-body weather-panel__body">
+                <div id="weather-error" class="alert alert-danger weather-panel__error hidden" role="alert"></div>
+                <div id="weather-loading" class="weather-panel__loading hidden">
+                    <span class="blink-me">Carregando dados meteorológicos...</span>
+                </div>
+                <div id="weather-alerts" class="weather-alerts"></div>
+            </div>
+        </section>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-<!--        <iframe src="/dashboard-assets/widgets/rss/rss.html" frameborder="0" id="frame-media-rss" class="um-terco" width="100%"></iframe>-->
         <div id="rss" class="um-terco"></div>
     </div>
 </div>
-
-<div class="modal fade" id="modal-configuracao">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Configurações</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">Filtro Twitter/RSS</label>
-                            <textarea name="words-twitter" class="form-control" cols="30" rows="6"></textarea>
-                            <p class="help-block">Separar palavras ou conjunto de palavras por ; (ponto e vírgula)</p>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-sm btn-primary botao-salvar-filtro-twitter">Salvar</button>
-                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
