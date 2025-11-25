@@ -1,0 +1,80 @@
+{
+    "name": "laminas/skeleton-application",
+    "description": "Skeleton Application for ZF2",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "require": {
+        "php": ">=7.0.0",
+        "dino/dompdf-module": "dev-master",
+        "laminas/laminas-dependency-plugin": "^2.1",
+        "laminas/laminas-authentication": "2.4.13",
+        "laminas/laminas-barcode": "2.4.13",
+        "laminas/laminas-cache": "2.4.13",
+        "laminas/laminas-captcha": "2.4.13",
+        "laminas/laminas-code": "2.4.13",
+        "laminas/laminas-config": "2.4.13",
+        "laminas/laminas-console": "2.4.13",
+        "laminas/laminas-crypt": "2.4.13",
+        "laminas/laminas-db": "2.4.13",
+        "zendframework/zend-debug": "2.4.13",
+        "laminas/laminas-di": "2.4.13",
+        "laminas/laminas-dom": "2.4.13",
+        "laminas/laminas-escaper": "2.4.13",
+        "laminas/laminas-eventmanager": "2.4.13",
+        "laminas/laminas-feed": "2.4.13",
+        "laminas/laminas-file": "2.4.13",
+        "laminas/laminas-filter": "2.4.13",
+        "laminas/laminas-form": "2.4.13",
+        "laminas/laminas-http": "2.4.13",
+        "laminas/laminas-i18n": "2.4.13",
+        "laminas/laminas-i18n-resources": "2.4.13",
+        "laminas/laminas-inputfilter": "2.4.13",
+        "laminas/laminas-json": "2.4.13",
+        "laminas/laminas-ldap": "2.4.13",
+        "laminas/laminas-loader": "2.4.13",
+        "laminas/laminas-log": "2.4.13",
+        "laminas/laminas-mail": "2.4.13",
+        "laminas/laminas-math": "2.4.13",
+        "laminas/laminas-memory": "2.4.13",
+        "laminas/laminas-mime": "2.4.13",
+        "laminas/laminas-modulemanager": "2.4.13",
+        "laminas/laminas-mvc": "2.4.13",
+        "laminas/laminas-navigation": "2.4.13",
+        "laminas/laminas-paginator": "2.4.13",
+        "laminas/laminas-permissions-acl": "2.4.13",
+        "laminas/laminas-permissions-rbac": "2.4.13",
+        "laminas/laminas-progressbar": "2.4.13",
+        "laminas/laminas-serializer": "2.4.13",
+        "laminas/laminas-server": "2.4.13",
+        "laminas/laminas-servicemanager": "2.4.13",
+        "laminas/laminas-session": "2.4.13",
+        "laminas/laminas-soap": "2.4.13",
+        "laminas/laminas-stdlib": "2.4.13",
+        "laminas/laminas-tag": "2.4.13",
+        "laminas/laminas-test": "2.4.13",
+        "laminas/laminas-text": "2.4.13",
+        "laminas/laminas-uri": "2.4.13",
+        "laminas/laminas-validator": "2.4.13",
+        "zendframework/zend-version": "2.4.13",
+        "laminas/laminas-view": "2.4.13",
+        "laminas/laminas-xmlrpc": "2.4.13"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.0"
+        },
+        "audit": {
+            "block-insecure": false
+        },
+        "allow-plugins": {
+            "laminas/laminas-dependency-plugin": true
+        }
+    },
+    "require-dev": {
+        "laminas/laminas-migration": "^1.4"
+    }
+}
