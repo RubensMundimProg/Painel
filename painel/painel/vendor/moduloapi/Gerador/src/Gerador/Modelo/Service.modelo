@@ -1,9 +1,0 @@
-<?php
-
-namespace {{namespace}}\Service;
-
-use \{{namespace}}\Entity\{{classe}} as Entity;
-
-class {{classe}} extends Entity{
-
-}
