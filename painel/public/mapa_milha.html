@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>KML Layers</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: {lat: -12.662170, lng: -50.178503},
+        });
+
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'https://sites.google.com/a/gmapas.com/home/poligonos-ibge/poligonos-estados-do-brasil/Estados.kml',
+            map: map
+        });
+    }
+
+</script>
+<script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBhSLSl07H7TDL8PHDfcOxj24k8S_zRTUQ&callback=initMap">
+</script>
+</body>
+</html>

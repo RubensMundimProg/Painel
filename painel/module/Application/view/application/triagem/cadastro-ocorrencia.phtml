@@ -1,0 +1,125 @@
+<div class="menu" data-menu="Ocorrência"></div>
+
+<div class="container-fluid content" data-menu="Cadastro de Alerta">
+    <div class="row content-title">
+        <h1>Cadastro de Ocorrência
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+<!--    FORMULARIOS-->
+    <form action="/triagem/cadastro-ocorrencia" method="post" id="cadastro-alerta" enctype="multipart/form-data" class="cadastro-alerta">
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>* Avaliação Pedagógica</label> <br>
+                    <input type="text" class="form-control" value="<?=$sistema?>" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="municipio"><?=($sistema=='Enem') ? '*' : ''?> Dia da aplicação</label>
+                    <?=$this->formRowNoLabel($form->get('DiaAplicacao'));?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="municipio">* Município</label>
+                    <?=$this->formRowNoLabel($form->get('municipio'));?>
+                </div>
+            </div>
+        </div>
+
+        <?=$this->formRowNoLabel($form->get('uf'));?>
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="categoria">Coordenação</label>
+                    <?=$this->formRowNoLabel($form->get('coordenacao'));?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="categoria">* Categoria</label>
+                    <?=$this->formRowNoLabel($form->get('categoria'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body subcategorias">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="categoria">Subcategoria</label>
+                    <?=$this->formRowNoLabel($form->get('subcategoria'));?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body impacto-aplicacao">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">* Impacto na Aplicação?</label>
+                    <?=$this->formRowNoLabel($form->get('impacto_aplicacao'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body nro-processo">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">* N° Processo</label>
+                    <?=$this->formRowNoLabel($form->get('nro_processo'));?>
+                </div>
+            </div>
+        </div>
+
+        <?=$this->formRowNoLabel($form->get('titulo'));?>
+
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descricao">* Descrição da Ocorrência</label>
+                    <?=$this->formRowNoLabel($form->get('descricao'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descricao">Providências Adotadas</label>
+                    <?=$this->formRowNoLabel($form->get('providencias_adotadas'));?>
+                </div>
+            </div>
+        </div>
+        <div class="row content-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descricao">Anexar Arquivos (Imagens e/ou Documentos)</label>
+                    <?=$this->formRowNoLabel($form->get('anexo')->setAttribute('multiple',true));?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-body">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-salvar">Salvar</button>
+                <a href="<?=$this->basePath('/');?>" class="btn btn-cancelar">Cancelar</a>
+            </div>
+        </div>
+    </form>
+
+</div>

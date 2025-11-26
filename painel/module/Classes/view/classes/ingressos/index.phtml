@@ -1,0 +1,99 @@
+<?php
+  /** @var $form \Classes\Form\Ingressos */
+  /** @var $lista \Classes\Service\Ingressos[] */
+?>
+<div class="page-head">
+    <h2>Lista</h2>
+</div>
+<div class="cl-mcont">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block-flat">
+                <div class="content">
+
+                    <table class="table table-bordered dataTable">
+                        <thead>
+                            <tr>
+                                <th>Código</th> 
+                                <th>Nome</th> 
+                                <th>Data de Nascimento</th> 
+                                <th>Registro de Controle</th> 
+                                <th>Venue</th> 
+                                <th>Evento</th> 
+                                <th>Status da Credencial</th> 
+                                <th>Organização</th> 
+                                <th>Gênero</th> 
+                                <th>Função</th> 
+                                <th>Nacionalidade</th> 
+                                <th>Cpf</th> 
+                                <th>Documento</th> 
+                                <th>Tipo de Documento</th> 
+                                <th>Autoridade Emissora</th> 
+                                <th>Data de Expedição</th> 
+                                <th>Data de Validade do Passaporte</th> 
+                                <th>Nome da Mãe</th> 
+                                <th>Nome do Pai</th> 
+                                <th>Endereço</th> 
+                                <th>Bairro</th> 
+                                <th>Cep</th> 
+                                <th>Município</th> 
+                                <th>Estado</th> 
+                                <th>País de Origem da Lista</th> 
+                                <th>Status Consolidado no Background Check</th> 
+                                <th>Foto</th> 
+                                <th>Status no Sistema</th> 
+                                
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php foreach($lista as $item){ ?>
+                            <tr>
+                                <td><?=$item->getId()?></td> 
+                                <td><?=$item->getNome()?></td> 
+                                <td><?=$item->getDataNascimento()?></td> 
+                                <td><?=$item->getRegistroControle()?></td> 
+                                <td><?=$item->getVenue()?></td> 
+                                <td><?=$item->getEvento()?></td> 
+                                <td><?=$item->getStatusCredencial()?></td> 
+                                <td><?=$item->getOrganizacao()?></td>
+                                <td><?=$item->getGenero()?></td> 
+                                <td><?=$item->getIdFuncaoEvento()?></td> 
+                                <td><?=$item->getIdNacionalidade()?></td> 
+                                <td><?=$item->getCpf()?></td> 
+                                <td><?=$item->getDocumento()?></td> 
+                                <td><?=$item->getIdTipoDocumento()?></td> 
+                                <td><?=$item->getAutoridadeEmissora()?></td> 
+                                <td><?=$item->getDataExpedicao()?></td> 
+                                <td><?=$item->getDataValidadePassaporte()?></td> 
+                                <td><?=$item->getNomeMae()?></td> 
+                                <td><?=$item->getNomePai()?></td> 
+                                <td><?=$item->getEndereco()?></td> 
+                                <td><?=$item->getBairro()?></td> 
+                                <td><?=$item->getCep()?></td> 
+                                <td><?=$item->getMunicipio()?></td> 
+                                <td><?=$item->getEstado()?></td> 
+                                <td><?=$item->getIdPaisOrigem()?></td> 
+                                <td><?=$item->getStatusConsolidadoBgc()?></td> 
+                                <td><?=$item->getFoto()?></td> 
+                                <td><?=$item->getStatusSistema()?></td> 
+                                
+                                <td style="width: 100px">
+                                    <?=\Estrutura\Service\HtmlHelper::botaoAlterar($this->url('application',array('controller'=>$controller,'action'=>'cadastro','id'=>$item->getId())))?>
+                                    <?=\Estrutura\Service\HtmlHelper::botaoExcluir($this->url('application',array('controller'=>$controller,'action'=>'excluir','id'=>$item->getId())))?>
+                                </td>
+                            </tr>
+                        <?php }; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success pull-right" href="<?=$this->url('application',array('controller'=>$controller,'action'=>'cadastro'))?>">Cadastrar</a>
+        </div>
+    </div>
+</div>

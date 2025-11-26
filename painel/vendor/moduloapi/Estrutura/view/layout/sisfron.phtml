@@ -1,0 +1,123 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+    <title>SISFRON</title>
+
+    <!-- CSSs -->
+    <!-- Bootstrap Default Styles -->
+    <link href="<?= $this->basePath('/assets/lib/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+
+    <!-- Datatable -->
+    <link rel="stylesheet" href="/assets/lib/datatable/datatable_boostrap.css">
+
+    <link href="<?= $this->basePath('/assets/lib/bootstrap/css/bootstrap-theme.min.css'); ?>" rel="stylesheet">
+
+    <!-- Paper Elements Google Material Design-->
+    <!--     <link href="/sisfron/css/material-wfont.css" rel="stylesheet"> -->
+    <link href="/sisfron/css/ripples.css" rel="stylesheet">
+    <link href="/sisfron/css/material.css" rel="stylesheet">
+
+    <!-- SISFRON -->
+    <link href="/sisfron/css/sisfron.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="/sisfron/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/sisfron/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/estilo.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="shadow-z-1">
+    <div class="col-md-2">
+        <img src="/sisfron/img/logo-sisfron.png" alt="logo-sisfron" class="img-responsive"  />
+    </div>
+    <div class="col-md-3 col-md-offset-7 name-logout text-right">
+        <span> <?= $this->Usuario()->getNome() ?> | <a class="btn-link" href="/index/sair">Sair</a></span>
+    </div>
+</header>
+<?=$this->render('mensagens')?>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Alterar Navegação</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Controle de Acesso</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Principal</a></li>
+                <li><a href="/pessoas">Pessoas</a></li>
+                <li><a href="/grupos">Perfis</a></li>
+                <li><a href="/aplicacoes">Aplicações AIMS</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+
+</nav>
+<div class="container">
+    <?=$this->content?>
+</div> <!-- /container -->
+
+
+<div class="modal fade" id="modalConfirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-confirm">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Você realmente deseja executar a ação?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                <a href="" class="link-confirm btn btn-primary">Sim</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modalLoading">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/assets/img/carregando.gif" alt="Carregando....">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+
+<!-- JS's -->
+<script src="<?= $this->basePath('/assets/lib/jquery/js/jquery-2.1.4.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/lib/bootstrap/js/bootstrap.min.js'); ?>"></script>
+
+<!-- Data table -->
+<script src="/assets/lib/datatable/datatable.js"></script>
+<script src="/assets/lib/datatable/datatable_boostrap.js"></script>
+<script src="/assets/lib/datatable/datatable_config.js"></script>
+
+<!-- Mask -->
+<script src="/assets/lib/mask/mask.js"></script>
+
+<!-- Sisfron JS's -->
+
+<script src="/sisfron/js/material.js"></script>
+<script src="/sisfron/js/ripples.js"></script>
+
+<!-- Custom JS -->
+<script src="/assets/js/functions.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+</html>

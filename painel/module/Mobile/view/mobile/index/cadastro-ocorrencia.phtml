@@ -1,0 +1,122 @@
+<?php
+// Caminho: module/Application/view/application/triagem/cadastro-ocorrencia.phtml
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('mobile', array('action' => 'cadastro-ocorrencia')));
+$form->prepare();
+
+// Adiciona os IDs corretos para que o JavaScript encontre os campos
+// Nota do Guardião: Mantendo a redundância de setAttribute('class', 'form-control') para evitar a quebra do seu código original,
+// mas apenas a última chamada é aplicada pelo ZF2.
+$form->get('municipio')->setAttribute('id', 'autocomplete-municipio')->setAttribute('class', 'form-control');
+$form->get('uf')->setAttribute('id', 'autocomplete-uf')->setAttribute('class', 'form-control');
+$form->get('coordenacao')->setAttribute('id', 'autocomplete-coordenacao')->setAttribute('class', 'form-control');
+$form->get('categoria')->setAttribute('id', 'categoria')->setAttribute('class', 'form-control');
+$form->get('subcategoria')->setAttribute('id', 'subcategoria')->setAttribute('class', 'form-control');
+$form->get('impacto_aplicacao')->setAttribute('id', 'impacto_aplicacao')->setAttribute('class', 'form-control');
+$form->get('nro_processo')->setAttribute('id', 'nro_processo')->setAttribute('class', 'form-control');
+$form->get('DiaAplicacao')->setAttribute('class', 'form-control');
+$form->get('descricao')->setAttribute('class', 'form-control');
+$form->get('providencias_adotadas')->setAttribute('class', 'form-control');
+$form->get('anexo')->setAttribute('class', 'form-control');
+$form->get('titulo')->setAttribute('class', 'form-control');
+?>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="form-title">Cadastro de Ocorrência</h2>
+        
+        <?php // ID alterado para evitar a interceptação do AJAX e permitir o redirect do PHP ?>
+        <form action="<?=$this->url('mobile', array('action' => 'cadastro-ocorrencia'))?>" method="post" id="mobile-cadastro-alerta" enctype="multipart/form-data" class="cadastro-alerta">
+        
+            <fieldset>
+                <div class="row content-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">* Avaliação Pedagógica</label>
+                            <input type="text" class="form-control" value="<?=$this->escapeHtml($this->sistema)?>" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"><?=($this->sistema=='Enem') ? '*' : ''?> Dia da aplicação</label>
+                            <?=$this->formRowNoLabel($form->get('DiaAplicacao'));?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="municipio">
+                                * Município
+                                <small>
+                                    Digite o nome do município (mínimo 3 letras) e aguarde a lista de sugestões.
+                                </small>
+                            </label>
+                            <?=$this->formRowNoLabel($form->get('municipio'));?>
+                        </div>
+                        
+                        <?=$this->formRowNoLabel($form->get('uf'));?>
+
+                        <div class="form-group">
+                            <label for="coordenacao">
+                                Coordenação
+                                <small>
+                                    As coordenações serão carregadas automaticamente após você selecionar um Município.
+                                </small>
+                            </label>
+                            <?=$this->formRowNoLabel($form->get('coordenacao'));?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoria">
+                                * Categoria
+                                <small>
+                                    Selecione na lista a categoria e subcategoria que melhor descreve a ocorrência.
+                                </small>
+                            </label>
+                            <?=$this->formRowNoLabel($form->get('categoria'));?>
+                        </div>
+                        
+                        <div class="form-group subcategorias" style="display:none;">
+                            <label>Subcategoria</label>
+                            <?=$this->formRowNoLabel($form->get('subcategoria'));?>
+                        </div>
+
+                        <div class="form-group impacto-aplicacao" style="display:none;">
+                            <label>* Impacto na Aplicação?</label>
+                            <?=$this->formRowNoLabel($form->get('impacto_aplicacao'));?>
+                        </div>
+
+                       <div class="form-group nro-processo" style="display:none;">
+                            <label>* N° Processo</label>
+                            <?=$this->formRowNoLabel($form->get('nro_processo'));?>
+                        </div>
+
+                        <?=$this->formRowNoLabel($form->get('titulo'));?>
+
+                        <div class="form-group">
+                            <label for="descricao">* Descrição da Ocorrência</label>
+                            <?=$this->formRowNoLabel($form->get('descricao'));?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="providencias_adotadas">Providências Adotadas</label>
+                            <?=$this->formRowNoLabel($form->get('providencias_adotadas'));?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="anexo">Anexar Arquivos (Imagens e/ou Documentos)</label>
+                            <?=$this->formRowNoLabel($form->get('anexo'));?>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <hr/>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+                <a href="<?=$this->url('mobile')?>" class="btn btn-default btn-lg">Cancelar</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,120 @@
+header {
+  background: white;
+  height: 50px;
+  width: 100%;
+  padding: 5px 0 0 20px;
+  margin-bottom: 15px;
+}
+
+header i {
+  margin-top: 8px;
+}
+
+header .name-logout span {
+  position: relative;
+  top: -5px;
+}
+
+header img {
+  max-height: 40px;
+}
+
+.container {
+  background: white;
+}
+
+.a-grid-menu {
+  background: #9cc254;
+  padding: 6px 5px 5px 5px;
+  height: 45px;
+  border: solid 1px #d8d8d8;
+  border-bottom: 0px;
+}
+
+.a-grid-menu .btn {
+  margin: 0px;
+  text-transform: none;
+  padding: 8px 12px 6px 12px;
+  font-size: 12px;
+  letter-spacing: .03rem;
+  text-rendering: optimizeLegibility;
+}
+
+.a-grid-menu .btn-default {
+  background-color: transparent;
+  color: white;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.a-grid-menu .btn:hover:not(.btn-link) {
+  background-color: #2d955d;
+  color: white;
+}
+
+.dataTables_wrapper {
+  border: solid 1px #d8d8d8;
+  border-top: 0px;
+  margin-top: -10px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.dataTables_wrapper .row:last-child {
+  background: #edefe4;
+  width: 100%;
+  margin: -6px auto 0px auto;
+  font-size: 12px;
+}
+
+.dataTables_wrapper .row:last-child .dataTables_info {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.dataTables_wrapper .row:last-child .dataTables_paginate {
+  padding: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  opacity: 0.8;
+}
+
+.table-footer {
+  border: 1px solid #dddddd;
+}
+
+.table-footer .data-table-counter {
+  margin-top: 7px;
+}
+
+.pagination .paginate_button.next a,
+.pagination .paginate_button.previous a {
+  color: #6e7161;
+}
+
+.pagination .paginate_button.next.disabled a,
+.pagination .paginate_button.previous.disabled a {
+  color: #dddddd;
+}
+
+.form-control {
+  color: #6e7161;
+}
+
+.form-group textarea {
+  max-width: 100%;
+  min-width: 100%;
+  resize: vertical;
+  min-height: 52px;
+}

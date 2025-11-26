@@ -1,0 +1,30 @@
+<form id="formAutenticar" data-role="form" class="form-horizontal" name="formAutenticar" method="POST" action="<?=$this->url('usuario-home',array('controller'=>'usuario','action'=>'autenticar'))?>">
+    <div class="container">
+        <div class="col-md-3 logar">
+            <form role="form" class="form-signin" method="post">
+                <input type="hidden" name="resetar" value="0" />
+                <h2 class="form-signin-heading">Login</h2>
+                <input type="text" autofocus="" required="" placeholder="Email" class="form-control" name="email">
+                <br />
+                <input type="password" required="" placeholder="Senha" class="form-control" name="senha">
+                <br />
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Conectar</button>
+                <br />
+                <a class="link esqueci-senha" href="#">Esqueci a senha</a>
+            </form>
+        </div>
+
+        <div class="col-md-3 lembrar-senha" style="display: none">
+            <form role="form" class="form-signin" method="post">
+                <input type="hidden" name="resetar" value="1" />
+                <h2 class="form-signin-heading">Resetar Senha</h2>
+                <input type="text" autofocus="" required="" placeholder="Email" class="form-control" name="email">
+                <br />
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Resetar</button>
+                <br/>
+                <a class="link esqueci-senha voltar" href="#">Voltar</a>
+            </form>
+        </div>
+
+    </div>
+</form>

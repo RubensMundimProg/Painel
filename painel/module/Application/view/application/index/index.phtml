@@ -1,0 +1,313 @@
+<?php
+    $menus=0;
+?>
+<style>
+    .icon-menu{
+        padding-top: 20px
+    }
+</style>
+<div class="menu" data-menu="home"></div>
+
+<div class="container-fluid content" data-menu="home" >
+    <div class="row content-title" style="margin-bottom: -30px">
+        <h1>Monitoramento de Exame
+            <span class="pull-right">
+                <a href="#" data-toggle="tooltip" title="Página de acesso com as funcionalidades disponiveis para o Painel de Monitoramento.">
+                    <img src="<?= $this->basePath("/assets/img/ico/ico_help_page.png"); ?>">
+                </a>
+            </span>
+        </h1>
+    </div>
+
+    <div class="row content-icons">
+
+        <?php if($this->Perfil('index', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-user fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/index/meu-espaco") ?>">Meu Espaço</a>
+                        </h4>
+                        <p class="text-item">Visualize as notificações do sistema.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/index/meu-espaco") ?>">Meu Espaço</a>
+                            <?php if($this->Perfil('index','gerir-aviso')){?>
+                                | <a href="<?= $this->basePath("/index/gerir-aviso") ?>">Gerenciar Avisos</a>
+                            <?php }; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('triagem', 'cadastro-ocorrencia')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-bullhorn fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/triagem/cadastro-ocorrencia") ?>">Ocorrência</a>
+                        </h4>
+                        <p class="text-item">Realiza cadastro de Ocorrência.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/triagem/cadastro-ocorrencia") ?>">Cadastrar Ocorrência</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('triagem', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-check-square-o fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/triagem/index") ?>">Triagem</a>
+                        </h4>
+                        <p class="text-item">Realiza triagem de Ocorrências.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/triagem/index") ?>">Listar Ocorrências para Triagem</a>
+
+                            <?php if($this->Perfil('triagem', 'recusados')) : ?>
+                                | <a href="<?= $this->basePath("/triagem/recusados") ?>">Ocorrências Arquivadas</a>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('validados', 'index')) :?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-tasks fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/validados") ?>">Atualizar Progresso dos Alertas</a>
+                        </h4>
+                        <p class="text-item">Atualize o progresso dos alertas</p>
+                        <p class="text-item sublinhado">
+                            <?php if($this->Perfil('validados', 'index')) :?>
+                                <a href="<?= $this->basePath("/validados") ?>">Atualizar Progresso dos Alertas</a>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+
+        <?php if(!$this->Perfil('dashboard', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-line-chart fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?=$this->RiskManager()->get('urlRM')?>/Dashboard/MyDashboards/View/95" target="_blank">Dashboard</a>
+                        </h4>
+                        <p class="text-item">Visualizar dados da aplicação</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?=$this->RiskManager()->get('urlRM')?>/Dashboard/MyDashboards/View/95" target="_blank">Visualizar Dashboard</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('dashboard-index', '*')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-globe fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/dashboard")?>">Painel de Monitoramento</a>
+                        </h4>
+                        <p class="text-item">Visualizar painel de monitoramento</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/dashboard") ?>">Painel de Monitoramento</a>
+                            <?php if($this->Perfil('index','gerir-atividade')){?>
+                                | <a href="<?= $this->basePath("/index/gerir-atividade") ?>" >Gerenciar as Atividades</a>
+                            <?php };?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('ultima-milha', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-truck fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/dashboard/ultima-milha") ?>" target="_blank">Entrega/Coleta</a>
+                        </h4>
+                        <p class="text-item">Visualizar indicadores de entregas dos malotes</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/dashboard/ultima-milha") ?>" target="_blank">Visualizar</a>
+                            <?php if($this->Perfil('configuracao', 'correios')) : ?>
+                                | <a href="<?= $this->basePath("/configuracao/correios") ?>">Atualizar Dados</a>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('relatorios', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-file-text fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/relatorios") ?>">Relatórios</a>
+                        </h4>
+                        <p class="text-item">Gerar Relatórios da Operação</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/relatorios") ?>">Gerar Relatórios</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('calendario', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-calendar fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/calendario") ?>">Calendário</a>
+                        </h4>
+                        <p class="text-item">Visão em calendário dos processos.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/calendario") ?>">Visualizar Calendário</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('gantt', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-align-left fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/gantt") ?>">Gráfico de Gantt</a>
+                        </h4>
+                        <p class="text-item">Visão em Gráfico de Gantt dos processos.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/gantt") ?>">Visualizar Gráfico de Gantt</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('contratos', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-briefcase fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/contratos") ?>">Gestão de Contratos</a>
+                        </h4>
+                        <p class="text-item">Interface para gestão dos contratos.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/contratos") ?>">Visualizar Contratos</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('configuracao', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-cog fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/configuracao") ?>">Configurações Gerais</a>
+                        </h4>
+                        <p class="text-item">Configurações Gerais do Painel</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/configuracao") ?>">Entrar nas Configurações Gerais</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if($this->Perfil('ajuda', 'index')) :
+            $menus++;
+            ?>
+            <div class="col-md-4 icon-menu">
+                <div class="row">
+                    <div class="col-md-3 icon-content">
+                        <i class="fa fa-question-circle fa-6x"></i>
+                    </div>
+                    <div class="col-md-9 text-content">
+                        <h4 class="title-item">
+                            <a href="<?= $this->basePath("/ajuda") ?>">Ajuda</a>
+                        </h4>
+                        <p class="text-item">Manuais de Utilização das Aplicações.</p>
+                        <p class="text-item sublinhado">
+                            <a href="<?= $this->basePath("/ajuda") ?>">Ver Ajuda</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+    </div>
+    <div class="clearfix" style="height: 20px">&nbsp;</div>
+</div>

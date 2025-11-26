@@ -1,0 +1,83 @@
+/**
+ * Created by Bruno on 10/4/14.
+ */
+body {
+    background-color: transparent;
+    color: #fbfbfb;
+    font-family: "open sans",arial,sans-serif;
+}
+.marquee {
+    width: auto;
+    overflow: hidden;
+    background: transparent;
+    color: #fbfbfb;
+}
+.gray {
+    color: gray;
+}
+
+.light-gray {
+    color: lightgray;
+}
+
+.loading {
+    position: absolute;
+    z-index: 9999;
+    background: url('../loading.gif') no-repeat;
+    top: 45%;
+    left: 45%;
+    cursor: wait;
+    width: 161px;
+    height: 161px;
+}
+
+div.relogios > div > h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px !important;
+}
+div.relogios > div > h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px !important;
+}
+
+div.news > div > h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+div.news > div > h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 13px !important;
+}
+
+/*BARRA DE ACESSIBILIDADE*/
+.acessibilidade {
+    background-color: transparent;
+    border-color: transparent;
+
+    position: relative;
+    min-height: 0;
+    margin-bottom: 0;
+    opacity: 0.4;
+}
+
+.acessibilidade .container {
+    padding-right: 0;
+    padding-left: 0;
+    margin:0;
+}
+
+.navbar-default.acessibilidade:hover {
+    opacity: 1;
+}
+
+.acessibilidade .navbar-nav>li>a {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.acessibilidade .navbar-nav>li>a:hover {
+    color:#ebebeb;
+}

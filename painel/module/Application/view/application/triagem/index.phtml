@@ -1,0 +1,332 @@
+<script>
+    $(function () {
+        var time = 5;
+        $('.time_refres').html(time);
+
+        setInterval(function () {
+            time = time - 1;
+            $('.time_refres').html(time);
+
+            if (time == 0) {
+                location.reload();
+            }
+        }, 60000);
+    })
+</script>
+<div class="menu" data-menu="Triagem"></div>
+
+<div class="container-fluid content" data-menu="Triagem de Ocorrências">
+    <div class="row content-title">
+        <h1>Triagem de Ocorrências - <?= $sistema ?>
+            <span class="pull-right">
+                <a href="<?= $this->basePath("/") ?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+    </div>
+
+    <div class="clearfix">&nbsp;</div>
+
+    <div class="row content-body">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-md-8">
+                        <?php if ($this->Perfil('triagem', 'multiplo')) { ?>
+                            <button type="button" class="btn btn-arquivar-acao arquivar-varios"> Arquivar Ocorrências
+                            </button>
+                        <?php }; ?>
+                        <?php if ($this->Perfil('validados', 'index')) : ?>
+                            <a href="<?= $this->basePath("/validados/index") ?>" type="button"
+                               class="btn btn-assinatura"> Atualização de Progresso dos Alertas</a>
+                        <?php endif; ?>
+                        <?php if ($this->Perfil('triagem', 'recusados')) : ?>
+                            <a href="<?= $this->basePath("/triagem/recusados") ?>" type="button"
+                               class="btn btn-arquivar"> Ocorrências Arquivadas</a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        A Página será recarregada em <strong class="time_refres"></strong> minutos.
+                    </div>
+                </div>
+
+                <form action="">
+                    <div class="well">
+                        <div class="col-md-12">
+                            <h4>Filtros:</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group checkbox">
+                                <label class="control-label">Categorias:</label><br>
+                                <?php $options = $form->get('Categoria')->getOptions(); ?>
+                                <?php foreach ($options['value_options'] as $option) : ?>
+                                    <?php if ($option == 'Selecione') continue; ?>
+                                    <?php
+                                    $checked = '';
+                                    if (in_array($option, $categoriasSelecionadas)) $checked = 'checked="checked"';
+                                    ?>
+                                    <label>
+                                        <input type="checkbox" name="Categoria[]"
+                                               value="<?= $option ?>" <?= $checked ?>>
+                                        <?= $option ?>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="" class="control-label">Origem da Ocorrência</label>
+                                <?= $this->formRow($form->get('OrigemInformacao')) ?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <?= $this->formRow($form->get('UfFiltro')) ?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="" class="control-label">Data</label>
+                                <?= $this->formRow($form->get('DataRegistro')) ?>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-filtro" value="Filtrar">
+                            <a href="/triagem/limpar" class="btn btn-filtro">Limpar Filtro</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+                <table class="table table-condensed table-striped datatable">
+                    <thead>
+                    <tr>
+                        <?php if ($this->Perfil('triagem', 'multiplo')) { ?>
+                            <th><input type="checkbox" id="select-all"></th>
+                        <?php }; ?>
+                        <th>Municipio</th>
+                        <th>Coordenação</th>
+                        <th>Categoria</th>
+                        <th>SubCategoria</th>
+                        <th>Descrição</th>
+                        <th>Providências Adotadas</th>
+                        <th>Usuário</th>
+                        <th>Origem da Ocorrência</th>
+                        <th>Data/Hora</th>
+                        <th>Anexo</th>
+                        <th class="icon"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($lista as $item) { ?>
+
+                        <tr data-id="<?= $item->getId() ?>">
+                            <?php if ($this->Perfil('triagem', 'multiplo')) { ?>
+                                <td><input type="checkbox" class="arquivar-check" data-id="<?= $item->getId() ?>"></td>
+                            <?php }; ?>
+                            <td><?= $item->getMunicipio(); ?></td>
+                            <td><?= ($item->getCoordenacao()) ? $item->getCoordenacao() : '-'; ?></td>
+                            <td><?= $item->getCategoria(); ?></td>
+                            <td><?= ($item->getSubCategoria()) ? $item->getSubCategoria() : '-'; ?></td>
+                            <td style="font-size: 10px;">
+                                <div style="overflow: auto; max-height: 100px"><?= $item->getDescricao(); ?></div>
+                            </td>
+                            <td>
+                                <div style="overflow: auto; max-height: 100px"><?= $item->getProvidenciasAdotadas(); ?></div>
+                            </td>
+                            <td><?= $item->getUsuario(); ?></td>
+                            <td><?= $item->getOrigemInformacao(); ?></td>
+                            <td><?= $item->getDataHora(); ?></td>
+                            <td class="anexo"><?= ($item->hasAnexos()) ? '<a href="javascript:void(0);" class="view-anexo" data-anexo="' . $item->getAnexo() . '" title="Visualizar Anexo"><img src="/assets/img/ico/anexo.png" alt="Ver Anexo(s)" title="Ver Anexo(s)"/></a>' : '' ?></td>
+                            <td class="hidden-print action">
+                                <?php if ($this->Perfil('triagem', 'editar-triagem')) : ?>
+                                    <a href="javascript:void(0)"
+                                       data-url="/triagem/editar-triagem/<?= $item->getId() ?>" class="btn-editar">
+                                        <img src="/assets/img/ico/ico_edit.png" alt="Editar Ocorrência"
+                                             title="Editar Ocorrência"/>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if ($this->Perfil('triagem', 'confirmar-triagem')) : ?>
+                                    <a href="javascript:void(0)"
+                                       data-url="/triagem/confirmar-triagem/<?= $item->getId() ?>" class="btn-confirma">
+                                        <img src="/assets/img/ico/ico_success.png" alt="Confirmar Ocorrência"
+                                             title="Confirmar Ocorrência"/>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if ($this->Perfil('triagem', 'confirmar-triagem')) : ?>
+                                    <a href="javascript:void(0)"
+                                       data-url="/triagem/confirmar-triagem/<?= $item->getId() ?>|2"
+                                       class="btn-confirma">
+                                        <img src="/assets/img/ico/ico_double_success.png"
+                                             alt="Confirmar Ocorrência e Fechar Alerta"
+                                             title="Confirmar Ocorrência e Fechar Alerta"/>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ($this->Perfil('triagem', 'excluir-triagem')) : ?>
+                                    <a href="#"
+                                       onclick="msgConfirmacao('/triagem/excluir-triagem','<?= $item->getId() ?>','exclusao','ocorrencia')">
+                                        <img src="<?= $this->basePath("/assets/img/ico/folder-16x16.png") ?>"
+                                             alt="Arquivar Ocorrência" title="Arquivar Ocorrência"/>
+                                    </a>
+                                <?php endif; ?>
+
+                            </td>
+                        </tr>
+                    <?php }; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--    fim-->
+
+    <!-- ESPAÇAMENTOS -->
+    <div class="clearfix">&nbsp;</div>
+</div>
+
+
+<!--POPS DE CONFIRMAÇÃO DE AÇÃO-->
+
+<!--EXCLUSÃO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-exclusao" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_delete_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="code" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick="">
+                                        Não
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--ENCERRAMENTO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-encerramento" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_close_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="registro" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick="">
+                                        Não
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--CANCELAMENTO-->
+<div class="modal fade msg-confirmacao-acao" id="msg-cancelamento" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header panel-title">
+                <h3 class="modal-title"></h3>
+            </div>
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 degrade-beige icon">
+                            <img src="<?= $this->basePath("/assets/img/ico/rm/ico_event_cancel_80.png"); ?>" alt=""/>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 msg">
+                            <input type="hidden" id="" name="registro" class="registro"/>
+                            <p class="modal-msg"></p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-validar">Sim</button>
+                                    <button type="button" class="btn btn-cancelar" data-dismiss="modal" onclick="">
+                                        Não
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script>
+    $(function () {
+        $('#select-all').change(function (event) {
+            var status = this.checked;
+            $('.arquivar-check:visible').each(function () {
+                this.checked = status;
+            });
+        });
+
+        $('.arquivar-varios').click(function () {
+            var dados = [];
+            $('.arquivar-check:checked').each(function () {
+                dados.push($(this).attr('data-id'));
+            });
+
+            if (dados.length == 0) {
+                alert('Selecione pelo menos 1 registro');
+                return false;
+            }
+
+            $.ajax({
+                url: '/triagem/arquivar-varios',
+                dataType: 'json',
+                type: 'POST',
+                data: {'dados': dados},
+                success: function (res) {
+                    if (res.error) {
+                        alert('Erro o executar');
+                    } else {
+                        location.reload();
+                    }
+                }
+            })
+        })
+    })
+</script>

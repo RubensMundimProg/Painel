@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/customizado.css"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="loading"></div>
+
+    <div class="row relogios text-center">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="rio-branco"></h3>
+            <h5>Rio Branco (AC)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="manaus"></h3>
+            <h5>Manaus (AM)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="brasilia"></h3>
+            <h5>Brasília (DF)</h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <h3 id="fernando-noronha"></h3>
+            <h5>Fernando Noronha (PE)</h5>
+        </div>
+    </div>
+
+    <!--GLOBO G1 BRASIL-->
+    <div class="row news">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h5 class="gray">G1 - Brasil</h5>
+            <h4 class="marquee light-gray" id="g1-brasil">Carregando notícias...</h4>
+        </div>
+    </div>
+
+    <!--GOOGLE-->
+    <div class="row news">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h5 class="">Google</h5>
+            <h4 class="marquee" id="google">Carregando notícias...</h4>
+        </div>
+    </div>
+
+    <!--CNN NEWS-->
+    <div class="row news">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h5 class="gray">Clima Tempo - Destaque</h5>
+            <h4 class="marquee light-gray" id="climatempo-destaque">Carregando notícias...</h4>
+        </div>
+    </div>
+
+    <!--CLIMA Tempo-->
+    <div class="row news">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h5 class="">Clima Tempo - Brasil</h5>
+            <h4 class="marquee" id="climatempo-brasil">Carregando notícias...</h4>
+        </div>
+    </div>
+
+    <!--CLIMA Tempo REGIÃO-->
+    <div class="row news">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h5 class="gray">Clima Tempo - Regiões</h5>
+            <h4 class="marquee light-gray" id="climatempo-regioes">Carregando notícias...</h4>
+        </div>
+    </div>
+
+    <!--CLIMA Tempo UF-->
+    <!--<div class="row">-->
+        <!--<div class="col-xs-2 col-sm-2 col-md-2">-->
+            <!--<h5 class="gray">Clima Tempo - Capitais</h5>-->
+        <!--</div>-->
+        <!--<div class="col-xs-10 col-sm-10 col-md-10">-->
+            <!--<h5 class="marquee" id="climatempo-capitais-a">Carregando notícias...</h5>-->
+            <!--<h5 class="marquee light-gray" id="climatempo-capitais-b">Carregando notícias...</h5>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!--TEMPO RESTANTE PARA A PROXIMA ATUALIZAÇÃO-->
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+            <h6 class="gray" id="time-remain"></h6>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="marquee/jquery.marquee.js"></script>
+
+<script type="text/javascript" src="../../js/moment.js"></script>
+<script type="text/javascript" src="../../js/moment-with-locales.js"></script>
+<script type="text/javascript" src="../../js/moment-timezone-with-data-2010-2020.js"></script>
+
+<script>
+//RSS
+    function loadRss(){
+        $.ajax({
+            url: "rss-loader.php",
+            context: document.body
+        }).done(function(x) {
+            x = JSON.parse(x);
+            getGloboNews(x[0]);
+            getGoogleNews(x[1]);
+            getClimaTempoDestaque(x[2]);
+            getClimaTempoBrasil(x[3]);
+            getClimaTempoRegioes(x[4]);
+            getClimaTempoCapitaisA(x[5]);
+            getClimaTempoCapitaisB(x[6]);
+
+            timeRemain(1800000);
+
+        });
+    }
+
+    function getGloboNews(x){
+        var item = '';
+        if(x.length < 1)
+            $("#g1-brasil").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['date']+" - "+value['title']+" | ";
+            $("#g1-brasil").text(item);
+        });
+
+        //START MARQUEE
+        $('#g1-brasil').marquee({
+            duration: 12000
+        });
+    }
+
+    function getGoogleNews(x){
+        var item = '';
+        if(x.length < 1)
+            $("#google").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['date']+" - "+value['title']+" | ";
+            $("#google").text(item);
+        });
+
+        //START MARQUEE
+        $('#google').marquee({
+            duration: 12000
+        });
+    }
+
+    function getClimaTempoDestaque(x){
+        var item = '';
+        if(x.length < 1)
+            $("#climatempo-destaque").text('');
+        $.each(x, function(index, value) {
+            item = item+value['date']+" - "+value['title']+" | "+" - "+value['description']+" | ";
+            $("#climatempo-destaque").text($.trim(item));
+        });
+
+        //START MARQUEE
+        $('#climatempo-destaque').marquee({
+            duration: 10000
+        });
+    }
+
+    function getClimaTempoBrasil(x){
+        var item = '';
+        if(x.length < 1)
+            $("#climatempo-brasil").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['date']+" - "+value['title']+" | "+" - "+value['description']+" | ";
+            $("#climatempo-brasil").text(item);
+        });
+
+        //START MARQUEE
+        $('#climatempo-brasil').marquee({
+            duration: 10000
+        });
+    }
+
+    function getClimaTempoRegioes(x){
+        var item = '';
+        if(x.length < 1)
+            $("#climatempo-regioes").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['date']+" - "+value['title']+value['description']+" | ";
+            $("#climatempo-regioes").text(item);
+        });
+
+        //START MARQUEE
+        $('#climatempo-regioes').marquee({
+            duration: 9000
+        });
+    }
+
+    function getClimaTempoCapitaisA(x){
+        var item = '';
+        if(x.length < 1)
+            $("#climatempo-capitais-a").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['title']+value['description'];
+            $("#climatempo-capitais-a").text(item);
+        });
+
+        //START MARQUEE
+        $('#climatempo-capitais-a').marquee({
+            duration: 8000
+        });
+    }
+
+    function getClimaTempoCapitaisB(x){
+        var item = '';
+        if(x.length < 1)
+            $("#climatempo-capitais-b").text('');
+
+        $.each(x, function(index, value) {
+            item = item+value['title']+value['description'];
+            $("#climatempo-capitais-b").text(item);
+        });
+
+        //START MARQUEE
+        $('#climatempo-capitais-b').marquee({
+            duration: 8000
+        });
+    }
+
+
+    function timeRemain(time){
+        time = time / 1000;
+        var interval = setInterval(function (){
+            if(time > 1){
+                $("#time-remain").text(sformat(time));
+                time--;
+            } else {
+                clearInterval(interval);
+            }
+        },1000)
+
+    }
+
+    function sformat(s) {
+        var fm = [
+//            Math.floor(s / 60 / 60 / 24), // DAYS
+//            Math.floor(s / 60 / 60) % 24, // HOURS
+            Math.floor(s / 60) % 60, // MINUTES
+            s % 60 // SECONDS
+        ];
+        return $.map(fm, function(v, i) { return ((v < 10) ? '0' : '') + v; }).join(':');
+    }
+
+
+//    RELOGIOS
+    function relogios(){
+        $('#data-hoje').empty().append(moment().tz("America/Sao_Paulo").format('dddd[,] D [de] MMMM [de] YYYY'));
+        $('#rio-branco').empty().append(moment().tz("America/Rio_Branco").format('H:mm'));
+        $('#manaus').empty().append(moment().tz("America/Manaus").format('H:mm'));
+        $('#brasilia').empty().append(moment().tz("America/Sao_Paulo").format('H:mm'));
+        $('#fernando-noronha').empty().append(moment().tz("America/Noronha").format('H:mm'));
+    }
+
+    function iniciarRelogios(){
+        moment.locale('pt-br');
+        relogios();
+        setInterval(function(){
+            relogios();
+        },60000)
+    }
+
+
+
+    $(document).ready(function(){
+
+        iniciarRelogios();
+        loadRss();
+        setInterval(function(){
+            loadRss();
+        },1800000);
+
+        $(document).ajaxStart(function() {
+            $('div.loading').show();  // show loading indicator
+        })
+
+        $(document).ajaxStop(function() {
+            $('div.loading').hide();  // hide loading indicator
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+span.required{
+    color:red;
+    cursor: pointer;
+}
+
+.top-spacing{
+    margin-top: 10px;
+}
+
+.a-grid-menu{
+    margin-bottom: 8px;
+}
+
+label{
+    font-weight: 100;
+}
+
+.container-alertas ul{
+    list-style-type: none;
+}
+
+.modal-content .modal-footer .btn + .btn {
+    margin-bottom: 0 !important;
+}
