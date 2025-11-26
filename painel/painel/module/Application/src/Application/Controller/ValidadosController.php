@@ -491,53 +491,39 @@ class ValidadosController extends AbstractEstruturaController
 
             echo 'Cache Realizado as ' . date('Y-m-d H:i:s') . PHP_EOL;
 
-            file_put_contents('./data/validados_history.txt', 'Sincronizado as: ' . date('d/m/Y H:i:s'));
+           file_put_contents('./data/validados_history.txt', 'Sincronizado as: ' . date('d/m/Y H:i:s'));
 
-            if (APPLICATION_ENV == 'production') {
-                echo 'Registrando  Ocorrencias no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                /// Gera cache dos validados para filtro do CMI
-                $file = '\\\DOVERLANDIA\cmi\\cache_alertas.json';
-                file_put_contents($file, json_encode($cache));
+            // NOVO: pasta central de cache (somente no servidor)
+            $baseRepoDir = 'C:/Repositories/Json/';
 
-                echo 'Registrando  Alertas no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                ///Gera cache dos Alertas para filtro CMI
-                $ocorrencia = new Alertas();
-                $ocorrencia->setAno(date('Y'));
-//                $ocorrencia->setSistema('Enem');
-                $dadosOcorrencias = $ocorrencia->filtrarObjeto();
-                $file = '\\\DOVERLANDIA\cmi\\cache_ocorrencias.json';
-                file_put_contents($file, json_encode($dadosOcorrencias->toArray()));
-
-                echo 'Registrando  Última Milha no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                $milha = new UltimaMilha();
-                $listaMilha = $milha->filtrarObjeto();
-                $file = '\\\DOVERLANDIA\cmi\\cache_milha.json';
-                file_put_contents($file, json_encode($listaMilha->toArray()));
-            } else {
-                echo 'Registrando  Ocorrencias no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                /// Gera cache dos validados para filtro do CMI
-                $file = './public/filter/cache_alertas.json';
-                file_put_contents($file, json_encode($cache));
-
-                echo 'Registrando  Alertas no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                ///Gera cache dos Alertas para filtro CMI
-                $ocorrencia = new Alertas();
-                $ocorrencia->setAno(date('Y'));
-//                $ocorrencia->setSistema('Enem');
-                $dadosOcorrencias = $ocorrencia->filtrarObjeto();
-
-                $file = './public/filter/cache_ocorrencias.json';
-                file_put_contents($file, json_encode($dadosOcorrencias->toArray()));
-
-                echo 'Registrando  Última Milha no Cache Remoto' . date('Y-m-d H:i:s') . PHP_EOL;
-                $milha = new UltimaMilha();
-                $listaMilha = $milha->filtrarObjeto();
-                $file = './public/filter/cache_milha.json';
-                file_put_contents($file, json_encode($listaMilha->toArray()));
+            // Garante que a pasta existe (se não existir, tenta criar)
+            if (!is_dir($baseRepoDir)) {
+                @mkdir($baseRepoDir, 0775, true);
             }
+
+            echo 'Registrando Ocorrências no cache local (JSON externo)' . date('Y-m-d H:i:s') . PHP_EOL;
+
+            // Gera cache dos validados para consumo externo (substitui DOVERLANDIA)
+            $file = $baseRepoDir . 'cache_alertas.json';
+            file_put_contents($file, json_encode($cache));
+
+            echo 'Registrando Alertas no cache local (JSON externo)' . date('Y-m-d H:i:s') . PHP_EOL;
+            $ocorrencia = new Alertas();
+            $ocorrencia->setAno(date('Y'));
+            $dadosOcorrencias = $ocorrencia->filtrarObjeto();
+            $file = $baseRepoDir . 'cache_ocorrencias.json';
+            file_put_contents($file, json_encode($dadosOcorrencias->toArray()));
+
+            echo 'Registrando Última Milha no cache local (JSON externo)' . date('Y-m-d H:i:s') . PHP_EOL;
+            $milha = new UltimaMilha();
+            $listaMilha = $milha->filtrarObjeto();
+            $file = $baseRepoDir . 'cache_milha.json';
+            file_put_contents($file, json_encode($listaMilha->toArray()));
+
             $duracaoText = $this->checkDiffDatetime($startDatetime);
             file_put_contents('./data/cache/duracao.txt', $duracaoText);
-            echo $duracaoText . PHP_EOL;
+echo $duracaoText . PHP_EOL;
+
         }
 
         echo 'Saiu do While';

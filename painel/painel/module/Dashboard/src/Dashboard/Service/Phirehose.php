@@ -44,9 +44,9 @@ abstract class Phirehose
     protected $method;
     protected $format;
     protected $count; //Can be -150,000 to 150,000. @see http://dev.twitter.com/pages/streaming_api_methods#count
-    protected $followIds;
-    protected $trackWords;
-    protected $locationBoxes;
+    protected $followIds = [];
+    protected $trackWords = [];
+    protected $locationBoxes = [];
     protected $conn;
     protected $fdrPool;
     protected $buff;

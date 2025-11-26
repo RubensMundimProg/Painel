@@ -81,9 +81,14 @@ class StringMap {
 
         $a = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßŔàáâãäåæçèéêëìíîïðñòóôõöøùúûýþÿŕ';
         $b = 'AAAAAAACEEEEIIIIDNOOOOOOUUUUYBBRaaaaaaaceeeeiiiidnoooooouuuybyr';
-        $string = utf8_decode($string);
-        $string = strtr($string, utf8_decode($a), $b);
-        return utf8_encode($string);
+        $string = mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
+        $a_iso = mb_convert_encoding($a, 'ISO-8859-1', 'UTF-8');
+
+        // Faz a substituição
+        $string = strtr($string, $a_iso, $b);
+
+        // Converte de volta para UTF-8 (substituto do utf8_encode)
+        return mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1');
     }
 
     /**

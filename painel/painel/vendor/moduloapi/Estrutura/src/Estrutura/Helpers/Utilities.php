@@ -125,7 +125,7 @@ class Utilities {
      */
     public static function preencheEsquerda($texto, $tamanho, $preenchimento = ' ') {
 
-        return substr(str_pad(trim(utf8_decode($texto)), $tamanho, $preenchimento, STR_PAD_LEFT), 0, ($tamanho));
+        return substr(str_pad(trim(mb_convert_encoding($texto, 'ISO-8859-1', 'UTF-8')), $tamanho, $preenchimento, STR_PAD_LEFT), 0, ($tamanho));
     }
 
     /**
@@ -137,6 +137,6 @@ class Utilities {
      */
     public static function preencheDireita($texto, $tamanho, $preenchimento = ' ') {
 
-        return substr(str_pad(trim(utf8_decode($texto)), $tamanho, $preenchimento, STR_PAD_RIGHT), 0, ($tamanho));
+        return substr(str_pad(trim(mb_convert_encoding($texto, 'ISO-8859-1', 'UTF-8')), $tamanho, $preenchimento, STR_PAD_RIGHT), 0, ($tamanho));
     }
 }

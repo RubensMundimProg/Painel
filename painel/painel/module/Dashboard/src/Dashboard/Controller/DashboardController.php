@@ -48,6 +48,7 @@ class DashboardController extends AbstractEstruturaController
     {
         $request = $this->getRequest();
         $json = '';
+        
         if ($request->isPost()) {
             $post = $request->getPost()->toArray();
 
@@ -58,30 +59,45 @@ class DashboardController extends AbstractEstruturaController
 
                 $filename = 'dashboard_' . $sistema;
 
-                if ($post['start-date'] && $post['end-date']) {
+                if (isset($post['start-date']) && $post['start-date'] && isset($post['end-date']) && $post['end-date']) {
                     $filename .= '_' . str_replace('/', '-', implode('_', [$post['start-date'], $post['end-date']]));
                 }
 
                 if (!file_exists('./data/json/' . $filename . '.json')) {
                     $json = $this->buildDashboardDataAction($post, $filename);
                 } else {
-                    $time = filemtime('./data/json/' . $filename . '.json');
-                    $created = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', $time));
-                    $now = new \DateTime();
-                    $diff = $created->diff($now);
-                    if ($diff->days > 0 || $diff->h > 0 || $diff->i > 30) {
-                        $json = $this->buildDashboardDataAction($post, $filename);
+                    // --- CORREÇÃO 1: Verificação segura de arquivo ---
+                    $time = @filemtime('./data/json/' . $filename . '.json');
+                    if ($time && $created = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', $time))) {
+                        $now = new \DateTime();
+                        $diff = $created->diff($now);
+                        if ($diff->days > 0 || $diff->h > 0 || $diff->i > 30) {
+                            $json = $this->buildDashboardDataAction($post, $filename);
+                        } else {
+                            $json = true;
+                        }
                     } else {
-                        $json = true;
+                        $json = $this->buildDashboardDataAction($post, $filename);
                     }
+                    // -------------------------------------------------
                 }
 
                 if (!$json) {
                     $json = json_encode(['error' => true, 'message' => 'Não há massa de dados para o período e avaliação pedagógica selecionados.', 'dados' => []]);
                 } else {
-                    $update = filemtime('./data/json/' . $filename . '.json');
-                    $update = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', $update));
-                    $json = json_encode(['error' => false, 'message' => '', 'dados' => file_get_contents('./data/json/' . $filename . '.json'), 'update' => $update->format('d/m/Y H:i:s')]);
+                    $updateTime = @filemtime('./data/json/' . $filename . '.json');
+                    $updateStr = $updateTime ? date('d/m/Y H:i:s', $updateTime) : date('d/m/Y H:i:s');
+                    
+                    // Tenta ler o arquivo, se falhar retorna array vazio
+                    $fileContent = @file_get_contents('./data/json/' . $filename . '.json');
+                    if ($fileContent === false) $fileContent = '[]';
+
+                    $json = json_encode([
+                        'error' => false, 
+                        'message' => '', 
+                        'dados' => $fileContent, 
+                        'update' => $updateStr
+                    ]);
                 }
 
             } else {
@@ -89,13 +105,20 @@ class DashboardController extends AbstractEstruturaController
                 $sistema = $container->offsetGet('sistema');
 
                 if (file_exists("./data/json/dashboard_{$sistema}.json")) {
-                    $json = json_encode(['error' => false, 'message' => '', 'dados' => file_get_contents("./data/json/dashboard_{$sistema}.json")]);
+                    $fileContent = @file_get_contents("./data/json/dashboard_{$sistema}.json");
+                    $json = json_encode(['error' => false, 'message' => '', 'dados' => $fileContent ?: '[]']);
                 } else {
                     $json = json_encode(['error' => true, 'message' => 'Não há massa de dados para o período e avaliação pedagógica selecionados.', 'dados' => []]);
                 }
             }
-
         }
+
+        // --- CORREÇÃO 2: Limpeza de Buffer para garantir JSON puro ---
+        if (ob_get_length()) {
+            ob_clean();
+        }
+
+        header('Content-Type: application/json; charset=utf-8');
         echo $json;
         die;
     }
@@ -228,22 +251,38 @@ class DashboardController extends AbstractEstruturaController
                     continue;
                 }
 
+                // --- INÍCIO DA CORREÇÃO ---
                 $local = [];
-                if (preg_match('/ - /', $evento->municipio_de_aplicacao)) {
-                    $local = explode(' - ', $evento->municipio_de_aplicacao);
-                }
+                // Força converter para string e verifica se não está vazio
+                $municipioAplicacao = isset($evento->municipio_de_aplicacao) ? (string)$evento->municipio_de_aplicacao : '';
 
-                $local[0] = trim($local[0]);
+                if (!empty($municipioAplicacao) && preg_match('/ - /', $municipioAplicacao)) {
+                    $local = explode(' - ', $municipioAplicacao);
+                } else {
+                    // Se não tiver o separador ou for vazio, define o array com o valor original tratado
+                    $local = [$municipioAplicacao]; 
+                }
+                // Garante que local[0] exista antes de usar o trim, evitando warning
+                $local[0] = isset($local[0]) ? trim($local[0]) : '';
+                // --- FIM DA CORREÇÃO ---
+
+
+                
 
                 @$ufs[$local[0]]++;
 
                 @$avaliacaoPedagogica[$evento->sistema]++;
 
+                // --- INÍCIO DA CORREÇÃO ---
                 @$top10CategoriaSubcategoria[$evento->categoria_evento]++;
 
-                if (preg_match('/ - /', $evento->categoria_evento)) {
+                // Força converter para string para evitar erro no preg_match
+                $categoriaEvento = isset($evento->categoria_evento) ? (string)$evento->categoria_evento : '';
 
-                    $auxA = explode(' - ', $evento->categoria_evento);
+                if (!empty($categoriaEvento) && preg_match('/ - /', $categoriaEvento)) {
+
+                    $auxA = explode(' - ', $categoriaEvento);
+                // --- FIM DA CORREÇÃO ---
 
                     @$categorias[$auxA[0]]++;
                     @$categoriasSubCategoria[$auxA[0]][$auxA[1]]++;
@@ -636,9 +675,17 @@ class DashboardController extends AbstractEstruturaController
 
         if ($period) {
             if (!isset($json[$sistema]) || !$json[$sistema]) return false;
-            $jsonDone = json_encode($json[$sistema]);
-            file_put_contents('./data/json/' . $filename . '.json', $jsonDone);
-            return $jsonDone;
+            // Adiciona JSON_INVALID_UTF8_IGNORE para evitar que acentos bugados quebrem o painel
+            $jsonDone = json_encode($json[$sistema], JSON_INVALID_UTF8_IGNORE); 
+
+            // Se falhar mesmo assim, retorna erro vazio para não travar a tela
+            if ($jsonDone === false) {
+                $this->consoleLog("Erro ao codificar JSON: " . json_last_error_msg());
+                $jsonDone = json_encode([]);
+            }
+
+file_put_contents('./data/json/' . $filename . '.json', $jsonDone);
+return $jsonDone;
         } else {
             foreach ($json as $avalPedag => $arquivo) {
                 file_put_contents("./data/json/dashboard_{$avalPedag}.json", json_encode($arquivo));
@@ -1168,8 +1215,10 @@ class DashboardController extends AbstractEstruturaController
 
     public function consoleLog($text)
     {
-        if ($this->showConsole)
+        // Só exibe mensagem se estiver habilitado E se estiver rodando via linha de comando (CLI)
+        if ($this->showConsole && php_sapi_name() === 'cli') {
             echo $text . PHP_EOL;
+        }
     }
 
     public function dadosAtividadesAction()

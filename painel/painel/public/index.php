@@ -10,7 +10,7 @@ header('Access-Control-Allow-Origin: *');
 
 //date_default_timezone_set('America/Sao_Paulo');
 //date_default_timezone_set('America/Brasilia');
-date_default_timezone_set('America/Fortaleza');
+date_default_timezone_set('America/Sao_Paulo');
 
 chdir(dirname(__DIR__));
 
