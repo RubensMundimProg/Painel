@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /json_api
+Disallow: /manuais
+Disallow: /mapa

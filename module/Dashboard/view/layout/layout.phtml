@@ -1,0 +1,120 @@
+<?php echo $this->doctype(); ?>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle($this->Projeto()) ?>
+    <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <link rel="shortcut icon" href="<?= $this->basePath('/assets/img/logo/favicon-64.ico'); ?>">
+
+    <!-- Le styles -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets/img/icon/fav.ico'))
+        ->prependStylesheet($this->basePath('dashboard-assets/css/main.css'))
+        ->prependStylesheet($this->basePath('assets/openlayers/ol.css'))
+        ->prependStylesheet($this->basePath('assets/openlayers/ol-popup.css'))
+        ->prependStylesheet($this->basePath('assets/datatable/css/dataTables.bootstrap.min.css'))
+        ->prependStylesheet($this->basePath('assets/datatable/css/jquery.dataTables.min.css'))
+        ->prependStylesheet($this->basePath('assets/chosen/css/chosen.min.css'))
+//        ->prependStylesheet($this->basePath('assets/datepicker/css/bootstrap-datepicker.min.css'))
+        ->prependStylesheet($this->basePath('assets/datepicker/css/datepicker-dark.css'))
+        ->prependStylesheet($this->basePath('assets/jquery/jquery-ui-1.11.4/jquery-ui.min.css'))
+        ->prependStylesheet($this->basePath('assets/font-awesome/css/font-awesome.min.css'))
+        ->prependStylesheet($this->basePath('assets/bootstrap-material-design/css/ripples.min.css'))
+        ->prependStylesheet($this->basePath('assets/bootstrap-material-design/css/material.min.css'))
+        ->prependStylesheet($this->basePath('assets/bootstrap-material-design/css/roboto.min.css'))
+        ->prependStylesheet($this->basePath('assets/bootstrap/css/bootstrap.min.css')) ?>
+
+    <script type="text/javascript" src="/assets/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- jQuery UI -->
+    <link href="/assets/jquery/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+    <script src="/assets/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="/assets/js/isLoading.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/assets/js/html5shiv.js"></script>
+    <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--<div class=loading-icon></div>-->
+<?=$this->render('mensagens');?>
+<div class="container-principal">
+    <div class="coluna-meio full">
+        <?=$this->render('header/dashboard');?>
+        <div class="container-fluid" id="container">
+            <?=$this->content;?>
+            <?=$this->render('footer/dashboard');?>
+        </div>
+    </div>
+    <div class="coluna-direita off">
+        <?=$this->render('detalhes-lateral-direita/dashboard');?>
+    </div>
+</div>
+
+<div class="visible-print" id="print-it"></div>
+
+<div class="loading-direito hide">
+    <div class="panel panel-default hidden-print">
+        <div class="panel-body text-center">
+            <img src="/assets/img/loading_circle.gif" alt="" width="100px" style="margin-top: 200px">
+        </div>
+    </div>
+</div>
+
+<!--<script src="/assets/jquery/jquery-1.11.1.min.js"></script>-->
+
+<script type="text/javascript" src="/assets/bootstrap-material-design/js/material.min.js"></script>
+<script type="text/javascript" src="/assets/bootstrap-material-design/js/ripples.min.js"></script>
+
+<!--<script type="text/javascript" src="/assets/clock/jquery.clock.js"></script>-->
+
+<script type="text/javascript" src="/assets/marquee/jquery.marquee.min.js"></script>
+<script type="text/javascript" src="/assets/stickytableheaders/jquery.stickytableheaders.min.js"></script>
+
+<script src="/assets/jquery/jquery-mask/jquery.mask.js"></script>
+<script type="text/javascript" src="/assets/jquery-mask/jquery.maskMoney.min.js"></script>
+
+<script src="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/jquery-ui.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/datepicker.pt-br.js'); ?>"></script>
+
+<script type="text/javascript" src="/assets/chosen/js/chosen.jquery.min.js"></script>
+
+<script type="text/javascript" src="/assets/datatable/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="/assets/moment/moment.min.js"></script>
+<script type="text/javascript" src="/assets/moment/moment-with-locales.js"></script>
+<script type="text/javascript" src="/assets/moment/moment-timezone-with-data-2010-2020.js"></script>
+
+
+<script type="text/javascript" src="/assets/highchart/full/highcharts.js"></script>
+<script type="text/javascript" src="/assets/highchart/full/highcharts-more.js"></script>
+<script type="text/javascript" src="/assets/highchart/full/modules/drilldown.js"></script>
+<script type="text/javascript" src="/assets/highchart/dark-unica.js"></script>
+
+<script type="text/javascript" src="/assets/openlayers/ol.js"></script>
+<script type="text/javascript" src="/assets/openlayers/ol-popup.js"></script>
+
+<script type="text/javascript" src="/dashboard-assets/widgets/rss/js/jstorage.js"></script>
+<script type="text/javascript" src="/dashboard-assets/widgets/rss/js/jquery.jfontsize-2.0.js"></script>
+<script type="text/javascript" src="/dashboard-assets/widgets/rss/js/call.jfontsize.js"></script>
+
+<script type="text/javascript" src="/dashboard-assets/js/settings.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/main.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/dashboard.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/twitter.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/rss.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/mapa-alerta.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/mapa-atividades.js"></script>
+<script type="text/javascript" src="/dashboard-assets/js/ultima-milha.js"></script>
+
+<script type="text/javascript" src="/assets/js/relogio.js"></script>
+
+</body>
+</html>

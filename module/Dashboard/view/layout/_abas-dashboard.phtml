@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs nav-unstyle menu-title">
+    <li class="li-btn li-btn-left call-menu-paginas"><a href="javascript:void(0)"><i class="fa fa-bars"></i></a></li>
+    <li role="presentation" class="active"><a href="javascript:void(0)" data-menu-pagina="#aplicacao">{ Aplicação }</a></li>
+    <?php if($this->Perfil('dashboard', 'alertas')) :?>
+        <li role="presentation" class=""><a href="javascript:void(0)" data-menu-pagina="#alertas">{ Alertas }</a></li>
+    <?php endif; ?>
+
+
+    <li role="presentation" class=""><a href="javascript:void(0)" data-menu-pagina="#estados">{ Estados }</a></li>
+    <li role="presentation" class=""><a href="javascript:void(0)" data-menu-pagina="#mapa">{ Mapa }</a></li>
+    <li role="presentation" class=""><a href="javascript:void(0)" data-menu-pagina="#midia">{ Mídia }</a></li>
+    <li role="presentation" class=""><a href="javascript:void(0)" data-menu-pagina="#ultima-milha">{ Última Milha }</a></li>
+    <li class="li-btn"><a href="javascript:void(0)" class="horario"><span class="hour">00:</span><span class="min">00:</span><span class="sec">00</span></a></li>
+    <li class="li-btn"><div class="ultimo-alerta"></div></li>
+    <li class="li-btn li-btn-right"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-configuracao"><i class="fa fa-cog"></i></a></li>
+</ul>
+
+<div class="menu-paginas">
+    <ul class="list-unstyled">
+        <li role="presentation" class="active" data-bloco="aplicacao"><a href="#aplicacao" onclick="rodarTabela()"><input type="checkbox" name="aba-habilitada"/>&nbsp;Aplicação</a></li>
+
+        <?php if($this->Perfil('dashboard', 'alertas')) :?>
+            <li class="hide" role="presentation" data-bloco="alertas"><a href="#alertas" onclick="rodarTabela()"><input type="checkbox" name="aba-habilitada"/>&nbsp;Alertas</a></li>
+        <?php endif; ?>
+
+        <li role="presentation" data-bloco="estados"><a href="#estados"><input type="checkbox" name="aba-habilitada"/>&nbsp;Estados</a></li>
+        <li role="presentation"><a href="#mapa" onclick="reloadIframe('#frame-mapa');"><input type="checkbox" name="aba-habilitada"/>&nbsp;Mapa</a></li>
+        <li role="presentation"><a href="#midia" onclick="startRss()"><input type="checkbox" name="aba-habilitada"/>&nbsp;Mídia</a></li>
+        <li class="hide" role="presentation"><a href="#ultima-milha" onclick="rodarTabela();reloadIframe('#frame-ultima-milha');"><input type="checkbox" name="aba-habilitada"/>&nbsp;Última Milha</a></li>
+    </ul>
+</div>

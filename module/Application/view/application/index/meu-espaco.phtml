@@ -1,0 +1,63 @@
+<div class="container-fluid content menu" data-menu="Meu Espaço">
+    <div class="row content-title">
+        <h1>Meu Espaço
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Dados do Usuário</h4>
+
+            <p><strong>Usuário:</strong></p>
+            <h5><?=$nome?> <br> <?=$email?></h5>
+
+            <p><strong>Perfis:</strong></p>
+            <ul style="list-style-type: none; margin: 0; padding: 0">
+                <?php foreach($perfis as $perfil){?>
+                    <li><?=$perfil?></li>
+                <?php }; ?>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Avisos:</h4>
+            <?php if(count($lista) == 0) : ?>
+                <p>Sem avisos no momento.</p>
+            <?php endif; ?>
+            <?php foreach($lista as $aviso){?>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <?=$aviso->getTitulo()?>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="">
+                            <div class="panel-body">
+                                <p><strong>Avaliação Pedagógica</strong></p>
+                                <p><?=$aviso->getAvaliacaoPedagogica()?></p>
+                                <?php if($aviso->getTexto()){?>
+                                    <p><strong>Mensagem</strong></p>
+                                    <p><?=$aviso->getTexto()?></p>
+                                <?php }; ?>
+                            </div>
+                            <?php if($aviso->getAnexo()){ $anexo = explode('/',$aviso->getAnexo()); ?>
+                                <div class="panel-footer">
+                                    <p><strong>Anexo:</strong></p>
+                                    <a href="<?=$aviso->getAnexo()?>"><?=end($anexo)?></a>
+                                </div>
+                            <?php }; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php }; ?>
+        </div>
+    </div>
+    <br><br>
+
+</div>

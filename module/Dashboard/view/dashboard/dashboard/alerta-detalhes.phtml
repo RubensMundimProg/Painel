@@ -1,0 +1,34 @@
+<?php $total = count($dados);?>
+<div class="alert alert-danger">
+    <?php if($total == 1){ ?>
+        Foi encontrado 1 alerta.
+    <?php }else{ ?>
+        Foram encontrados <?=count($dados)?> alertas.
+    <?php }; ?>
+</div>
+<?php foreach($dados as $item){ ?>
+    
+    <?php
+    $pin = '/dashboard-assets/img/pins/pin_12.png';
+
+    if($item['anexo'] && $item['status'] == 'Fechado'){
+        $pin = '/dashboard-assets/img/pins/pin_12_fechado_anexo.png';
+    } else if($item['anexo']){
+        $pin = '/dashboard-assets/img/pins/pin_12_anexo.png';
+    } else if($item['status'] == 'Fechado'){
+        $pin = '/dashboard-assets/img/pins/pin_12_fechado.png';
+    }
+    ?>
+    <h6><div><img src="<?=$pin?>" alt=""></div><?=$item['title']?></h6>
+    <h5><?=$item['description']?></h5>
+    <?php foreach($item['anexo'] as $anexo){?>
+        <?php
+            $explode = explode(".",$anexo);
+            $nome = explode('/',$anexo);
+            if(in_array(end($explode),['jpg','png','jpeg','gif'])){ ?>
+                <p><img src="<?=str_replace(['./public','..'],'',$anexo)?>" alt="" class="img-responsive"></p>
+            <?php }else{ ?>
+                <p><a href="<?=str_replace(['./public','..'],'',$anexo)?>" target="_blank" style="color: #ffffff;">Baixar Anexo (<?=end($nome)?>)</a></p>
+            <?php } ?>
+    <?php }; ?>
+<?php } ?>

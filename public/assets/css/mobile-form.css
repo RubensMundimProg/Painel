@@ -1,0 +1,137 @@
+/* mobile-form.css - CÓDIGO FINAL E COMPLETO PARA CORREÇÃO DE BUGS */
+
+/* Importação da fonte Rawline */
+@import url('https://fonts.cdnfonts.com/css/rawline');
+
+:root {
+    --color-primary: #0057B7;
+    --color-text-dark: #212529;
+    --color-text-muted: #6c757d;
+    --color-background-soft: #f4f7f9;
+    --color-background-white: #ffffff;
+    --border-radius-large: 12px;
+}
+
+body {
+    background-color: var(--color-background-soft);
+    font-family: 'Rawline', 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+    color: var(--color-text-dark);
+    font-size: 16px;
+    margin: 0;
+    padding: 15px; 
+    box-sizing: border-box;
+}
+
+/* --- CORREÇÃO LAYOUT DE DESKTOP MINIMIZADO (VIEWPORT) --- */
+/* Força o container a ocupar a largura total, resolvendo o problema de "minimizado" */
+@media (max-width: 767px) {
+    .container {
+        width: 100% !important; 
+        padding: 0 10px;
+    }
+}
+.container {
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.row, .col-xs-12 {
+    /* Reseta margens/padding que podem estar minimizando o conteúdo */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* --- ESTILO DE CARD PARA O FORMULÁRIO (APLICAÇÃO) --- */
+form {
+    background-color: var(--color-background-white);
+    padding: 25px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+/* --- RÓTULOS E TÍTULOS (ALTA ESPECIFICIDADE) --- */
+
+h2.form-title {
+    font-family: 'Rawline', sans-serif;
+    font-size: 24px !important; 
+    font-weight: 700;
+    margin: 10px 0 30px 0;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    padding: 0; 
+}
+
+/* Seletor de ALTA ESPECIFICIDADE para TÍTULOS de Campo (* Avaliação Pedagógica, etc.) */
+.container .form-group label {
+    font-size: 16px !important; /* CORRIGIDO: Tamanho do rótulo */
+    color: var(--color-text-dark) !important; 
+    font-weight: 600 !important;
+    display: block;
+    margin-bottom: 5px !important; 
+}
+
+/* Seletor de ALTA ESPECIFICIDADE para TEXTOS DE INSTRUÇÃO (Small dentro da Label) */
+.container .form-group label small {
+    font-size: 16px !important; 
+    color: var(--color-text-muted) !important; /* CORRIGIDO: Cor Cinza Sutil */
+    font-weight: 400 !important;
+    display: block !important;
+    margin-top: 2px !important;
+}
+
+/* --- CAMPOS DE FORMULÁRIO (UNIFORMIZAÇÃO) --- */
+
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    font-size: 16px !important; 
+    padding: 12px 15px !important; 
+    
+    /* Efeito de Card */
+    border: none !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px #e9ecef !important;
+    border-radius: var(--border-radius-large) !important;
+    background-color: var(--color-background-white) !important;
+    
+    height: auto !important; 
+    line-height: 1.5 !important;
+    font-family: 'Rawline', sans-serif !important;
+    box-sizing: border-box;
+}
+
+/* Garante que o item selecionado (foco) seja visível */
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item.ui-state-focus {
+    background-color: #e9ecef !important;
+    color: var(--color-primary) !important;
+    border: none !important;
+} 
+
+/* --- BOTÕES (Mantido o estilo hierárquico) --- */
+.btn-primary {
+    background-color: var(--color-primary) !important;
+    border: 1px solid var(--color-primary) !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    border-radius: var(--border-radius-large) !important;
+}
+
+
+.btn-default {
+    background-color: transparent !important; 
+    color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary) !important; 
+    font-size: 16px !important;
+    border-radius: var(--border-radius-large) !important;
+}

@@ -1,0 +1,71 @@
+@media only screen and (max-device-width: 480px) {
+
+    .bg-me {
+        background: #2B3E50 url(../../assets-aplicativos/img/mapatocha-com-smartphone.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-attachment: inherit;
+    }
+
+    .logo-me {
+        position: fixed;
+        bottom: 0;
+        top: initial;
+        left: initial;
+        z-index: 999;
+    }
+
+    .logo-me img {
+        width: 100%;
+        height: auto;
+    }
+
+    .title-wrap {
+        background-color: rgba(251, 251, 251, 0.35);
+        border: 0;
+        width: 100%;
+        position: relative;
+        right: initial;
+        top: initial;
+    }
+
+    #first-block img {
+        width: auto;
+        height: auto;
+        position: relative;
+        display: none;
+    }
+
+    #second-block img {
+        height: auto;
+        width: 80%;
+    }
+
+    .wrap-features {
+        padding: 5px !important;
+    }
+
+    .wrap-features div.linha {
+        margin-left: 0 !important;
+    }
+
+    .wrap-features div.linha {
+        margin-top: 40px !important;
+    }
+    
+    .wrap-features div.linha div {
+        display: inline-block;
+    }
+
+    .wrap-features div.linha div:nth-child(2) {
+        width: calc(100% - 120px);
+        vertical-align: middle;
+    }
+
+    #fourth-block {
+        margin-bottom: 50px;
+    }
+
+}

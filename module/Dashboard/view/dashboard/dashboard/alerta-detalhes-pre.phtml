@@ -1,0 +1,12 @@
+<?php $total = count($dados);?>
+<div class="alert alert-danger">
+    <?php if($total == 1){ ?>
+        Foi encontrado 1 alerta.
+    <?php }else{ ?>
+        Foram encontrados <?=count($dados)?> alertas.
+    <?php }; ?>
+</div>
+<?php foreach($dados as $item){ ?>
+    <h6><div><img src="<?=$pin?>" alt=""></div><?=$item['title']?></h6>
+    <h5><?=$item['description']?></h5>
+<?php } ?>

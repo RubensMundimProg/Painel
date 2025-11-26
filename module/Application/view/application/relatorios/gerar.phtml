@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+
+        @page {
+            margin: 50px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        table tr td:first-child{
+            text-align: center;
+        }
+        table > tbody > tr.td-bolder > td {
+            font-weight: bold;
+        }
+
+        .conteudo {
+            margin-top: 0;
+        }
+
+        .conteudo .capa.principal {
+            margin-top: 150px;
+            /*margin-left: -50px;*/
+            /*height: 19cm;*/
+            /*width:100%;*/
+            /*background-image: url('/assets-cgi/img/bkg/capa-relatorio-geoolimpiadas-landscape.png');*/
+            /*background-repeat: no-repeat;*/
+            /*background-position: center center;*/
+            /*background-size: contain;*/
+
+            /*text-align: right;*/
+        }
+
+        .conteudo .capa.principal h1,
+        .conteudo .capa.principal h2,
+        .conteudo .capa.principal h3,
+        .conteudo .capa.principal h4,
+        .conteudo .capa.principal h5,
+        .conteudo .capa.principal h6 {
+            margin:0;
+        }
+
+        .moldura {
+            border:1px solid #333;
+            background-color: lightgrey;
+            margin:15px;
+            padding:15px;
+            text-align: justify;
+        }
+
+        .conteudo .capa.sumario {
+            /*margin-top:50px;*/
+        }
+        .conteudo .capa.sumario table td,
+        .conteudo .capa.sumario table tbody {
+            border:0;
+        }
+        .conteudo .capa.sumario table td {
+            text-align: left;
+            /*border-bottom:1px dashed #333 !important;*/
+            font-size: 15px;
+            font-weight: bold;
+            vertical-align: text-bottom !important;
+        }
+        .conteudo .capa.sumario table td:last-child {
+            text-align: right;
+        }
+        .conteudo .capa.sumario table tr {
+            background-color: transparent !important;
+        }
+        .conteudo .capa.sumario table td.indent-1 {
+            padding-left:15px;
+            font-size: 12px;
+        }
+        .conteudo .capa.sumario table td.indent-2 {
+            padding-left:20px;
+            font-size: 11px;
+        }
+        .conteudo .capa.sumario table td.indent-3 {
+            padding-left:25px;
+            font-size: 10px;
+        }
+        .conteudo .capa.sumario table td.indent-1+td {
+            font-size: 12px;
+        }
+        .conteudo .capa.sumario table td.indent-2+td {
+            font-size: 11px;
+        }
+        .conteudo .capa.sumario table td.indent-3+td {
+            font-size: 10px;
+        }
+        .conteudo .capa.sumario table td:last-child {
+            border-bottom:1px dashed #333 !important;
+        }
+        .conteudo .capa.sumario table td:first-child {
+            width:220px;
+        }
+
+        .conteudo p {
+            text-align: justify;
+            font-size: 14px;
+        }
+
+        .conteudo p.table-ref {
+            font-size: 60%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .conteudo p.caption {
+            text-align: center;
+            font-size: 9px;
+            color:#444;
+            margin-top:0;
+        }
+
+        .conteudo p img {
+            margin-bottom:30px;
+            width: 500px;
+            height:auto;
+        }
+
+        .conteudo ul li,
+        .conteudo ol li {
+            text-align: justify;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .conteudo li.red {
+            background-color: red;
+        }
+
+        .conteudo ol {
+            list-style-type: lower-latin;
+        }
+
+        .red-cube {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin-right:10px;
+            display: inline-block;
+        }
+
+        .conteudo .mini-legenda {
+            border-top:1px solid #555;
+        }
+        .conteudo .mini-legenda ul {
+            margin:0;
+        }
+        .conteudo .mini-legenda p,
+        .conteudo .mini-legenda li {
+            font-size: 50%;
+            margin:0;
+        }
+        .conteudo .mini-legenda li {
+            line-height: 10px;
+        }
+
+        .conteudo h1,
+        .conteudo h2,
+        .conteudo h3,
+        .conteudo h4 {
+            color:#4F81BD;
+        }
+
+        h1.title {
+            font-size: 18px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        h2.sub-title {
+            text-indent: 20px;
+            font-size: 16px;
+            text-align: left;
+            margin-bottom: 30px
+        }
+        h3.sub-title {
+            text-indent: 40px;
+        }
+        h4.sub-title {
+            text-indent: 60px;
+        }
+
+        .nivel-2 p {
+            margin-left: 20px;
+        }
+        .nivel-3 p {
+            margin-left: 40px;
+        }
+        .nivel-4 p {
+            margin-left: 60px;
+        }
+
+        .conteudo table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .conteudo table > thead {
+            border: 1px solid;
+            background-color: #4F81BD;
+            color: #fbfbfb;
+        }
+        .conteudo table > tbody {
+            border: 1px solid;
+            border-top: 0;
+        }
+        .conteudo table > thead > tr > th {
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid black;
+        }
+
+        .conteudo table > tbody > tr > td {
+            text-align: center;
+            border: 1px solid;
+            font-size: 10px;
+            padding: 2px;
+        }
+        .conteudo table:not(.registros) > tbody > tr:nth-child(even) {
+            background-color: #DBE5F1;
+        }
+
+        .conteudo table.endereco > tbody > tr {
+            background-color: transparent !important;
+        }
+
+        .conteudo table.no-stripes > tbody > tr {
+            background-color: transparent !important;
+        }
+
+        .conteudo table.registros > tbody > tr:nth-child(even) {
+            background-color: #DBE5F1;
+        }
+
+        .conteudo table.registros.evidencias > tbody > tr {
+            background-color: #DBE5F1;
+        }
+
+        .conteudo table.registros.evidencias > tbody > tr:nth-child(3n) {
+            background-color: white;
+        }
+
+        .conteudo table.registros > tbody p {
+            margin:0;
+        }
+
+        .conteudo table#trajeto tbody td {
+            padding-left:10px;
+            font-size: 12px;
+        }
+        .conteudo table#trajeto p {
+            text-align: left;
+            margin:0;
+        }
+
+        .conteudo ul.no-style {
+            list-style: none;
+        }
+
+        div.break-page {
+            page-break-after: always;
+        }
+
+        div.header {
+            position: fixed;
+            font-size: 10px;
+            top: -75px;
+            right: 0;
+            /*height: 100px;*/
+            text-align: right;
+            padding-right: 0;
+            /*border-bottom: 1px solid #241E56;*/
+            /*margin-top: -50px;*/
+        }
+
+        div.footer {
+            position: fixed;
+            left: 0;
+            bottom: -50px;
+            /*right: 50px;*/
+            /*height: 80px;*/
+            font-size: small;
+            text-align: justify;
+        }
+
+        div.footer .page{
+            text-align: right;
+        }
+
+        div.footer .page:after {
+            content: counter(page);
+        }
+
+        span.page {
+            content: counter(page);
+        }
+
+        div.footer > table.table-footer {
+            font-family: sans-serif;
+            width: 100%;
+        }
+
+
+        div.footer > table.table-footer > tbody > tr > td:first-child{
+            text-align: left;
+            width:220px;
+        }
+
+        div.footer > table.table-footer > tbody > tr > td:nth-child(2){
+            text-align: left;
+            font-weight: normal;
+            width:auto;
+        }
+        div.footer > table.table-footer > tbody > tr > td:nth-child(2) > p{
+            margin-left: 0;
+            padding-left: 0;
+        }
+        div.footer > table.table-footer > tbody > tr > td:nth-child(3){
+            text-align: right;
+            font-weight: normal;
+            vertical-align: middle;
+            width:auto;
+        }
+
+
+        .hide{
+            display: none
+        }
+        .center{
+            text-align: center !important;
+        }
+        .negrito{
+            font-weight: bold;
+        }
+        .pendente {
+            color:red !important;
+        }
+    </style>
+</head>
+<body>
+
+<!--CAPA PRINCIPAL-->
+<div class="conteudo break-page">
+    <!--CAPA-->
+    <div class="capa principal">
+        <p class="text-center">
+            <img style="height: 100px;width: auto;" src="<?= $logoCliente; ?>">
+        </p>
+
+
+        <h1><b>RELATÓRIO CONSOLIDADO DA APLICAÇÃO <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?></b></h1>
+        <hr>
+        <h2>RELATÓRIO OPERACIONAL</h2>
+        <h3><?=($ufSelecionada)?'Estado: '.$ufSelecionada:''?></h3>
+        <h3><?=($dataSelecionada)?'Período: '.$dataSelecionada:''?></h3>
+        <h3><?=($categoriaSelecionada)?'Categoria: '.$categoriaSelecionada:''?></h3>
+
+        <!--TITULO SUPERIOR DA CAPA-->
+        <h4 style="text-align:right; font-size: 16px; margin-top: 100px">Emissão: <?= date('d/m/Y') ?></h4>
+        <h6 style="text-align:right; font-size: 10px;">versão <?= $versaoRelatorio ?></h6>
+
+    </div>
+</div>
+
+<!--HEADER AND FOOTER-->
+<div class="header">
+    <p style="">RELATÓRIO CONSOLIDADO DA APLICAÇÃO <?= $avaliacaoPedagogica; ?></p>
+</div>
+<div class="footer">
+    <table class="table-footer">
+        <tbody>
+        <tr>
+            <td style="width: 33%">
+                <img style="margin-left:15px;height: 30px;width: auto;" src="<?= $logoCliente; ?>">
+                <img style="margin-left:15px;height: 30px;width: auto;" src="<?= $logoModulo; ?>">
+            </td>
+            <td style="width: 33%">
+                <h6 style="margin:0;text-align:center; font-size: 10px;">Emissão: <?=date('d/m/Y')?> | versão <?= $versaoRelatorio ?></h6>
+            </td>
+            <td style="text-align: right" class="page"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--CONTEUDO-->
+<div class="conteudo">
+
+
+    <!--CONTRA-CAPA-ENDEREÇO MODULO-->
+    <div class="capa" style="">
+
+        <!--TITULO SUPERIOR DA CAPA-ENDEREÇO MODULO-->
+        <p style="text-align: center"><b>ATENÇÃO</b></p>
+
+        <p class="moldura">
+            As informações contidas neste documento são direcionadas aos responsáveis pelas atividades do processo <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?>, este produto foi desenvolvido
+            pelo Instituto Nacional de Estudos e Pesquisas Educacionais - INEP. Caso não tenha autorização de acesso a essas informações pelo INEP, saiba que
+            sua leitura, divulgação ou cópia são proibidas. O uso impróprio será tratado pela legislação em vigor com base nos acordos de sigilo. A reprodução
+            não autorizada, em todo ou em parte, poderá resultar em punições civis e criminais.
+        </p>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+        <p style="margin-bottom:100px;text-align: center;">
+            <img style="height: 100px;width: auto;" src="<?=$logoModulo?>">
+        </p>
+
+        <table class="endereco" style="width: 100%;border:0;margin-top:0;margin-bottom:0;">
+            <tbody style="border:0">
+            <tr>
+                <td style="width: 50%;border:0">
+                    <p><b>São Paulo</b></p>
+                    <p>
+                        Av. das Nações Unidas, 12901 - Torre Norte
+                        <br>24º Andar, sala 140 (We Work)
+                        <br>CEP 04578-910
+                        <br>Tel: +55 (11) 5504-3600
+                    </p>
+                </td>
+                <td style="width: 50%;border:0">
+                    <p><b>Rio de Janeiro</b></p>
+                    <p>
+                        Rua do Carmo, 43 - 7º andar - Centro
+                        <br>Rio de Janeiro – RJ
+                        <br>CEP: 20011-020
+                        <br>Pabx: (+21) 2123-4600
+                        <br>Fax: (+21) 2206-4601
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;border:0">
+                    <p><b>Brasília</b></p>
+                    <p>
+                        SRTVN Conjunto C, Bloco A sala 201/203
+                        <br>Centro Empresarial Norte
+                        <br>Torre Norte, sala 518 - Brasília - DF
+                        <br>CEP: 70.715-900
+                        <br>Tel: (+61) 3218-7500
+                        <br>Fax: (+61) 3218-7506
+                    </p>
+                </td>
+                <td style="width: 50%;border:0">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="quebra" style="page-break-after: always"></div>
+    </div>
+
+    <!--SUMÁRIO-->
+    <div class="capa sumario" style="">
+        <!--TITULO SUPERIOR DA CAPA-->
+        <h1 style="font-size: 18px; text-align: left; margin-bottom: 30px">Organização do Documento</h1>
+
+        <ul class="no-style">
+            <li>1. APRESENTAÇÃO</li>
+            <li>2. ALERTAS POR CATEGORIA</li>
+            <li>&nbsp;&nbsp;2.1 ALERTAS POR SUBCATERGORIA</li>
+            <li>3. ALERTAS POR ESTADO</li>
+            <li>&nbsp;&nbsp;3.1 ALERTAS PELO PAINEL DE MONITORAMENTO DE EXAMES</li>
+            <li>&nbsp;&nbsp;3.1 ALERTAS PELO APLICATIVO RNC</li>
+            <li>4. DESCRIÇÃO DOS ALERTAS</li>
+        </ul>
+
+        <div class="quebra" style="page-break-after: always"></div>
+    </div>
+
+
+    <!--CONTEÚDO-->
+    <!--1. APRESENTAÇÃO-->
+    <div>
+
+        <h1 class="title">1. APRESENTAÇÃO<span class="page h1"></span></h1>
+
+        <p>
+            Este relatório apresenta os indicativos de Alertas tratados durante a aplicação <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?>. O sistema utilizado foi o Módulo Risk
+            Manager©, desenvolvido pela Módulo Security Solutions S/A, que utiliza a exclusiva metodologia GRC Metaframework.
+            <br>
+            <br>
+            O monitoramento do <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?> foi realizado por meio de uma força tarefa composta pela integração entre o Inep, Aplicadoras, Correios,
+            Secretárias de Segurança Públicas entre outros. Os alertas são gerados e tratados pelas equipes localizadas nos estados e monitorados
+            pelo Comitê de Gestão do Inep.
+        </p>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+    </div>
+
+    <!--2. RESUMO DA ANÁLISE-->
+    <div>
+        <h1 class="title">2. ALERTAS POR CATEGORIA<span class="page h1"></span></h1>
+
+        <p>
+            O gráfico abaixo apresenta a quantidade de alertas registrados por Categorias, durante o(s) dia(s) <?= $dataSelecionada; ?>, em que
+            o monitoramento atuou diretamente na solução de eventuais problemas que possam afetar a aplicação das provas do <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?>.
+        </p>
+
+        <?php if($graficoCategoria) : ?>
+            <div class="text-center">
+                <img src="<?=$graficoCategoria?>" class="text-center" style="border: 2px solid #ccc;">
+            </div>
+        <?php else : ?>
+            <p class="text-center bold">Sem registros para geração do gráfico</p>
+        <?php endif; ?>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+
+
+        <h2 class="sub-title">2.1 ALERTAS POR SUBCATEGORIA</h2>
+
+        <p>A tabela abaixo apresenta os subitens realcionados exclusivamente a categoria de Segurança Pública.</p>
+
+        <table class="no-stripes">
+            <thead>
+            <tr>
+                <th>Categoria - Subcategoria</th>
+                <th>Quantidade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(count($tabelaCategoriaSubcategoria)) : ?>
+                <?php foreach ($tabelaCategoriaSubcategoria as $categoriaSub => $qtd) : ?>
+                    <tr>
+                        <td><?=$categoriaSub?></td>
+                        <td><?=$qtd?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <tr>
+                    <td colspan="2" style="text-align: center">Sem registros</td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+        <p>Tabela 1 - Categoria e subcategoria de alertas reportados</p>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+
+    </div>
+
+    <div>
+        <h1 class="title">3. ALERTAS POR ESTADO</h1>
+
+        <p>
+            O gráfico abaixo apresenta o quantitativo de alertas registrados por unidades federativas.
+        </p>
+        <?php if($graficoAlertasPorEstado) : ?>
+            <div class="text-center">
+                <img src="<?=$graficoAlertasPorEstado?>" class="text-center" style="border: 2px solid #ccc;">
+            </div>
+        <?php else : ?>
+            <p class="text-center bold">Sem registros para geração do gráfico</p>
+        <?php endif; ?>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+
+        <h2 class="sub-title">3.1 ALERTAS PELO PAINEL DE MONITORAMENTO DE EXAMES</h2>
+
+        <p>O gráfico abaixo apresenta o quantitativo de alertas registrados pelo Painel de Monitoramento de Exames em cada unidade federativa.</p>
+
+        <?php if($graficoAlertasPorEstadoRM) : ?>
+            <div class="text-center">
+                <img src="<?=$graficoAlertasPorEstadoRM?>" class="text-center" style="border: 2px solid #ccc;">
+            </div>
+        <?php else : ?>
+            <p class="text-center bold">Sem registros para geração do gráfico</p>
+        <?php endif; ?>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+
+        <h2 class="sub-title">3.2 ALERTAS PELO APLICATIVO RNC</h2>
+
+        <p>O gráfico abaixo apresenta o quantitativo de alertas registrados pelo aplicativo utilizado pela Rede Nacional de Certificadores - RNC em cada unidade federativa.</p>
+
+        <?php if($graficoAlertasPorEstadoRNC) : ?>
+            <div class="text-center">
+                <img src="<?=$graficoAlertasPorEstadoRNC?>" class="text-center" style="border: 2px solid #ccc;">
+            </div>
+        <?php else : ?>
+            <p class="text-center bold">Sem registros para geração do gráfico</p>
+        <?php endif; ?>
+
+        <div class="quebra" style="page-break-after: always"></div>
+
+    </div>
+
+
+    <div>
+        <h1 class="title">4. DESCRIÇÃO DOS ALERTAS</h1>
+
+        <p>A tabela abaixo apresenta os alertas registrados detalhadamente durante a operação <?= $avaliacaoPedagogica; ?> <?= date('Y'); ?>.</p>
+
+        <table class="no-stripes">
+            <thead>
+            <tr>
+                <th>Data de Registro</th>
+                <th>Dia da Aplicação</th>
+                <th>Município de Aplicação</th>
+                <th>Categoria</th>
+                <th>Alerta</th>
+                <th>Descrição</th>
+                <th>Origem</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(count($tabelaAlertasRegistrados)) : ?>
+                <?php foreach ($tabelaAlertasRegistrados as $item) : ?>
+                    <tr>
+                        <td><?=$item['created']?></td>
+                        <td><?=$item['dia_da_aplicacao']?></td>
+                        <td><?=$item['municipio_de_aplicacao']?></td>
+                        <td><?=$item['categoria_evento']?></td>
+                        <td><?=$item['title']?></td>
+                        <td style="font-size: 8px"><?=$item['description']?></td>
+                        <td><?=$item['origem_informacao']?></td>
+                    </tr>
+                    <?php if(count($item['anexo'])) : ?>
+                        <tr>
+                            <td colspan="7">
+                                <?php foreach ($item['anexo'] as $img) : ?>
+                                    <?php if(in_array(pathinfo($img, PATHINFO_EXTENSION),['gif','jpg','jpeg','png'])) : ?>
+                                        <img style="width:250px;height:auto" src="<?=$_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.ltrim($img,'./public')?>">
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <tr>
+                    <td colspan="7" style="text-align: center">Sem registros</td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

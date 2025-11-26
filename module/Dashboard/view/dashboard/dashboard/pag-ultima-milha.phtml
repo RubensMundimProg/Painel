@@ -1,0 +1,33 @@
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+<div class="row">
+    <div class="col-md-9">
+        <iframe src="<?=$urlPainel;?>/escolas/mapa.php" frameborder="0" id="frame-ultima-milha" class="inteiro" width="100%"></iframe>
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="velocimetro" class="um-quarto"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <table class="table head-fixo equal-4">
+                        <thead>
+                            <tr>
+                                <th title="Unidade Federativa">UF</th>
+                                <th title="Não Entregue"><a href="/dashboard-data/detalhe-milha/NE" target="_blank" style="color: #fff">NE</a></th>
+                                <th title="Entregue"><a href="/dashboard-data/detalhe-milha/E" target="_blank" style="color: #fff">E</a></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="tabela-ultima-milha" class="tres-quarto rodar-tabela">
+                    <table class="table table-condensed equal-4">
+                        <tbody class="tbody-ultima"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

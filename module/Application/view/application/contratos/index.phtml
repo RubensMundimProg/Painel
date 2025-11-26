@@ -1,0 +1,305 @@
+<style>
+    ul.contratos, ul.contratos ul{
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+    }
+    ul.contratos{
+
+    }
+    ul.contratos > li{
+        border-left: 3px solid #cad7e1;
+        border-right: 3px solid #cad7e1;
+        border-bottom: 3px solid #cad7e1;
+    }
+    ul.contratos ul{
+        margin-left: 5px;
+    }
+    ul.contratos li h5{
+        background-color: #cad7e1;;
+        padding: 10px;
+        font-weight: bold;
+    }
+    ul.contratos ul li{
+        padding: 5px;
+        border-left: 5px solid #ccc;
+        margin-bottom: 2px;
+        cursor: pointer;
+    }
+    ul.contratos li > ul li:nth-child(even){
+        background-color: #f3f3f3;
+    }
+    i{
+        padding-right: 5px;
+    }
+    i:hover{
+        cursor: pointer;
+        color: #777777
+    }
+    ul.situacao{
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+    }
+    ul.situacao li{
+        float: left;
+        padding: 0 5px;
+    }
+    span.aberto{
+        color: #10800a;
+        background-color: #10800a;
+        padding: 0 2px;
+        margin: 0 2px;
+    }
+    span[data-situacao="Em Execução"]{
+        color: orange;
+        background-color: orange;
+        padding: 0 2px;
+        margin: 0 2px;
+    }
+    span[data-situacao="Projeção"]{
+        color: #ccc;
+        background-color: #ccc;
+        padding: 0 2px;
+        margin: 0 2px;
+    }
+    span[data-situacao="Finalizado"]{
+        color: #10800a;
+        background-color: #10800a;
+        padding: 0 2px;
+        margin: 0 2px;
+    }
+    li[data-situacao="Finalizado"]{
+        border-color:#10800a !important;
+    }
+    li[data-situacao="Projeção"]{
+        border-color:#ccc !important;
+    }
+    li[data-situacao="Em Execução"]{
+        border-color:orange !important;
+    }
+
+</style>
+<div class="container-fluid content menu" data-menu="Contratos">
+    <div class="row content-title">
+        <h1>Contratos
+            <span class="pull-right">
+                <a href="/" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="situacao">
+                <li><strong>Legenda:</strong></li>
+                <li><span data-situacao="Em Execução">A</span>Em Execução</li>
+                <li><span data-situacao="Finalizado">A</span>Finalizado</li>
+                <li><span data-situacao="Projeção">A</span>Projeção</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="contratos">
+                <?php foreach($dados as $tr){?>
+                    <li>
+                        <h5>
+                            <i class="fa fa-plus pull-right fa-2x adicionar-contrato" data-id="<?=$tr['path']?>" data-perimetro="<?=$tr['id']?>" data-nome="<?=$tr['nome']?>"></i>
+                            <i class="fa fa-pie-chart pull-right fa-2x resumo" data-id="<?=$tr['id']?>"> </i>
+                            <?=$tr['nome']?> <br>
+                            Saldo <?=$tr['saldo']?> UST's
+                        </h5>
+                        <ul>
+                            <?php foreach($tr['os'] as $os){ ?>
+                                <li data-situacao="<?=$os['custom']['situacao']?>" class="detalhar-os" data-id="<?=$os['id']?>">
+                                    <i class="fa fa-search pull-right fa-2x hide"></i>
+                                    <?=$os['nome']?> / <?=$os['custom']['situacao']?>
+                                    <br><strong>Início:</strong> <?=$os['custom']['data_de_inicio']?> / <strong>Término:</strong> <?=$os['custom']['data_de_termino']?>
+                                </li>
+                            <?php }; ?>
+                        </ul>
+                    </li>
+                <?php }; ?>
+            </ul>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+<!-- Modal OS -->
+<div class="modal fade" id="nova-os">
+	<div class="modal-dialog">
+		<div class="modal-content">
+            <form action="/contratos/add" method="post">
+                <input type="hidden" name="IdContrato">
+                <input type="hidden" name="IdPerimetro">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Nova OS: <span class="nome-contrato"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?=$this->formRow($OrdemServicoForm->get('name'))?>
+                        </div>
+                        <div class="col-md-4">
+                            <?=$this->formRow($OrdemServicoForm->get('situacao'))?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="">Serviços da OS</label>
+                            <table class="table">
+                            <?php $label = []; foreach([1,2,3,4,5,6,7,8] as $servico){ $label[$servico] = $OrdemServicoForm->get('servico_s'.$servico)->getLabel();?>
+                                    <tr>
+                                        <td><?=$OrdemServicoForm->get('servico_s'.$servico)->getLabel()?></td>
+                                        <td style="width: 100px"><?=$this->formRowNoLabel($OrdemServicoForm->get('servico_s'.$servico))?></td>
+                                    </tr>
+                            <?php }; ?>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <?=$this->formRow($OrdemServicoForm->get('data_de_inicio'))?>
+                        </div>
+                        <div class="col-md-4">
+                            <?=$this->formRow($OrdemServicoForm->get('data_de_termino'))?>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancelar pull-right" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-salvar pull-right">Salvar</button>
+                </div>
+            </form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Detalhe OS -->
+<div class="modal fade" id="detalhe-os">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/contratos/update" method="post">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Detalhes da OS</h4>
+            </div>
+                <input type="hidden" name="IdAsset">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label for="">Nome da OS</label> <br>
+                            <span class="name"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <?=$this->formRow($OrdemServicoForm->get('situacao'))?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="">Serviços da OS</label>
+                            <table class="table">
+                                <?php foreach([1,2,3,4,5,6,7,8] as $servico){?>
+                                    <tr>
+                                        <td><?=$label[$servico]?></td>
+                                        <td style="width: 100px; text-align: center">
+                                            <div class="servico_s<?=$servico?>"></div>
+                                        </td>
+                                    </tr>
+                                <?php }; ?>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Data de Ínicio</label> <br>
+                            <span class="data_de_inicio"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Date de Término</label> <br>
+                            <span class="data_de_termino"></span>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-cancelar" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-salvar">Salvar</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="resumo-contrato" style="margin-top: 0">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Resumo do Contrato</h4>
+            </div>
+            <div class="modal-body">
+                <div class="loading-modal" style="height: 495px">d
+                    Carregando
+                </div>
+                <iframe src="/contratos/resumo/50045f4f-359f-4be5-afae-8c2f43610005" frameborder="0" width="100%" height="495px" onload="showMe()"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-cancelar" data-dismiss="modal">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script>
+    $(function(){
+        $(".detalhar-os").click(function(){
+            var id = $(this).attr('data-id');
+            $('input[name="IdAsset"]').val(id);
+            $.ajax({
+                url:'/contratos/os/'+id,
+                type:'get',
+                dataType:'json',
+                success:function(json){
+                    $('select[name="situacao"]').val(json.dados.custom.situacao);
+                    $('#detalhe-os .name').html(json.dados.name);
+                    $.each(json.dados.custom, function(key,value){
+                        $('#detalhe-os .'+key).html(value);
+                    })
+                }
+            })
+            $('#detalhe-os').modal("show");
+            return false;
+        })
+
+        $('.adicionar-contrato').click(function(){
+            $('.nome-contrato').html($(this).attr('data-nome'));
+            $('input[name="IdContrato"]').val($(this).attr('data-id'));
+            $('input[name="IdPerimetro"]').val($(this).attr('data-perimetro'));
+            $('#nova-os').modal('show');
+        })
+
+        $('.resumo').click(function(){
+            $('.loading-modal').removeClass('hide');
+            $('iframe').addClass('hide');
+            var id = $(this).attr('data-id');
+            $('#resumo-contrato iframe').attr('src','/contratos/resumo/'+id);
+            $('#resumo-contrato').modal('show');
+            return false;
+        })
+    })
+    function showMe(){
+        $('iframe').removeClass('hide');
+        $('.loading-modal').addClass('hide');
+    }
+</script>

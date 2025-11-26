@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?= $this->basePath('/assets/img/logo/favicon-64.ico'); ?>">
+
+    <title><?= $this->Projeto() ?></title>
+
+    <!-- Bootstrap -->
+    <link href="<?= $this->basePath('/assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+
+    <!-- CSS Customizado -->
+    <link href="<?= $this->basePath('/assets/css/risk-manager.css'); ?>" rel="stylesheet" />
+    <link href="<?= $this->basePath('/assets/css/risk-manager-autenticacao.css'); ?>" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<?= $this->render('mensagens') ?>
+
+<a href="/autenticar"><img src="assets/img/logo/modulo-inep-nova.png" alt="" class="logo-login"></a>
+<img src="assets/img/logo/ssi.jpg" alt="" class="logo-login">
+
+
+<div class="container-fluid geral bg-white none-sides-padding">
+
+    <!--início conteúdo-->
+    <div class="container-fluid">
+        <?= $this->content ?>
+
+        <div class="footer-login">
+            <img src="assets/img/ico/locker.png" alt="locker" width="18" height="21">
+            <p>Este é um aplicativo restrito. É proibido o acesso não autorizado.</p>
+        </div>
+        <div class="footer-page">
+            <p class="versao-rm">Versão 9.7.7.1</p>
+            <img src="assets/img/logo/powered-by-modulo-footer.png" alt="">
+        </div>
+    </div>
+
+</div>
+
+<!--fim conteúdo-->
+<!-- JS's -->
+<script src="<?= $this->basePath('/assets/jquery/jquery-1.11.1.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<!-- JS's Customizado -->
+<script src="<?= $this->basePath('/assets/js/risk-manager-autenticacao.js'); ?>"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?><rss version="2.0">
+	<channel>
+		<title>UEN News</title>
+		<image>
+			<url>http://www.uen.org/feeds/images/uen_news_rss.jpg</url>
+			<title>UEN News</title>
+			<link>http://www.uen.org</link>
+		</image>
+		<link>http://www.uen.org</link>
+		<description>The latest news from the Utah Education Network.</description>
+		<language>en-us</language>
+				<pubDate>Thu, 25 Sep 14 00:00:00 -0600</pubDate>
+				<managingEditor>resources@uen.org</managingEditor>
+		<webMaster>resources@uen.org</webMaster>
+				<item>
+			<title>UEN, public broadcasters join forces for 2014 Elections</title>
+			<link></link>
+			<description>
+				&lt;img src=&quot;http://www.uen.org/netnews/images/vote_utah.jpg&quot; vspace=&quot;5&quot; hspace=&quot;10&quot; align=&quot;left&quot; /$gt;
+				&lt;p&gt;&lt;span style=&quot;font-size: 12px; font-family: ArialMT;&quot;&gt;Unique collaboration will inform educators, students and voters statewide.&lt;/span&gt;&lt;/p&gt;                </description>
+                <div style="clear:both;"></div>
+			<pubDate>Thu, 25 Sep 14 00:00:00 -0600</pubDate>
+			<guid>#589</guid>
+		</item>
+        
+				<item>
+			<title>Oct. 11: Edcamp Utah</title>
+			<link>http://www.ucet.org/edcamput/</link>
+			<description>
+				&lt;img src=&quot;http://www.uen.org/netnews/images/edcamp.jpg&quot; vspace=&quot;5&quot; hspace=&quot;10&quot; align=&quot;left&quot; /$gt;
+				&lt;p&gt;Join UEN at the first Edcamp Utah! Experience this free &quot;unconference&quot;. Registration and information at &lt;span class=&quot;bold&quot;&gt;ucet.org/edcamp&lt;/span&gt;&lt;/p&gt;                </description>
+                <div style="clear:both;"></div>
+			<pubDate>Fri, 19 Sep 14 00:00:00 -0600</pubDate>
+			<guid>http://www.ucet.org/edcamput/#583</guid>
+		</item>
+        
+				<item>
+			<title>Stanford Innovation Studio</title>
+			<link></link>
+			<description>
+				&lt;img src=&quot;http://www.uen.org/netnews/images/redlab.jpg&quot; vspace=&quot;5&quot; hspace=&quot;10&quot; align=&quot;left&quot; /$gt;
+				&lt;p&gt;Design Thinking &amp;amp; 21st Century Learning ... Two days at the Museum of Natural Curiosity: Spring 2015&lt;/p&gt;                </description>
+                <div style="clear:both;"></div>
+			<pubDate>Wed, 03 Sep 14 00:00:00 -0600</pubDate>
+			<guid>#587</guid>
+		</item>
+        
+			</channel>
+</rss>

@@ -1,0 +1,93 @@
+    <?php
+
+        $urlRM = $this->RiskManager()->get('urlRM');
+
+        $controller = $this->currentRequest()->get('controller');
+
+        $action = $this->currentRequest()->get('action');
+        $principais = ['/'=>['label'=>'Monitoramento de Exame','controller'=>'\\', 'target' => '_blank']];
+
+        $menus = [];
+        $menus['\error'][] = ['', ''];
+
+        if($controller != '\error') {
+
+            if ($this->Perfil('index', 'meu-espaco')) {
+                $menus[$controller][] = ['/index/meu-espaco', 'Meu Espaço'];
+            }
+
+            if ($this->Perfil('triagem', 'cadastro-ocorrencia')) {
+                $menus[$controller][] = ['/triagem/cadastro-ocorrencia', 'Ocorrência'];
+            }
+            if ($this->Perfil('triagem', 'index')) {
+                $menus[$controller][] = ['/triagem', 'Triagem'];
+            }
+            if ($this->Perfil('validados', 'index')) {
+                $menus[$controller][] = ['/validados', 'Atualizar Progresso dos Alertas'];
+            }
+            if ($this->Perfil('dashboard', '*')) {
+                $menus[$controller][] = ['/dashboard', 'Painel de Monitoramento', '_blank'];
+            }
+//            if ($this->Perfil('dashboard', 'index')) {
+//                $menus[$controller][] = [$urlRM . '/Dashboard/MyDashboards/View/95', 'Dashboard', '_blank'];
+//            }
+            if ($this->Perfil('ultima-milha', 'index')) {
+                $menus[$controller][] = ['/dashboard/ultima-milha', 'Entrega/Coleta', '_blank'];
+            }
+
+            if ($this->Perfil('relatorios', 'index')) {
+                $menus[$controller][] = ['/relatorios', 'Relatórios'];
+            }
+
+            if ($this->Perfil('calendario', 'index')) {
+                $menus[$controller][] = ['/calendario', 'Calendário'];
+            }
+
+            if ($this->Perfil('gantt', 'index')) {
+                $menus[$controller][] = ['/gantt', 'Gráfico de Gantt'];
+            }
+
+            if ($this->Perfil('contratos', 'index')) {
+                $menus[$controller][] = ['/contratos', 'Gestão de Contratos'];
+            }
+
+            if ($this->Perfil('configuracao', 'cadastro')) {
+                //$menus[$controller][] = ['/configuracao/cadastro', 'Configurar Período'];
+            }
+
+            if ($this->Perfil('configuracao', 'index')) {
+                $menus[$controller][] = ['/configuracao', 'Configurações Gerais'];
+            }
+        }
+
+?>
+<!-- Fixed navbar para monitor grande, médio e pequeno -->
+<div class="navbar top-menu hidden-print" role="navigation">
+    <div class="container-fluid none-sides-padding">
+        <ul class="nav navbar-nav">
+            <?php foreach($principais as $url => $item ){
+                $active = ($item['controller'] == $controller) ? 'active' : '';
+                $target = ($item['target']) ? $item['target'] : '';
+            ?>
+                <li class="<?=$active?>"><a href="<?=$url?>" target="<?=$target;?>"><?=$item['label']?></a></li>
+            <?php }; ?>
+        </ul>
+     </div>
+</div>
+<div class="navbar bottom-menu hidden-print" role="navigation">
+    <div class="container-fluid none-sides-padding">
+        <ul class="nav navbar-nav" data-menu="bgc-menu">
+            <li class="submenu home <?=($action=='index') ? 'active' : '';?>"><a href="/"><img src="/assets/img/ico/ico_menu_home.png" /></a></li>
+            <?php if(isset($menus[$controller])) {
+                foreach ($menus[$controller] as $url => $item) {
+                    $link = $item[0];
+                    $label = $item[1];
+                    $target = isset($item[2]) ? $item[2] : ''; ?>
+                    <?php $active = (preg_match("/$action/", $link) && $action != 'index') ? 'active' : ''; ?>
+                    <li class="submenu <?= $active ?>" data-menu="<?=$label?>"><a href="<?= $link ?>" target="<?= $target ?>"><?= $label ?></a></li>
+                <?php }
+            }; ?>
+            <li class="submenu"><a href="/ajuda" target="_blank">Ajuda</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="container-fluid content" data-menu="Configuração de Período">
+    <div class="row content-title">
+        <h1>Gerenciar Avisos
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Novo Aviso</h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                <?=$this->formRow($form->get('Id'))?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Titulo" class="control-label">Título:</label>
+                            <?=$this->formRow($form->get('Titulo'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Avaliação Pedagógica:</label>
+                            <?=$this->formRow($form->get('AvaliacaoPedagogica')->setValue($avaliacaoPedagogica))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Texto:</label>
+                            <?=$this->formRow($form->get('Texto'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Anexo:</label>
+                            <?=$this->formRow($form->get('Anexo'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Data Início:</label>
+                            <?=$this->formRow($form->get('DataInicio'))?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Hora Início:</label>
+                            <?=$this->formRow($form->get('HoraInicio'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Data Fim:</label>
+                            <?=$this->formRow($form->get('DataFim'))?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Data Fim:</label>
+                            <?=$this->formRow($form->get('HoraFim'))?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                        <a href="<?=$this->basePath('/');?>" class="btn btn-cancelar">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <h4>Avisos Cadastrados:</h4>
+            <table class="table table-striped datatable">
+                <thead>
+                    <tr>
+                        <th class="icon"></th>
+                        <th>Titulo</th>
+                        <th>Avaliação Pedagógica</th>
+                        <th>Início</th>
+                        <th>Fim</th>
+                        <th>Texto</th>
+                        <th>Anexo</th>
+                        <th class="icon"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($lista as $item){ $anexo = explode('/',$item->getAnexo())?>
+                    <tr>
+                        <td class=" ">
+                            <a href="/index/gerir-aviso/<?=$item->getId()?>">
+                                <img src="<?=$this->basePath("/assets/img/ico/ico_edit.png")?>" alt="Editar Aviso" title="Editar Aviso"/>
+                            </a>
+                        </td>
+                        <td><?=$item->getTitulo()?></td>
+                        <td><?=$item->getAvaliacaoPedagogica()?></td>
+                        <td><?=\DateTime::createFromFormat('Y-m-d',$item->getDataInicio())->format('d/m/Y') .' '. $item->getHoraInicio()?></td>
+                        <td><?=\DateTime::createFromFormat('Y-m-d',$item->getDataFim())->format('d/m/Y') .' '. $item->getHoraFim()?></td>
+                        <td><?=$item->getTexto()?></td>
+                        <td><a href="<?=$item->getAnexo()?>" target="_blank"><?=end($anexo)?></a></td>
+                        <td>
+                            <a href="javascript:void(0)" data-url="/index/excluir-aviso/<?=$item->getId()?>" class="exibir-confirmacao">
+                                <img src="<?=$this->basePath("/assets/img/ico/ico_excluir.png")?>" alt="Excluir Aviso" title="Excluir Aviso"/>
+                            </a>
+                        </td>
+                    </tr>
+                <?php }; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br><br>
+
+</div>
