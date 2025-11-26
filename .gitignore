@@ -15,3 +15,12 @@
 /painel/painel/vendor/symfony/
 /painel/painel/vendor/webmozart/
 /painel/painel/vendor/zendframework/
+/painel/vendor/composer/semver/
+/painel/painel/vendor/doctrine/
+/painel/painel/vendor/dompdf/
+/painel/painel/vendor/laminas/
+/painel/painel/vendor/phenx/
+/painel/painel/vendor/phpdocumentor/
+/painel/painel/vendor/phpspec/
+/painel/painel/vendor/phpstan/
+/painel/painel/vendor/phpunit/
