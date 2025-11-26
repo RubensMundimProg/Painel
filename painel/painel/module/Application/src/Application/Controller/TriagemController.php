@@ -153,16 +153,22 @@ class TriagemController extends AbstractEstruturaController
         $metodo = 'filtro-' . md5($url);
         $container = new \Laminas\Session\Container('filtro');
 
-        if (count($dadosQuery)) {
+        if (!empty($dadosQuery)) {
             $container->offsetSet($metodo, $dadosQuery);
             $dataFiltro = $dadosQuery;
         } else {
             $dataFiltro = $container->offsetGet($metodo);
         }
 
+        if (!is_array($dataFiltro)) {
+         $dataFiltro = [];
+        }
+
         $filtro = [];
         $categorias = [];
-        if (count($dataFiltro) > 0) {
+
+        
+        if (!empty($dataFiltro) > 0) {
             $filtro = $dataFiltro;
             if (isset($filtro['Categoria'])) {
                 $categorias = $filtro['Categoria'];

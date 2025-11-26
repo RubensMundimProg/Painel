@@ -88,19 +88,19 @@ class IndexController extends AbstractEstruturaController
             }
 
             $base = '{SG_UF_PROVA};{NO_MUNICIPIO_PROVA};' . date('d/m/Y') . ';{NO_LOCAL_PROVA};{CO_LOCAL};{QTD_INSCRICAO_DIVULGADO}';
-            $table = utf8_decode('UF;MUNICIPIO;Data;Aplicação do Enem 2016;CO_LOCAL;QTD_INSCRICAO_DIVULGADO') . PHP_EOL;
+            $table = mb_convert_encoding('UF;MUNICIPIO;Data;Aplicação do Enem 2016;CO_LOCAL;QTD_INSCRICAO_DIVULGADO', 'ISO-8859-1', 'UTF-8') . PHP_EOL;
             foreach ($ocupadas as $ocupada) {
                 $linha = $base;
                 foreach ($ocupada as $key => $value) {
                     $linha = str_replace('{' . $key . '}', $value, $linha);
                 }
-                $table .= utf8_decode($linha) . PHP_EOL;
+                $table .= mb_convert_encoding($linha, 'ISO-8859-1', 'UTF-8') . PHP_EOL;
             }
             file_put_contents('./data/arquivos/ocupadas_' . $uf . '.csv', $table);
 
             $table = 'UF;ESCOLA;MUNICIPIO' . PHP_EOL;
             foreach ($naoLocalizadas as $nao) {
-                $table .= utf8_decode($uf . ';' . $nao[1] . ';' . $nao[0]) . PHP_EOL;
+                $table .= mb_convert_encoding($uf . ';' . $nao[1] . ';' . $nao[0], 'ISO-8859-1', 'UTF-8') . PHP_EOL;
             }
             file_put_contents('./data/arquivos/nao_localizacas_' . $uf . '.csv', $table);
             return $this->redirect()->toUrl('/index/escolas');
@@ -322,7 +322,7 @@ class IndexController extends AbstractEstruturaController
                 'Tipos ocorrências' => $this->tratarValor($item['custom'], 'tipos_ocorrencias')
             ];
         }
-        $string = utf8_decode(implode(';', array_keys($csv[0]))) . PHP_EOL;
+        $string = mb_convert_encoding(implode(';', array_keys($csv[0])), 'ISO-8859-1', 'UTF-8') . PHP_EOL;
         foreach ($csv as $item) {
             $string .= implode(';', array_values($item)) . PHP_EOL;
         }
@@ -333,7 +333,7 @@ class IndexController extends AbstractEstruturaController
 
     public function tratarValor($array, $valor)
     {
-        return (isset($array[$valor])) ? utf8_decode($array[$valor]) : '';
+        return (isset($array[$valor])) ? mb_convert_encoding($array[$valor], 'ISO-8859-1', 'UTF-8') : '';
     }
 
     public function tratarLista($lista)

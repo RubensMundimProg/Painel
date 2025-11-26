@@ -12,21 +12,21 @@ return array(
         'expire_days'      => '32', //realizando 4 backups por dia 6/6h
     ),
     'API' => [
-        'baseSis' => 'https://painel.gestaoderiscos.inep.gov.br/', /// Endereço da aplicação
+        'baseSis' => 'https://172.29.3.107/', /// Endereço da aplicação
         'baseRM' => 'https://gestaoderiscos.inep.gov.br/', /// Endereço do RM
         'patchRM' => 'RM', /// Base patch do RM
         'workFlowRM' => 'WF', /// Base patch do Workflow
-        'idRM' => '665447d212614956ba04d2d7f682ab01', /// Id da aplicação
-        'secretRM' => '0727110ceb4b46b785d06c8b8ab67164', /// Secret da aplicação
+        'idRM' => '9f0eed212bf54d17bd9b1e0ad7389793', /// Id da aplicação
+        'secretRM' => '2a92f6c829f942179e75a19cc2adbdf5', /// Secret da aplicação
 
     ],
 
     'API_MOBILE' => [
-        'client_id'     => '74c85729bf8a4e1094a8e858d21350bc',
-        'client_secret' => 'c0102dd184684dd8b5e3e7fe0501c57a',
-        'redirect_uri'  => 'https://painel.gestaoderiscos.inep.gov.br/callmobileback',
+        'client_id'     => '9f0eed212bf54d17bd9b1e0ad7389793',
+        'client_secret' => '2a92f6c829f942179e75a19cc2adbdf5',
+        'redirect_uri'  => 'https://172.29.3.107/callmobileback',
     ],
-    'url_painel'=>'https://painel.gestaoderiscos.inep.gov.br/aplicacao',
+    'url_painel'=>'https://172.29.3.107/aplicacao',
     'local_arquivo_configuracao'=>'C:\inetpub\wwwroot\aplicacao\\',
     'service_manager' => array(
         'factories' => array(

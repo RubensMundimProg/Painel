@@ -177,7 +177,7 @@ class TwitterController extends AbstractEstruturaController
 
     public function cleanWordAction($word)
     {
-        return trim(str_replace('?','',utf8_decode($word)));
+        return trim(str_replace('?', '', mb_convert_encoding($word, 'ISO-8859-1', 'UTF-8')));
     }
 
     public function getTweetsAction()

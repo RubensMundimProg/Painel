@@ -13,7 +13,7 @@ return array(
                 ),
             ),
             'home' => array(
-                'type' => 'Laminas\Mvc\Router\Http\Literal',
+                'type' => 'Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
@@ -33,7 +33,7 @@ return array(
                 ),
             ),
             'error' => array(
-                'type' => 'Laminas\Mvc\Router\Http\Literal',
+                'type' => 'Literal',
                 'options' => array(
                     'route'    => '/error/nao-autorizado',
                     'defaults' => array(

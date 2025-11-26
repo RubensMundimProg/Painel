@@ -58,32 +58,33 @@ class FilterTrackConsumer extends OauthPhirehose
 
                     if($tem){
                         $arquivo = $word;
-                        if(file_exists('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json')){
-                            $dadosAntigos = json_decode(file_get_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json'),true);
+                        $arquivoISO = mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8'); // Cria variável para facilitar
+                        if(file_exists('./data/arquivos/tweets/'.$arquivoISO.'.json')){
+                        $dadosAntigos = json_decode(file_get_contents('./data/arquivos/tweets/'.$arquivoISO.'.json'),true);
                             $dadosAntigos[] = $data;
                             if(count($dadosAntigos) >= $this->qtTweetsInFile){
                                 $aux = count($dadosAntigos) - $this->qtTweetsInFile;
                                 $dadosAntigos = array_slice($dadosAntigos, $aux);
                             }
-                            file_put_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json',json_encode($dadosAntigos));
+                            file_put_contents('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json',json_encode($dadosAntigos));
                         }else{
-                            file_put_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json',json_encode([$data]));
+                            file_put_contents('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json',json_encode([$data]));
                         }
                     }
                 }else{
                     if(in_array($word, $dadosTexto)){
                         $arquivo = $word;
 
-                        if(file_exists('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json')){
-                            $dadosAntigos = json_decode(file_get_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json'),true);
+                        if(file_exists('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json')){
+                            $dadosAntigos = json_decode(file_get_contents('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json'),true);
                             $dadosAntigos[] = $data;
                             if(count($dadosAntigos) >= $this->qtTweetsInFile){
                                 $aux = count($dadosAntigos) - $this->qtTweetsInFile;
                                 $dadosAntigos = array_slice($dadosAntigos, $aux);
                             }
-                            file_put_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json',json_encode($dadosAntigos));
+                            file_put_contents('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json',json_encode($dadosAntigos));
                         }else{
-                            file_put_contents('./data/arquivos/tweets/'.utf8_decode($arquivo).'.json',json_encode([$data]));
+                            file_put_contents('./data/arquivos/tweets/'.mb_convert_encoding($arquivo, 'ISO-8859-1', 'UTF-8').'.json',json_encode([$data]));
                         }
                     }
                 }
