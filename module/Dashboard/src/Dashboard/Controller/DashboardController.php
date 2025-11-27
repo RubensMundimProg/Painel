@@ -52,10 +52,18 @@ class DashboardController extends AbstractEstruturaController
         if ($request->isPost()) {
             $post = $request->getPost()->toArray();
 
-            if (count($post)) {
-
+            // --- ALTERAÇÃO DO GUARDIÃO: Prioridade para o POST do Javascript ---
+            $sistema = '';
+            if (isset($post['sistema']) && !empty($post['sistema'])) {
+                $sistema = $post['sistema'];
+            } else {
+                // Só tenta a sessão se o JS não mandou nada (fallback)
                 $container = new Container('SistemaSelecionado');
                 $sistema = $container->offsetGet('sistema');
+            }
+            // ------------------------------------------------------------------
+
+            if (count($post) && $sistema) { // Verifica se temos POST e um Sistema válido
 
                 $filename = 'dashboard_' . $sistema;
 
@@ -63,32 +71,34 @@ class DashboardController extends AbstractEstruturaController
                     $filename .= '_' . str_replace('/', '-', implode('_', [$post['start-date'], $post['end-date']]));
                 }
 
+                // Se o arquivo não existe, cria
                 if (!file_exists('./data/json/' . $filename . '.json')) {
                     $json = $this->buildDashboardDataAction($post, $filename);
                 } else {
-                    // --- CORREÇÃO 1: Verificação segura de arquivo ---
+                    // Verificação segura de arquivo
                     $time = @filemtime('./data/json/' . $filename . '.json');
+                    // Se o arquivo for válido e a data for legível
                     if ($time && $created = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', $time))) {
                         $now = new \DateTime();
                         $diff = $created->diff($now);
+                        // Se o arquivo tem mais de 30 minutos, recria
                         if ($diff->days > 0 || $diff->h > 0 || $diff->i > 30) {
                             $json = $this->buildDashboardDataAction($post, $filename);
                         } else {
-                            $json = true;
+                            $json = true; // Arquivo está fresco, vamos ler ele abaixo
                         }
                     } else {
                         $json = $this->buildDashboardDataAction($post, $filename);
                     }
-                    // -------------------------------------------------
                 }
 
+                // Monta a resposta final lendo o arquivo gerado/existente
                 if (!$json) {
-                    $json = json_encode(['error' => true, 'message' => 'Não há massa de dados para o período e avaliação pedagógica selecionados.', 'dados' => []]);
+                    $json = json_encode(['error' => true, 'message' => 'Não há dados para gerar o dashboard.', 'dados' => []]);
                 } else {
                     $updateTime = @filemtime('./data/json/' . $filename . '.json');
                     $updateStr = $updateTime ? date('d/m/Y H:i:s', $updateTime) : date('d/m/Y H:i:s');
                     
-                    // Tenta ler o arquivo, se falhar retorna array vazio
                     $fileContent = @file_get_contents('./data/json/' . $filename . '.json');
                     if ($fileContent === false) $fileContent = '[]';
 
@@ -101,19 +111,12 @@ class DashboardController extends AbstractEstruturaController
                 }
 
             } else {
-                $container = new Container('SistemaSelecionado');
-                $sistema = $container->offsetGet('sistema');
-
-                if (file_exists("./data/json/dashboard_{$sistema}.json")) {
-                    $fileContent = @file_get_contents("./data/json/dashboard_{$sistema}.json");
-                    $json = json_encode(['error' => false, 'message' => '', 'dados' => $fileContent ?: '[]']);
-                } else {
-                    $json = json_encode(['error' => true, 'message' => 'Não há massa de dados para o período e avaliação pedagógica selecionados.', 'dados' => []]);
-                }
+                // Caso não tenha sistema selecionado nem no POST nem na Sessão
+                $json = json_encode(['error' => true, 'message' => 'Nenhum sistema (avaliação) selecionado.', 'dados' => []]);
             }
         }
 
-        // --- CORREÇÃO 2: Limpeza de Buffer para garantir JSON puro ---
+        // Limpeza final para garantir JSON puro
         if (ob_get_length()) {
             ob_clean();
         }
@@ -227,16 +230,28 @@ class DashboardController extends AbstractEstruturaController
 
             foreach ($item as $evento) {
 
-                //SE A SOLICITAÇÃO FOR POR PERIODO ENTÃO PASSA PELA VERIFICAÇÃO ABAIXO
-                $created = new \DateTime($service->epocToDate($evento->Created, 'Y-m-d'));
-                if ($period) {
+                // --- CORREÇÃO DO GUARDIÃO (Comparação de Strings) ---
+                
+                // 1. Converte a data do evento para texto 'AAAA-MM-DD'
+                $eventoDateStr = $service->epocToDate($evento->Created, 'Y-m-d');
+                
+                // 2. Recria o objeto DateTime apenas para a lógica de período (se necessário)
+                $created = \DateTime::createFromFormat('Y-m-d', $eventoDateStr);
+                if ($created) {
+                    $created->setTime(0, 0, 0); // Zera a hora para garantir a comparação de período
+                }
 
-                    if (!(($created >= $startDate) && ($created <= $endDate))) continue;
+                if ($period) {
+                    // Lógica de Período (Mantida, mas agora segura com hora zerada)
+                    if (!$created || !(($created >= $startDate) && ($created <= $endDate))) continue;
                     if ($sistema != $evento->sistema) continue;
 
                 } else {
-                    if ($created != $today) continue;
+                    // Lógica de "Hoje" (NOVA): Compara texto com texto. Infalível.
+                    $todayStr = date('Y-m-d'); 
+                    if ($eventoDateStr !== $todayStr) continue;
                 }
+                // ----------------------------------------------------
 
                 if ($evento->caminho_critico) {
                     @$caminhoCritico[$evento->caminho_critico][$evento->Status]++;
@@ -267,7 +282,7 @@ class DashboardController extends AbstractEstruturaController
                 // --- FIM DA CORREÇÃO ---
 
 
-                
+
 
                 @$ufs[$local[0]]++;
 
@@ -676,13 +691,13 @@ class DashboardController extends AbstractEstruturaController
         if ($period) {
             if (!isset($json[$sistema]) || !$json[$sistema]) return false;
             // Adiciona JSON_INVALID_UTF8_IGNORE para evitar que acentos bugados quebrem o painel
-            $jsonDone = json_encode($json[$sistema], JSON_INVALID_UTF8_IGNORE); 
+            $jsonDone = json_encode($json[$sistema], JSON_INVALID_UTF8_IGNORE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 
-            // Se falhar mesmo assim, retorna erro vazio para não travar a tela
-            if ($jsonDone === false) {
-                $this->consoleLog("Erro ao codificar JSON: " . json_last_error_msg());
-                $jsonDone = json_encode([]);
-            }
+        if ($jsonDone === false) {
+            $this->consoleLog("ERRO JSON: " . json_last_error_msg());
+            // Retorna um JSON vazio válido para não travar a tela com tela branca
+            return json_encode(['dashboard' => ['dados' => [], 'problemas' => []]]);
+                    }
 
 file_put_contents('./data/json/' . $filename . '.json', $jsonDone);
 return $jsonDone;

@@ -154,7 +154,7 @@ $(document).ready(function () {
         loading(true);
         return $.ajax({
             type: "POST",
-            url: '/dashboard/getEventByCode',
+            url: '/dashboard/get-event-by-code',
             dataType: "json",
             data:{code:code},
             success: function(json) {
@@ -254,7 +254,7 @@ function openLateralDireito(){
     if(posicaoDireita < larguraTela){
         return false;
     }else{
-        $('.coluna-direita').animate({"right": '0'});
+        $('.coluna-direita').removeClass('off').animate({"right": '0'});
     }
 }
 
@@ -370,8 +370,16 @@ function nl2br(str, is_xhtml) {
 }
 
 function epocToDate(date){
+    if (!date) return "";
+    
+    // Tratamento para formato ASP.NET /Date(123456...)/
+    if (typeof date === 'string' && date.indexOf('/Date(') !== -1) {
+        var num = parseInt(date.match(/\d+/)[0], 10);
+        date = new Date(num);
+    }
+
     moment.locale("pt-br");
-    return moment(date).format('DD/MM/YYYY H:mm:ss');
+    return moment(date).format('DD/MM/YYYY HH:mm:ss'); // Corrigido formato de hora H:mm
 }
 
 function translateIt(word){

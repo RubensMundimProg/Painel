@@ -1,0 +1,15 @@
+18:36:08 - === INICIANDO DEBUG ===
+18:36:08 - Modo: Tempo Real (Hoje)
+18:36:08 - Data do Servidor (Hoje): 2025-11-26
+18:36:09 - Total de Eventos baixados da API: 44
+18:36:09 - Sistema Selecionado na Sessão: ''
+18:36:09 - Sistemas encontrados nos eventos: Enade
+18:36:09 - >> Processando sistema: Enade
+18:36:09 - ID EVTD202511063914: Data '2025-11-23' != Hoje '2025-11-26'. Ignorado.
+18:36:09 - ID EVTD202511063902: Data '2025-11-23' != Hoje '2025-11-26'. Ignorado.
+18:36:09 - ID EVTD202511063929: Data '2025-11-24' != Hoje '2025-11-26'. Ignorado.
+18:36:09 - ID EVTD202511063908: Data '2025-11-23' != Hoje '2025-11-26'. Ignorado.
+18:36:09 - ID EVTD202511063910: Data '2025-11-23' != Hoje '2025-11-26'. Ignorado.
+18:36:09 - >>> SUCESSO: Evento ID EVTD202511063944 (MG - BRASILIA DE MINAS - 51794 UNIMONTES CAMPUS BRASÍLIA DE MINAS - Incêndio) adicionado!
+18:36:09 - Carregando Usuários Online...
+18:36:09 - Usuários Online encontrados no Banco: 1

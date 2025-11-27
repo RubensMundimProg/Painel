@@ -298,7 +298,7 @@ class Filter {
                 $orders[] = sprintf("%s %s", $ord['field'], $ord['order']);
             }
             
-            $order = '&$orderby='.urlencode(implode($orders, ', '));
+            $order = '&$orderby='.urlencode(implode(', ', $orders));
         }
 
         /// Adiciona ao filtro o Status se for setado

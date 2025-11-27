@@ -96,6 +96,20 @@ $(function(){
                 interval: false
             });
 
+            // --- CORREÇÃO DO GUARDIÃO: REFLOW DOS GRÁFICOS ---
+            // Força o redimensionamento dos gráficos sempre que o slide mudar
+            $('#carousel-paginas').on('slid.bs.carousel', function () {
+                if (typeof Highcharts !== 'undefined' && Highcharts.charts) {
+                    Highcharts.charts.forEach(function(chart) {
+                        if (chart) {
+                            chart.reflow();
+                        }
+                    });
+                }
+                // Força também o ajuste das tabelas com scroll (marquee)
+                rodarTabela();
+            });
+
             $('.container-fluid').css('padding-right','0');
             $('.container-fluid').css('padding-left','0');
 
@@ -980,35 +994,60 @@ $(function(){
         });
 
         function getDashboardData(filter){
+            
+            // --- ALTERAÇÃO DO GUARDIÃO: FORÇA O ENVIO DO SISTEMA ---
+            var sistemaAtual = $('#AvaliacaoPedagogica').val();
+            
+            // Prepara o filtro garantindo que seja um objeto
+            if (!filter) filter = {};
+            if (typeof filter === 'string') {
+                var params = new URLSearchParams(filter);
+                filter = {};
+                for(var pair of params.entries()) {
+                    filter[pair[0]] = pair[1];
+                }
+            }
+            
+            // Anexa o sistema ao pacote de dados enviado para o PHP
+            filter.sistema = sistemaAtual;
+            // -------------------------------------------------------
+
             $.ajax({
                 url: '/dashboard/get-dashboard-json',
                 type:'POST',
                 data: filter,
                 success: function(ret) {
 
-                    jsonRet = JSON.parse(ret);
+                    // Garante que a resposta seja tratada como objeto
+                    var response = (typeof ret === 'object') ? ret : JSON.parse(ret);
+                    jsonRet = response;
 
                     if(jsonRet.error){
                         addMessage('danger',jsonRet.message);
 
                     }else{
 
-                        if(!$.isEmptyObject(filter)){
+                        if(filter['start-date'] && filter['end-date']){
                             $('#filtro-date-frame p').remove();
                             $('#filtro-date-frame').append('<p>Arquivo gerado em: '+jsonRet.update+'</p>');
+                           
                         }
 
-                        jsonRet = JSON.parse(jsonRet.dados);
+                        // Tratamento para o "JSON dentro de JSON"
+                        var dadosInternos = (typeof jsonRet.dados === 'string') ? JSON.parse(jsonRet.dados) : jsonRet.dados;
+                        jsonRet = dadosInternos;
 
-                        if(jsonRet.dashboard.dados.eventos.length == 0){
-                            addMessage('info','Não há massa de dados para as datas selecionadas.')
+                        // Proteção contra arrays vazios
+                        if(!jsonRet.dashboard || !jsonRet.dashboard.dados || jsonRet.dashboard.dados.eventos.length == 0){
+                             addMessage('info','Não há massa de dados para as datas selecionadas.');
+                             loading(false);
+                             return; // Para a execução se não tiver dados
                         }
 
+                        // --- RESTANTE DA LÓGICA DE GRÁFICOS (MANTIDA IGUAL) ---
                         // gráfico por situação Tela A e B
                         qtdStatus.series[0].setData(jsonRet.dashboard.dados.status_tratamento, false);
                         qtdStatus.redraw();
-                        //qtdStatusB.series[0].setData(jsonRet.dashboard.dados.status_tratamento, false);
-                        //qtdStatusB.redraw();
 
                         //Gráfico Categoria > Subcategoria > UF
                         categoriaSubcategoriaUf.series[0].setData(jsonRet.dashboard.dados.categoria_subcategoria_uf.serie.data);
@@ -1024,10 +1063,6 @@ $(function(){
                         }
                         ufCategoriaSubcategoria.redraw();
 
-
-
-                        diaAplicacao.redraw();
-
                         diaAplicacao.series[0].setData(jsonRet.dashboard.dados.dia_aplicacao);
                         diaAplicacao.redraw();
 
@@ -1042,7 +1077,6 @@ $(function(){
                         topDezCategoriaSubcategoria.series[0].setData(jsonRet.dashboard.dados.top_dez_categoria_subcategoria);
                         topDezCategoriaSubcategoria.redraw();
 
-
                         //Gráfico UF por Nível
                         ufNivel.xAxis[0].setCategories(jsonRet.dashboard.dados.uf_nivel_categoria);
                         while (ufNivel.series.length > 0) {
@@ -1053,33 +1087,23 @@ $(function(){
                             ufNivel.addSeries(jsonRet.dashboard.dados.uf_nivel[item]);
                         });
 
-                        //Gráfico Categoria > Subcategoria > UF
+                        //Gráfico Total Ocorrências
                         totalOcorrencias.series[0].setData(jsonRet.dashboard.dados.total_ocorrencia);
                         totalOcorrencias.redraw();
-
 
                         //Gráfico Categorias x Abertos x Fechados
                         var categories = jsonRet.dashboard.dados.categoria_abertos_fechados.category,
                             data = jsonRet.dashboard.dados.categoria_abertos_fechados.data,
                             dataA = [],
                             dataB = [],
-                            i,
-                            j,
-                            dataLen = data.length,
-                            drillDataLen,
-                            brightness;
+                            i, j, dataLen = data.length, drillDataLen, brightness;
 
-                        // Build the data arrays
                         for (i = 0; i < dataLen; i += 1) {
-
-                            // add browser data
                             dataA.push({
                                 name: categories[i],
                                 y: data[i].y,
                                 color: data[i].color
                             });
-
-                            // add version data
                             drillDataLen = data[i].drilldown.data.length;
                             for (j = 0; j < drillDataLen; j += 1) {
                                 brightness = 0.2 - (j / drillDataLen) / 5;
@@ -1090,7 +1114,6 @@ $(function(){
                                 });
                             }
                         }
-
                         categoriaAbertosFechados.series[0].setData(dataA);
                         categoriaAbertosFechados.series[1].setData(dataB);
                         categoriaAbertosFechados.redraw();
@@ -1098,46 +1121,20 @@ $(function(){
                         if($("#pie-caminho-critico").length){
                             pieCaminhoCritico.series[0].setData(jsonRet.dashboard.dados.pie_qtd_por_caminho_critico, false);
                             pieCaminhoCritico.redraw();
-
                             pieSeveridade.series[0].setData(jsonRet.dashboard.dados.pie_qtd_por_severidade, false);
                             pieSeveridade.redraw();
                         }
-                                                
-                        //Gráfico Top 10 Usuários
-                        //topDezUsuarios.series[0].setData(jsonRet.dashboard.dados.top_dez_usuarios);
-                        //topDezUsuarios.redraw();
-
-
-                        //GRÁFICO DE ABSTENÇÃO X PRESENTES
-                        /*abstencao.xAxis[0].setCategories(jsonRet.dashboard.dados.abstencao_categoria);
-                         while(abstencao.series.length > 0){
-                         abstencao.series[0].remove(true);
-                         }
-                         abstencao.colorCounter = 0;
-                         $.each(jsonRet.dashboard.dados.abstencao,function(item){
-                         abstencao.addSeries(jsonRet.dashboard.dados.abstencao[item]);
-                         });*/
-
-                        //Gráfico top usuários
-                        //buildTopUsuarios();
-
-                        //Indicador Triagem
-                        //$('#qtd-triagem').text(jsonRet['triagem']);
 
                         loadEventsIntoTable(jsonRet.dashboard.dados.eventos, false);
-
                         loadUsuariosOnlineIntoTable(jsonRet.dashboard.dados.users_online_list);
 
-                        // call it again after a period of time
                         if (INTERVALOTOGGLE) {
                             intervalo = setInterval(function () {
                                 getDashboardData(datas);
                             }, DASHBOARD_INTERVAL);
                         }
-
                     }
 
-                    //FIX CHART THAT PLOTS SMALLER THEN IT SHOULD BE
                     if (CAROUSEL) {
                         setTimeout(initiateCarousel, 300);
                         CAROUSEL = false;
@@ -1149,7 +1146,6 @@ $(function(){
                     }
 
                     loading(false);
-
                 },
                 cache: false
             });
@@ -1334,7 +1330,7 @@ function loadUsuariosOnlineIntoTable(users)
     $.each(users,function(i){
 
         $('#usuarios-online .tbody-usuarios').append(
-            '<tr data-code="'+users[i].EventID+'">' +
+            '<tr>' +
             '<td>'+users[i].USUARIO+'</td>' +
             '<td>'+users[i].IP+'</td>' +
             '<td>'+users[i].NAVEGADOR+'</td>' +

@@ -8,37 +8,42 @@
 <!--    </ol>-->
 
     <!-- Wrapper for slides -->
+    <div class="menu" data-menu="dashboard"></div>
+
+<div id="carousel-paginas" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <?=$this->render('pag-aplicacao-a')?>
         </div>
-        <div class="item active">
+        
+        <div class="item">
             <?=$this->render('pag-aplicacao-dia')?>
         </div>
-        <div class="item active">
+
+        <div class="item">
             <?=$this->render('pag-aplicacao-b')?>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <?=$this->render('pag-aplicacao-g')?>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <?=$this->render('pag-aplicacao-c')?>
         </div>
-        <div class="item active">
+
+        <div class="item">
             <?=$this->render('pag-aplicacao-d')?>
         </div>
+        
         <?php if($isAdmin){?>
-        <!--    <div class="item active">
-                <?=$this->render('pag-aplicacao-h')?>
-            </div>-->
         <?php }; ?>
 
-        <div class="item active">
+        <div class="item">
             <?=$this->render('pag-aplicacao-e')?>
         </div>
-        <div class="item active">
+
+        <div class="item">
             <?=$this->render('pag-aplicacao-f')?>
         </div>
     </div>
@@ -78,8 +83,8 @@
                     <p class="small"><b>Obs.: </b>Com a aplicação do filtro, o dashboard não será auto atualizado. Utilize o filtro para datas passadas.</p>
                 </div>
             </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
 <div id="filtro-date-frame"></div>
