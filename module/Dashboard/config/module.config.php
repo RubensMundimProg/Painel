@@ -49,9 +49,7 @@ return array(
             'Laminas\Cache\Service\StorageCacheAbstractServiceFactory',
             'Laminas\Log\LoggerAbstractServiceFactory',
         ),
-        'aliases' => array(
-            'translator' => 'MvcTranslator',
-        ),
+     
     ),
     'translator' => array(
         'locale' => 'pt_BR',

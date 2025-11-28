@@ -3,7 +3,7 @@ return array(
     'router' => array(
         'routes' => array(
             'home' => array(
-                'type' => 'Laminas\Mvc\Router\Http\Literal',
+                'type' => 'Laminas\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
@@ -23,7 +23,7 @@ return array(
                 ),
             ),
             'error' => array(
-                'type' => 'Laminas\Mvc\Router\Http\Literal',
+                'type' => 'Laminas\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/error/nao-autorizado',
                     'defaults' => array(
@@ -65,9 +65,7 @@ return array(
             'Laminas\Cache\Service\StorageCacheAbstractServiceFactory',
             'Laminas\Log\LoggerAbstractServiceFactory',
         ),
-        'aliases' => array(
-            'translator' => 'MvcTranslator',
-        ),
+    
     ),
     'translator' => array(
         'locale' => 'pt_BR',

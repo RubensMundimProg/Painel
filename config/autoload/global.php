@@ -14,7 +14,7 @@ return [
     'VEFIFICA_ACL'=>true,
     'service_manager' => array(
         'factories' => array(
-            'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
+          //  'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
             'Laminas\Cache\Storage\Filesystem' => function($sm) {
                 $cache = \Laminas\Cache\StorageFactory::factory(array(
                     'adapter' => array(

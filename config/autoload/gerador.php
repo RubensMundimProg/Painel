@@ -14,7 +14,7 @@ return [
     'location'=> BASE_PATCH.DIRECTORY_SEPARATOR.'module'.DIRECTORY_SEPARATOR,
     'service_manager' => array(
         'factories' => array(
-            'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
+         //   'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
         ),
     )
 ];

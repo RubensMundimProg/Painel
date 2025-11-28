@@ -4,7 +4,7 @@ return array(
     'router' => array(
         'routes' => array(
             'classes-home' => array(
-                'type' => 'Laminas\Mvc\Router\Http\Segment',
+                'type' => 'Laminas\Router\Http\Segment',
                 'options' => array(
                     'route'    => '/classes',
                     'defaults' => array(
@@ -20,9 +20,7 @@ return array(
             'Laminas\Cache\Service\StorageCacheAbstractServiceFactory',
             'Laminas\Log\LoggerAbstractServiceFactory',
         ),
-        'aliases' => array(
-            'translator' => 'MvcTranslator',
-        ),
+  
     ),
     'translator' => array(
         'locale' => 'en_US',

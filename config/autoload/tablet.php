@@ -21,7 +21,7 @@ return array(
     'local_arquivo_configuracao'=>'C:\Users\rafael.marques\Projetos\inep_pro\public\sistema',
     'service_manager' => array(
         'factories' => array(
-            'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
+         //   'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
         ),
     ),
     'view_manager' => array(
