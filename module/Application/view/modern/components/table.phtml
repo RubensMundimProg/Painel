@@ -1,0 +1,19 @@
+<?php
+$id = $id ?? '';
+$headers = $headers ?? [];
+$body = $body ?? '';
+?>
+<div class="modern-table-card">
+    <div class="modern-table-wrap">
+        <table class="modern-table"<?= $id ? ' id="' . $this->escapeHtmlAttr($id) . '"' : '' ?>>
+            <thead>
+            <tr>
+                <?php foreach ($headers as $header) : ?>
+                    <th><?= $this->escapeHtml($header) ?></th>
+                <?php endforeach; ?>
+            </tr>
+            </thead>
+            <tbody><?= $body ?></tbody>
+        </table>
+    </div>
+</div>

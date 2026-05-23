@@ -1,0 +1,171 @@
+<?php
+$items = [];
+$iconBase = '/assets/modern/img/icons/';
+
+$addItem = function ($show, $title, $description, $href, $tag, $icon, $secondary = []) use (&$items) {
+    if (!$show) {
+        return;
+    }
+
+    $items[] = [
+        'title' => $title,
+        'description' => $description,
+        'href' => $href,
+        'tag' => $tag,
+        'icon' => $icon,
+        'secondary' => $secondary,
+    ];
+};
+
+$addItem(
+    $this->Perfil('index', 'index'),
+    'Meu Espaço',
+    'Notificações, avisos e informações do usuário.',
+    $this->basePath('/index/meu-espaco?ui=modern'),
+    'ME',
+    'meu-espaco-inicio.png',
+    $this->Perfil('index', 'gerir-aviso') ? [['label' => 'Gerenciar avisos', 'href' => $this->basePath('/index/gerir-aviso')]] : []
+);
+
+$addItem(
+    $this->Perfil('triagem', 'cadastro-ocorrencia'),
+    'Ocorrência',
+    'Cadastro de novas ocorrências da operação.',
+    $this->basePath('/triagem/cadastro-ocorrencia?ui=modern'),
+    'OC',
+    'ocorrencia-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('triagem', 'index'),
+    'Triagem',
+    'Análise e encaminhamento das ocorrências recebidas.',
+    $this->basePath('/triagem?ui=modern'),
+    'TR',
+    'triagem-inicio.png',
+    $this->Perfil('triagem', 'recusados') ? [['label' => 'Recusados', 'href' => $this->basePath('/triagem/recusados?ui=modern')]] : []
+);
+
+$addItem(
+    $this->Perfil('validados', 'index'),
+    'Validados',
+    'Atualização de progresso e status dos alertas.',
+    $this->basePath('/validados?ui=modern'),
+    'VA',
+    'validados-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('dashboard-index', '*'),
+    'Painel de Monitoramento',
+    'Dashboard operacional com indicadores, mapas e eventos.',
+    $this->basePath('/dashboard'),
+    'PM',
+    'painel-monitoramento-inicio.png',
+    $this->Perfil('index', 'gerir-atividade') ? [['label' => 'Gerenciar atividades', 'href' => $this->basePath('/index/gerir-atividade')]] : []
+);
+
+$addItem(
+    $this->Perfil('ultima-milha', 'index'),
+    'Entrega/Coleta',
+    'Indicadores de entrega, coleta e última milha.',
+    $this->basePath('/dashboard/ultima-milha'),
+    'EC',
+    'entrega-inicio.png',
+    $this->Perfil('configuracao', 'correios') ? [['label' => 'Atualizar dados', 'href' => $this->basePath('/configuracao/correios')]] : []
+);
+
+$addItem(
+    $this->Perfil('relatorios', 'index'),
+    'Relatórios',
+    'Geração de relatórios operacionais e PDFs.',
+    $this->basePath('/relatorios'),
+    'RE',
+    'relatorios-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('calendario', 'index'),
+    'Calendário',
+    'Visão de agenda dos processos e eventos.',
+    $this->basePath('/calendario'),
+    'CA',
+    'calendario-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('gantt', 'index'),
+    'Gráfico de Gantt',
+    'Linha do tempo dos processos monitorados.',
+    $this->basePath('/gantt'),
+    'GT',
+    'gantt-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('contratos', 'index'),
+    'Gestão de Contratos',
+    'Acompanhamento dos contratos da operação.',
+    $this->basePath('/contratos'),
+    'GC',
+    'contratos-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('configuracao', 'index'),
+    'Configurações Gerais',
+    'Parâmetros e dados de apoio do painel.',
+    $this->basePath('/configuracao'),
+    'CG',
+    'configuracoes-inicio.png'
+);
+
+$addItem(
+    $this->Perfil('ajuda', 'index'),
+    'Ajuda',
+    'Manuais e orientações de uso da aplicação.',
+    $this->basePath('/ajuda'),
+    'AJ',
+    'ajuda-inicio.png'
+);
+?>
+
+<div class="menu d-none" data-menu="home"></div>
+
+<div class="modern-page modern-home">
+    <header class="modern-page-header">
+        <div>
+            <span class="modern-page-kicker">Painel</span>
+            <h1 class="modern-page-title">Monitoramento de Exame</h1>
+            <p class="modern-page-subtitle">Acesso rápido aos fluxos operacionais, relatórios e dashboards.</p>
+        </div>
+
+        <div class="modern-actions">
+            <a href="<?= $this->basePath('/dashboard'); ?>" class="btn btn-primary">Abrir dashboard</a>
+        </div>
+    </header>
+
+    <section class="modern-home-grid" aria-label="Funcionalidades">
+        <?php foreach ($items as $item) : ?>
+            <article class="modern-feature-card">
+                <a href="<?= $this->escapeHtmlAttr($item['href']) ?>" class="modern-feature-main">
+                    <span class="modern-feature-icon">
+                        <img src="<?= $this->basePath($iconBase . $item['icon']); ?>" alt="" aria-hidden="true">
+                    </span>
+                    <span>
+                        <strong><?= $this->escapeHtml($item['title']) ?></strong>
+                        <small><?= $this->escapeHtml($item['description']) ?></small>
+                    </span>
+                </a>
+
+                <?php if (count($item['secondary'])) : ?>
+                    <div class="modern-feature-links">
+                        <?php foreach ($item['secondary'] as $link) : ?>
+                            <a href="<?= $this->escapeHtmlAttr($link['href']) ?>"><?= $this->escapeHtml($link['label']) ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </article>
+        <?php endforeach; ?>
+    </section>
+</div>

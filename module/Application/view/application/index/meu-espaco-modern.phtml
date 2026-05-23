@@ -1,0 +1,99 @@
+<?php
+$totalAvisos = count($lista);
+$totalPerfis = count($perfis);
+?>
+
+<div class="menu d-none" data-menu="Meu Espaço"></div>
+
+<div class="modern-page" data-menu="Meu Espaço">
+    <header class="modern-page-header">
+        <div>
+            <span class="modern-page-kicker">Meu Espaço</span>
+            <h1 class="modern-page-title">Área do usuário</h1>
+            <p class="modern-page-subtitle">Dados de acesso, perfis e avisos ativos.</p>
+        </div>
+
+        <div class="modern-actions">
+            <a class="btn btn-outline-secondary" href="<?= $this->basePath('/'); ?>">Voltar</a>
+            <?php if ($this->Perfil('index', 'gerir-aviso')) : ?>
+                <a class="btn btn-outline-primary" href="<?= $this->basePath('/index/gerir-aviso'); ?>">Gerenciar avisos</a>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <section class="modern-stat-grid" aria-label="Resumo do usuário">
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($totalAvisos) ?></span>
+            <span class="modern-stat-label">Avisos ativos</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($totalPerfis) ?></span>
+            <span class="modern-stat-label">Perfis</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value">Ativo</span>
+            <span class="modern-stat-label">Sessão</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value">RM</span>
+            <span class="modern-stat-label">Origem</span>
+        </div>
+    </section>
+
+    <section class="modern-two-column">
+        <article class="modern-card">
+            <header class="modern-card-header">
+                <h2>Dados do usuário</h2>
+            </header>
+            <div class="modern-card-body">
+                <div class="modern-profile-block">
+                    <span class="modern-avatar"><?= $this->escapeHtml(strtoupper(substr((string)$nome, 0, 1))) ?></span>
+                    <div>
+                        <strong><?= $this->escapeHtml($nome) ?></strong>
+                        <span><?= $this->escapeHtml($email) ?></span>
+                    </div>
+                </div>
+
+                <div class="modern-profile-list">
+                    <span class="modern-muted">Perfis vinculados</span>
+                    <?php foreach ($perfis as $perfil) : ?>
+                        <span class="modern-badge"><?= $this->escapeHtml($perfil) ?></span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </article>
+
+        <article class="modern-card">
+            <header class="modern-card-header">
+                <h2>Avisos</h2>
+            </header>
+            <div class="modern-card-body">
+                <?php if ($totalAvisos === 0) : ?>
+                    <div class="modern-empty compact">Sem avisos no momento.</div>
+                <?php endif; ?>
+
+                <div class="modern-notice-list">
+                    <?php foreach ($lista as $aviso) : ?>
+                        <section class="modern-notice">
+                            <header>
+                                <strong><?= $this->escapeHtml($aviso->getTitulo()) ?></strong>
+                                <span><?= $this->escapeHtml($aviso->getAvaliacaoPedagogica()) ?></span>
+                            </header>
+
+                            <?php if ($aviso->getTexto()) : ?>
+                                <p><?= $this->escapeHtml($aviso->getTexto()) ?></p>
+                            <?php endif; ?>
+
+                            <?php if ($aviso->getAnexo()) : ?>
+                                <?php $anexo = explode('/', $aviso->getAnexo()); ?>
+                                <a class="btn btn-sm btn-outline-secondary" href="<?= $this->escapeHtmlAttr($aviso->getAnexo()) ?>" target="_blank">
+                                    Ver anexo <?= $this->escapeHtml(end($anexo)) ?>
+                                </a>
+                            <?php endif; ?>
+                        </section>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>

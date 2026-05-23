@@ -1,0 +1,1 @@
+{"codigo_origem":18944,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60202 ASLAN - UMARIZAL","categoria":"33","descricao":"Os n\u00fameros  dos lacres  de a\u00e7o  conferem com os r\u00f3tulos  fos malotes","origem_informacao":"RNC","nome_usuario":"DIANA LUCIA BARROS DA SILVA","email_usuario":"diana.lucia@ifpa.edu.br","data_hora":"30\/11\/2025 11:47:03"}

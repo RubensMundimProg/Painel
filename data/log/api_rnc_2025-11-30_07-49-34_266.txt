@@ -1,0 +1,1 @@
+{"codigo_origem":18901,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60194 EMEIF ROTARY","categoria":"25","descricao":"Est\u00e1 pegando fogo no painel de monitoramento da CMGR","origem_informacao":"RNC","nome_usuario":"PAULO GUILHERME FERNANDES OLIVEIRA","email_usuario":"sigasteste@gmail.com","data_hora":"30\/11\/2025 07:49:44"}

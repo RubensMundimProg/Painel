@@ -1,0 +1,1 @@
+{"codigo_origem":19162,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60089 UNIVERSIDADE FEDERAL DO PAR\u00c1 (UFPA) - CAMPUS B\u00c1SICO","categoria":"20","descricao":"teste","origem_informacao":"RNC","nome_usuario":"PAULO GUILHERME FERNANDES OLIVEIRA","email_usuario":"sigasteste@gmail.com","data_hora":"07\/12\/2025 08:43:47"}

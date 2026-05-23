@@ -1,0 +1,1 @@
+{"codigo_origem":19300,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60179 SISTEMA DE ENSINO EQUIPE - GENTIL","categoria":"0","descricao":"Falta de agua na parte de baixo do pr\u00e9dio.","origem_informacao":"RNC","nome_usuario":"MARLECY MALCHER PALHETA","email_usuario":"marlecypalheta@gmail.com","data_hora":"07\/12\/2025 15:57:49"}

@@ -1,0 +1,1 @@
+{"codigo_origem":19142,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"20157 COL\u00c9GIO UNIVERSO","categoria":"21","descricao":"TESTE_ENEM - CPNU 2","origem_informacao":"RNC","nome_usuario":"PAULO GUILHERME FERNANDES OLIVEIRA","email_usuario":"sigasteste@gmail.com","data_hora":"05\/12\/2025 09:42:19"}

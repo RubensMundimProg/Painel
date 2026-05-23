@@ -1,0 +1,1 @@
+{"codigo_origem":19284,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60175 COL\u00c9GIO OLIMPUS","categoria":"35","descricao":"Lacres dos malotes n\u00e3o confere com os n\u00fameros dos malotes","origem_informacao":"RNC","nome_usuario":"JOSE MARIA SILVA GOMES","email_usuario":"gomes.m.brasil@hotmail.com","data_hora":"07\/12\/2025 11:22:19"}

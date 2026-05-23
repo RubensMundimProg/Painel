@@ -1,0 +1,275 @@
+<?php
+$fechados = $fechados ?? false;
+$baseUrl = $fechados ? '/validados/fechados' : '/validados';
+$limparUrl = $fechados ? '/validados/limpar/fechados?ui=modern' : '/validados/limpar?ui=modern';
+$tituloPagina = $fechados ? 'Histórico de Alertas' : 'Alertas em aberto';
+$kicker = $fechados ? 'Alertas fechados' : 'Alertas validados';
+$totalLabel = $fechados ? 'Alertas fechados' : 'Alertas abertos';
+$emptyText = $fechados
+    ? 'Nenhum alerta fechado foi retornado para a avaliação e filtros atuais.'
+    : 'Nenhum alerta aberto foi retornado para a avaliação e filtros atuais.';
+$form->get('OrigemInformacao')->setAttribute('class', 'form-select')->setLabel('');
+$form->get('UfFiltro')->setAttribute('class', 'form-select')->setLabel('');
+$form->get('DataRegistro')->setAttribute('class', 'form-control datepicker')->setLabel('');
+$filtrosAbertos = count($categoriasSelecionadas) > 0
+    || (string)$form->get('OrigemInformacao')->getValue() !== ''
+    || (string)$form->get('UfFiltro')->getValue() !== ''
+    || (string)$form->get('DataRegistro')->getValue() !== '';
+
+$total = count($lista);
+$comAnexo = 0;
+$semAtualizacao = 0;
+$categoriasAtivas = [];
+
+foreach ($lista as $statItem) {
+    $statAnexos = $statItem->getCustomAttribute('anexo');
+    if (is_array($statAnexos) && count($statAnexos) > 0) {
+        $comAnexo++;
+    }
+
+    if (!$statItem->getCustomAttribute('ultimo_progresso')) {
+        $semAtualizacao++;
+    }
+
+    $categoriaStat = (string) $statItem->getCustomAttribute('categoria_evento');
+    if ($categoriaStat !== '') {
+        $categoriaPrincipal = explode(' - ', $categoriaStat)[0];
+        $categoriasAtivas[$categoriaPrincipal] = true;
+    }
+}
+?>
+
+<div class="menu d-none" data-menu="Atualizar Progresso dos Alertas"></div>
+
+<div class="modern-page" data-menu="Alertas Validados">
+    <header class="modern-page-header">
+        <div>
+            <span class="modern-page-kicker"><?= $this->escapeHtml($kicker) ?></span>
+            <h1 class="modern-page-title"><?= $this->escapeHtml($tituloPagina) ?></h1>
+            <p class="modern-page-subtitle">
+                <?= $this->escapeHtml($sistema) ?>
+                <?php if (isset($duracao) && $duracao !== '') : ?>
+                    <span class="modern-muted">- <?= $this->escapeHtml($duracao) ?></span>
+                <?php endif; ?>
+            </p>
+        </div>
+
+        <div class="modern-actions">
+            <a class="btn btn-outline-secondary" href="<?= $this->basePath('/'); ?>">Voltar</a>
+            <?php if ($fechados) : ?>
+                <a class="btn btn-outline-primary" href="<?= $this->basePath('/validados?ui=modern'); ?>">Alertas abertos</a>
+            <?php else : ?>
+                <a class="btn btn-outline-primary" href="<?= $this->basePath('/validados/fechados?ui=modern'); ?>">Alertas fechados</a>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <section class="modern-stat-grid" aria-label="Resumo dos alertas">
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($total) ?></span>
+            <span class="modern-stat-label"><?= $this->escapeHtml($totalLabel) ?></span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml(count($categoriasAtivas)) ?></span>
+            <span class="modern-stat-label">Categorias ativas</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($comAnexo) ?></span>
+            <span class="modern-stat-label">Com anexo</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($semAtualizacao) ?></span>
+            <span class="modern-stat-label">Sem progresso</span>
+        </div>
+    </section>
+
+    <form action="<?= $this->basePath($baseUrl); ?>" method="get" class="modern-filter">
+        <input type="hidden" name="ui" value="modern">
+
+        <div class="modern-filter-title">
+            <button class="modern-filter-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#validadosFilters" aria-expanded="<?= $filtrosAbertos ? 'true' : 'false' ?>" aria-controls="validadosFilters">
+                <span>Filtros</span>
+                <span class="modern-filter-arrow"></span>
+            </button>
+        </div>
+
+        <div id="validadosFilters" class="collapse <?= $filtrosAbertos ? 'show' : '' ?>">
+            <div class="modern-field">
+                <label>Categorias</label>
+                <div class="modern-chip-group">
+                    <?php $options = $form->get('Categoria')->getOptions(); ?>
+                    <?php foreach ($options['value_options'] as $option) : ?>
+                        <?php if ($option == 'Selecione') continue; ?>
+                        <?php $checked = in_array($option, $categoriasSelecionadas) ? 'checked="checked"' : ''; ?>
+                        <label class="modern-check-chip">
+                            <input type="checkbox" name="Categoria[]" value="<?= $this->escapeHtmlAttr($option) ?>" <?= $checked ?>>
+                            <span><?= $this->escapeHtml($option) ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="modern-form-grid">
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('OrigemInformacao')->getAttribute('id')) ?>">Origem da ocorrência</label>
+                    <?= $this->formElement($form->get('OrigemInformacao')) ?>
+                </div>
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('UfFiltro')->getAttribute('id')) ?>">UF</label>
+                    <?= $this->formElement($form->get('UfFiltro')) ?>
+                </div>
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('DataRegistro')->getAttribute('id')) ?>">Data</label>
+                    <?= $this->formElement($form->get('DataRegistro')) ?>
+                </div>
+            </div>
+
+            <div class="modern-filter-actions">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+                <a href="<?= $this->basePath($limparUrl); ?>" class="btn btn-outline-secondary">Limpar</a>
+            </div>
+        </div>
+    </form>
+
+    <section class="modern-table-card">
+        <div class="modern-table-toolbar">
+            <div>
+                <h2>Lista de alertas</h2>
+                <span class="modern-muted"><?= $this->escapeHtml($total) ?> registros encontrados</span>
+            </div>
+            <input class="form-control modern-search" type="search" placeholder="Pesquisar na lista" data-modern-table-search="#modern-validados-table" aria-label="Pesquisar na lista">
+        </div>
+
+        <div class="modern-table-wrap">
+            <table class="modern-table modern-alert-table <?= $total > 0 ? 'datatable' : '' ?>" id="modern-validados-table">
+                <thead>
+                <tr>
+                        <th>Município</th>
+                    <th>Exame</th>
+                        <th>Coordenação</th>
+                    <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th>Providências</th>
+                    <th>Usuario</th>
+                    <th>Triagem por</th>
+                    <th>Origem</th>
+                    <th>Status</th>
+                    <th>Data/Hora</th>
+                        <th>Última atualização</th>
+                    <th>Anexo</th>
+                        <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if ($total === 0) : ?>
+                <?php else : ?>
+                    <?php foreach ($lista as $item) : ?>
+                        <?php
+                        $anexo = $item->getCustomAttribute('anexo');
+                        if (!is_array($anexo)) {
+                            $anexo = [];
+                        }
+
+                        $item->setCode($item->getCustomAttribute('EventID'));
+                        $code = $item->getCode();
+                        $coordenacao = (string) $item->getCustomAttribute('coordenacao');
+                        $status = (string) $item->getStatus();
+                        $statusClass = $status === 'Aberto' ? 'success' : ($status === 'Fechado' ? 'warning' : 'danger');
+                        $exameBadge = '';
+                        $exameClass = 'primary';
+
+                        if (stripos($coordenacao, 'ENEM') !== false) {
+                            $exameBadge = 'ENEM';
+                        } elseif (stripos($coordenacao, 'CPNU') !== false) {
+                            $exameBadge = 'CPNU';
+                            $exameClass = 'warning';
+                        }
+                        ?>
+                        <tr>
+                            <td class="update-progress" data-label="Município" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('municipio_de_aplicacao')) ?>
+                            </td>
+                            <td class="update-progress" data-label="Exame" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?php if ($exameBadge) : ?>
+                                    <span class="modern-badge <?= $this->escapeHtmlAttr($exameClass) ?>"><?= $this->escapeHtml($exameBadge) ?></span>
+                                <?php else : ?>
+                                    <span class="modern-muted">-</span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="update-progress" data-label="Coordenação" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($coordenacao) ?>
+                            </td>
+                            <td class="update-progress" data-label="Categoria" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('categoria_evento')) ?>
+                            </td>
+                            <td class="update-progress modern-description" data-label="Descrição" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getDescription()) ?>
+                            </td>
+                            <td class="update-progress modern-description" data-label="Providências" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('providencias_adotadas')) ?>
+                            </td>
+                            <td class="update-progress" data-label="Usuario" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('usuario_cadastro')) ?>
+                            </td>
+                            <td class="update-progress" data-label="Triagem por" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('usuario_triagem')) ?>
+                            </td>
+                            <td class="update-progress" data-label="Origem" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('origem_informacao')) ?>
+                            </td>
+                            <td class="update-progress status-registro" data-label="Status" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <span class="modern-badge <?= $this->escapeHtmlAttr($statusClass) ?>"><?= $this->escapeHtml($status) ?></span>
+                            </td>
+                            <td class="update-progress" data-label="Data/Hora" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->epocToDate($item->getCreated(), 'd/m/Y H:i:s')) ?>
+                            </td>
+                            <td class="update-progress" data-label="Última atualização" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                <?= $this->escapeHtml($item->getCustomAttribute('ultimo_progresso') ?: '-') ?>
+                            </td>
+                            <td class="anexo" data-label="Anexo">
+                                <?php if (count($anexo)) : ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary view-anexo" data-anexo="<?= $this->escapeHtmlAttr(implode('|', $anexo)) ?>">
+                                        Ver anexos
+                                    </button>
+                                <?php else : ?>
+                                    <span class="modern-muted">-</span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="hidden-print action" data-label="Ações">
+                                <div class="modern-row-actions">
+                                    <?php if (!$fechados) : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-primary update-progress" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                            Atualizar
+                                        </button>
+                                    <?php endif; ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary view-progress" data-id="<?= $this->escapeHtmlAttr($code) ?>">
+                                        Histórico
+                                    </button>
+                                    <?php if ($status === 'Aberto') : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-danger update-status change-status" data-id="<?= $this->escapeHtmlAttr($code) ?>" data-status="2">
+                                            Fechar
+                                        </button>
+                                    <?php endif; ?>
+                                    <?php if ($status === 'Fechado') : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-success update-status change-status" data-id="<?= $this->escapeHtmlAttr($code) ?>" data-status="1">
+                                            Reabrir
+                                        </button>
+                                    <?php endif; ?>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                </tbody>
+            </table>
+            <?php if ($total === 0) : ?>
+                <div class="modern-empty" role="status">
+                    <?= $this->escapeHtml($emptyText) ?>
+                    <div class="modern-empty-actions">
+                        <a href="<?= $this->basePath($limparUrl); ?>" class="btn btn-outline-secondary btn-sm">Limpar filtros</a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+</div>

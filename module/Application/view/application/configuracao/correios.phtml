@@ -1,0 +1,69 @@
+<div class="container-fluid content" data-menu="Configurações Gerais">
+    <div class="row content-title">
+        <h1>Dados da Última Milha
+            <span class="pull-right">
+                <a href="<?=$this->basePath("/")?>" class="voltar">
+                    <i class="fa fa-caret-left"></i> Voltar
+                </a>
+            </span>
+        </h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 divisor-direito">
+            <form action="/configuracao/gravar-ultima-milha" method="post" enctype="multipart/form-data">
+
+                <?=$this->formRowNoLabel($form->get('Id'));?>
+
+                <div class="row content-body">
+                    <div class="col-md-6">
+
+                        <table class="table dados-validos">
+                            <thead>
+                                <tr>
+                                    <th>UF</th>
+                                    <th>% Ultima milha</th>
+                                    <th class="hide">% Abstenção</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($form->getElements() as $item) :
+                                if($item->getAttribute('type') == 'hidden') continue; ?>
+                                <tr>
+                                    <td><?=$item->getLabel()?></td>
+                                    <td><?=$this->formRowNoLabel($item->setAttribute('data-tipo','ultima_milha'))?></td>
+                                    <td class="hide"><?=$this->formRowNoLabel($item->setAttribute('data-tipo','abstencao'))?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <br>
+            <div class="well">
+                Os dados são salvos automaticamente ao editar o valor.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(function(){
+        $.ajax({
+            url:'/configuracao/data-milha',
+            success:function(res){
+                $.each(res, function(i,e){
+                    $('input[name="'+e.uf+'"][data-tipo="ultima_milha"]').val(e.ultima_milha);
+                    $('input[name="'+e.uf+'"][data-tipo="abstencao"]').val(e.abstecao);
+                })
+            }
+        })
+    })
+</script>

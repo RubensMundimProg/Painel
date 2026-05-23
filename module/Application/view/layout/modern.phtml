@@ -1,0 +1,381 @@
+<?php
+$controller = $this->currentRequest()->get('controller');
+$action = $this->currentRequest()->get('action');
+$iconBase = '/assets/modern/img/icons/';
+$homeIcon = 'painel-monitoramento-menu.png';
+
+$navItems = [];
+$addNavItem = function ($controllerName, $actionName, $url, $label, $short, $target = '', $icon = null) use (&$navItems) {
+    if ($this->Perfil($controllerName, $actionName)) {
+        $navItems[] = [
+            'controller' => $controllerName,
+            'action' => $actionName,
+            'url' => $url,
+            'label' => $label,
+            'short' => $short,
+            'target' => $target,
+            'icon' => $icon,
+            'children' => [],
+        ];
+    }
+};
+
+$addNavItem('index', 'meu-espaco', '/index/meu-espaco?ui=modern', 'Meu Espaço', 'ME', '', 'meu-espaco-menu.png');
+$addNavItem('triagem', 'cadastro-ocorrencia', '/triagem/cadastro-ocorrencia?ui=modern', 'Ocorrência', 'OC', '', 'ocorrencia-menu.png');
+if ($this->Perfil('triagem', 'index')) {
+    $triagemChildren = [
+        [
+            'url' => '/triagem?ui=modern',
+            'label' => 'Em triagem',
+            'active' => $controller === 'triagem' && $action === 'index',
+        ],
+    ];
+
+    if ($this->Perfil('triagem', 'recusados')) {
+        $triagemChildren[] = [
+            'url' => '/triagem/recusados?ui=modern',
+            'label' => 'Recusados',
+            'active' => $controller === 'triagem' && $action === 'recusados',
+        ];
+    }
+
+    $navItems[] = [
+        'controller' => 'triagem',
+        'action' => 'index',
+        'url' => '/triagem?ui=modern',
+        'label' => 'Triagem',
+        'short' => 'TR',
+        'target' => '',
+        'icon' => 'triagem-menu.png',
+        'children' => $triagemChildren,
+    ];
+}
+if ($this->Perfil('validados', 'index')) {
+    $navItems[] = [
+        'controller' => 'validados',
+        'action' => 'index',
+        'url' => '/validados?ui=modern',
+        'label' => 'Validados',
+        'short' => 'VA',
+        'target' => '',
+        'icon' => 'validados-menu.png',
+        'children' => [
+            [
+                'url' => '/validados?ui=modern',
+                'label' => 'Alertas abertos',
+                'active' => $controller === 'validados' && $action === 'index',
+            ],
+            [
+                'url' => '/validados/fechados?ui=modern',
+                'label' => 'Alertas fechados',
+                'active' => $controller === 'validados' && $action === 'fechados',
+            ],
+        ],
+    ];
+}
+$addNavItem('dashboard', '*', '/dashboard', 'Painel', 'PA', '_blank', 'painel-monitoramento-menu.png');
+$addNavItem('ultima-milha', 'index', '/dashboard/ultima-milha', 'Entrega/Coleta', 'EC', '_blank', 'entrega-menu.png');
+$addNavItem('relatorios', 'index', '/relatorios', 'Relatórios', 'RE', '', 'relatorios-menu.png');
+$addNavItem('calendario', 'index', '/calendario', 'Calendário', 'CA', '', 'calendario-menu.png');
+$addNavItem('gantt', 'index', '/gantt', 'Gráfico de Gantt', 'GT', '', 'gantt-menu.png');
+$addNavItem('contratos', 'index', '/contratos', 'Contratos', 'CO', '', 'contratos-menu.png');
+$addNavItem('configuracao', 'index', '/configuracao', 'Configurações', 'CF', '', 'configuracoes-menu.png');
+?>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?= $this->basePath('/assets/img/logo/favicon-64.ico'); ?>">
+
+    <title><?= $this->escapeHtml($this->Projeto()) ?></title>
+
+    <link href="<?= $this->basePath('/assets/modern/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/datatable/css/jquery.dataTables.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/datepicker/css/datepicker.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/timepicker/css/timepicker.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/jquery-ui.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/chosen/css/chosen.min.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/fullcalendar/fullcalendar.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/gantt/css/gantt.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->basePath('/assets/modern/css/painel-modern-v2.css?v=20260522-3'); ?>" rel="stylesheet">
+
+    <script src="<?= $this->basePath('/assets/jquery/jquery-1.11.1.min.js'); ?>"></script>
+</head>
+<body class="modern-app">
+<input type="hidden" value="<?= $this->basePath('/'); ?>" id="path">
+
+<div class="modern-shell">
+    <aside class="modern-sidebar">
+        <a href="<?= $this->basePath('/'); ?>" class="modern-brand" aria-label="Início">
+            <img src="<?= $this->basePath('/assets/img/logo/logo-nova.png'); ?>" alt="Modulo Risk Manager">
+        </a>
+
+        <nav class="modern-nav" aria-label="Menu principal">
+            <a class="modern-nav-link <?= $controller === 'index' && $action === 'index' ? 'active' : '' ?>" href="<?= $this->basePath('/'); ?>" data-short="IN" title="Início">
+                <img class="modern-nav-icon" src="<?= $this->basePath($iconBase . $homeIcon); ?>" alt="" aria-hidden="true">
+                <span>Início</span>
+            </a>
+            <?php foreach ($navItems as $item) : ?>
+                <?php
+                $childActive = false;
+                foreach ($item['children'] as $child) {
+                    if ($child['active']) {
+                        $childActive = true;
+                        break;
+                    }
+                }
+                $active = $childActive
+                    || ($item['action'] === '*' && $controller === $item['controller'])
+                    || ($controller === $item['controller'] && $action === $item['action'])
+                    || ($item['controller'] === 'ultima-milha' && $controller === 'dashboard');
+                ?>
+                <div class="modern-nav-item <?= $active ? 'active' : '' ?>">
+                    <a class="modern-nav-link <?= $active ? 'active' : '' ?>" href="<?= $this->basePath($item['url']); ?>" target="<?= $this->escapeHtmlAttr($item['target']); ?>" data-short="<?= $this->escapeHtmlAttr($item['short']); ?>" title="<?= $this->escapeHtmlAttr($item['label']); ?>">
+                        <?php if ($item['icon']) : ?>
+                            <img class="modern-nav-icon" src="<?= $this->basePath($iconBase . $item['icon']); ?>" alt="" aria-hidden="true">
+                        <?php endif; ?>
+                        <span><?= $this->escapeHtml($item['label']); ?></span>
+                    </a>
+                    <?php if (!empty($item['children'])) : ?>
+                        <div class="modern-nav-sub">
+                            <?php foreach ($item['children'] as $child) : ?>
+                                <a class="modern-nav-sublink <?= $child['active'] ? 'active' : '' ?>" href="<?= $this->basePath($child['url']); ?>">
+                                    <span><?= $this->escapeHtml($child['label']); ?></span>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </nav>
+    </aside>
+
+    <div class="modern-main">
+        <header class="modern-topbar">
+            <button class="modern-menu-toggle" type="button" aria-controls="modernMobileNav" aria-expanded="false" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="modern-topbar-title">
+                <strong>Monitoramento de Exame</strong>
+                <span><?= $this->escapeHtml($this->Projeto()) ?></span>
+            </div>
+
+            <div class="modern-topbar-evaluation">
+                <span class="modern-context-label">Avaliação pedagógica</span>
+                <?php
+                $sistema = new \Laminas\Session\Container('SistemaSelecionado');
+                $form = new \Classes\Form\Aviso();
+                $form->get('AvaliacaoPedagogica')
+                    ->setAttribute('data-sistema', 1)
+                    ->setAttribute('class', 'form-select form-select-sm')
+                    ->setValue($sistema->offsetGet('sistema'));
+                echo $this->formElement($form->get('AvaliacaoPedagogica'));
+                ?>
+            </div>
+
+            <div class="modern-userbar">
+                <a href="<?= $this->basePath('/ajuda'); ?>" target="_blank">Ajuda</a>
+                <span><?= $this->escapeHtml($this->Usuario()->getNome()); ?></span>
+                <a href="<?= $this->basePath('/index/sair'); ?>">Sair</a>
+            </div>
+        </header>
+
+        <div class="collapse modern-mobile-nav" id="modernMobileNav">
+            <nav aria-label="Menu mobile">
+                <a class="modern-nav-link" href="<?= $this->basePath('/'); ?>">
+                    <img class="modern-nav-icon" src="<?= $this->basePath($iconBase . $homeIcon); ?>" alt="" aria-hidden="true">
+                    <span>Início</span>
+                </a>
+                <?php foreach ($navItems as $item) : ?>
+                    <div class="modern-nav-item">
+                        <a class="modern-nav-link" href="<?= $this->basePath($item['url']); ?>" target="<?= $this->escapeHtmlAttr($item['target']); ?>">
+                            <?php if ($item['icon']) : ?>
+                                <img class="modern-nav-icon" src="<?= $this->basePath($iconBase . $item['icon']); ?>" alt="" aria-hidden="true">
+                            <?php endif; ?>
+                            <span><?= $this->escapeHtml($item['label']); ?></span>
+                        </a>
+                        <?php if (!empty($item['children'])) : ?>
+                            <div class="modern-nav-sub">
+                                <?php foreach ($item['children'] as $child) : ?>
+                                    <a class="modern-nav-sublink <?= $child['active'] ? 'active' : '' ?>" href="<?= $this->basePath($child['url']); ?>">
+                                        <span><?= $this->escapeHtml($child['label']); ?></span>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </nav>
+        </div>
+
+        <main class="modern-content">
+            <?= $this->render('mensagens') ?>
+            <?= $this->content ?>
+        </main>
+    </div>
+</div>
+
+<script src="<?= $this->basePath('/assets/modern/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/timepicker/js/timepicker.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/chosen/js/chosen.jquery.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/jquery-ui.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/jquery/jquery-mask/jquery.mask.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/datatable/js/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/js/isLoading.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/moment/moment.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/moment/moment-with-locales.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/moment/moment-timezone-with-data-2010-2020.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/fullcalendar/fullcalendar.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/fullcalendar/fullcalendar.locale.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/fullcalendar/fullcalendar-custom.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/gantt/js/gantt.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/gantt/js/gantt-custom.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/datepicker/js/bootstrap-datepicker.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/datepicker/locales/bootstrap-datepicker.pt-BR.min.js'); ?>"></script>
+<script src="<?= $this->basePath('/assets/js/risk-manager.js?v=20260522-2'); ?>"></script>
+<script src="<?= $this->basePath('/assets/modern/js/painel-modern.js?v=20260522-2'); ?>"></script>
+
+<script>
+    $(function () {
+        if ($.fn.datepicker) {
+            $(".datepicker").datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                language: "pt-BR"
+            });
+        }
+    });
+</script>
+
+<div class="modal fade" id="modal-progresso" data-bs-backdrop="static" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title h5">Atualizar progresso</h3>
+                <button type="button" class="btn-close cancel-progress" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/validados/atualizar" method="post" class="form-ajax" data-acao="Progresso">
+                    <input type="hidden" name="Code" value="" id="codeProgress">
+                    <label class="form-label" for="modern-progress-comment">Progresso</label>
+                    <textarea name="Comment" id="modern-progress-comment" cols="30" rows="6" placeholder="Digite o progresso" class="form-control" required></textarea>
+                    <div class="modern-modal-actions">
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                        <button type="button" class="btn btn-outline-secondary cancel-progress" data-bs-dismiss="modal" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-status" data-bs-backdrop="static" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title h5">Alterar status do alerta</h3>
+                <button type="button" class="btn-close cancel-progress" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/validados/atualizar" method="post" class="form-ajax" data-acao="Fechar">
+                    <input type="hidden" name="Code" value="" id="codeStatus">
+                    <select name="Status" id="status-validados" class="form-control" required="required" style="display: none">
+                        <option value="1">Aberto</option>
+                        <option value="2">Fechado</option>
+                    </select>
+                    <label class="form-label" for="observacao-validados">Observação</label>
+                    <textarea name="Comment" id="observacao-validados" cols="30" rows="6" placeholder="Observação" required="required" class="form-control"></textarea>
+                    <div class="modern-modal-actions">
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                        <button type="button" class="btn btn-outline-secondary cancel-progress" data-bs-dismiss="modal" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="view-progresso" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h5"></h4>
+                <button type="button" class="btn-close cancel-progress" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body modern-scroll-area">
+                <div class="alerta-dados"></div>
+                <div class="alerta-atualizacoes"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary cancel-progress" data-bs-dismiss="modal" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loading-modal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                Carregando
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-abstract-form" data-bs-backdrop="static" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title h5">Formulário</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-confirmacao" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h5">Confirmar ação</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Deseja executar a ação?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-dismiss="modal">Não</button>
+                <a class="btn btn-primary confirmacao-url" href="">Sim</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-anexo" data-bs-backdrop="static" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title h5">Anexos</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="anexos-body modern-scroll-area">
+                    <div class="row g-3"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+/**
+ * Created by bruno.rosa on 17/4/15.
+ */
+
+/*LOGO*/
+img.logo {
+    margin-left: 10px;
+}
+img.logo-right {
+    float: right;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+
+/*CORPO DA PÁGINA PRINCIPAL*/
+.container-fluid.geral {
+    margin: 0;
+}
+
+/*FORMS, FIELDS AND LABELS*/
+.dados-objeto div.row:first-child {
+    border-bottom: 0;
+}
+
+
+/*BARRA DE MENU*/
+.navbar-collapse {
+    background-color: #3870AD;
+}
+
+
+/*GRÁFICOS*/
+.graficos {
+    /*border-bottom: 1px solid #e6edf2;*/
+    margin-bottom: 30px;
+}
+.link-fullscreen {
+    bottom: -28px;
+    position: relative;
+    z-index: 9999;
+}
+
+
+/*BOTAO USUÁRIO DA BARRA DE MENU*/
+button.usuario {
+    margin-left: 15px;
+    color: white;
+}
+
+
+/*LOGIN MOBILE*/
+.login {
+    margin: 10% 20%;
+    background-color: white;
+    border: 1px solid #c6c6c6;
+    border-radius: 4px;
+}
+
+.login form {
+    margin: 15px;
+}
+.login button {
+    border-radius: 4px;
+    outline: 0;
+}
+.login-footer .row {
+    background-color: #c6c6c6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.login-footer .grey-bar {
+    background-color: #c6c6c6;
+}
+.login-footer .glyphicon {
+    font-size: medium;
+    margin: 2px;
+}
+
+
+
+#responsabilidade-legal .btn {
+    margin-right: 0;
+}
+
+
+@media (max-width: 767px) {
+    .login {
+        margin: 10% 20%;
+    }
+}
+
+@media (min-width: 768px) {
+    .login {
+        margin: 10% 33%;
+    }
+
+    .navbar-collapse {
+        background-color: transparent !important;
+    }
+
+    .navbar-nav > li > a {
+        padding: 0;
+        margin: 8px 15px;
+        line-height: 16px;
+    }
+}
+
+
+
+/*FOOTER*/
+.footer > * {
+    text-align: center;
+}
+.footer .row {
+    margin-right: 0;
+    margin-left: 0;
+}

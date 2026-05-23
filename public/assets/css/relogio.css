@@ -1,0 +1,27 @@
+div#relogios {
+    padding: 0;
+    border: 1px solid #386698;
+    border-radius: 2px;
+    background-color: #cad7e1;
+    text-align: center;
+}
+div#relogios > div {
+    padding: 0;
+}
+div#relogios .fuso {
+    display: inline-block;
+    /*float: left;*/
+    margin: 10px;
+}
+div#relogios .fuso h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px !important;
+    color: #366495;
+}
+div#relogios .fuso h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 11px !important;
+    color: #366495;
+}

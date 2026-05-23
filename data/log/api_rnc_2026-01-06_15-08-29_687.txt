@@ -1,0 +1,1 @@
+{"codigo_origem":19721,"municipio":"MG - Belo Horizonte","uf":"MG","coordenacao":"10937 CENTRO UNIVERSIT\u00c1RIO UNA LINHA VERDE","categoria":"43","descricao":"n\u00e3o recebi o pagamento pelo dia trabalhado.","origem_informacao":"RNC","nome_usuario":"PAULO CESAR ARMONDES DA COSTA","email_usuario":"pauloarmondes@gmail.com","data_hora":"06\/01\/2026 15:08:57"}

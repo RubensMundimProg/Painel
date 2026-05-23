@@ -1,0 +1,342 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+table tr td:first-child{
+    text-align: center;
+}
+table > tbody > tr.td-bolder > td {
+    font-weight: bold;
+}
+
+.conteudo {
+    margin-top: 0;
+}
+
+.conteudo .capa.principal {
+    margin-top: 150px;
+    /*margin-left: -50px;*/
+    /*height: 19cm;*/
+    /*width:100%;*/
+    /*background-image: url('/assets-cgi/img/bkg/capa-relatorio-geoolimpiadas-landscape.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+    /*background-size: contain;*/
+
+    /*text-align: right;*/
+}
+
+.conteudo .capa.principal h1,
+.conteudo .capa.principal h2,
+.conteudo .capa.principal h3,
+.conteudo .capa.principal h4,
+.conteudo .capa.principal h5,
+.conteudo .capa.principal h6 {
+    margin:0;
+}
+
+.moldura {
+    border:1px solid #333;
+    background-color: lightgrey;
+    margin:15px;
+    padding:15px;
+    text-align: justify;
+}
+
+.conteudo .capa.sumario {
+    /*margin-top:50px;*/
+}
+.conteudo .capa.sumario table td,
+.conteudo .capa.sumario table tbody {
+    border:0;
+}
+.conteudo .capa.sumario table td {
+    text-align: left;
+    /*border-bottom:1px dashed #333 !important;*/
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: text-bottom !important;
+}
+.conteudo .capa.sumario table td:last-child {
+    text-align: right;
+}
+.conteudo .capa.sumario table tr {
+    background-color: transparent !important;
+}
+.conteudo .capa.sumario table td.indent-1 {
+    padding-left:15px;
+    font-size: 12px;
+}
+.conteudo .capa.sumario table td.indent-2 {
+    padding-left:20px;
+    font-size: 11px;
+}
+.conteudo .capa.sumario table td.indent-3 {
+    padding-left:25px;
+    font-size: 10px;
+}
+.conteudo .capa.sumario table td.indent-1+td {
+    font-size: 12px;
+}
+.conteudo .capa.sumario table td.indent-2+td {
+    font-size: 11px;
+}
+.conteudo .capa.sumario table td.indent-3+td {
+    font-size: 10px;
+}
+.conteudo .capa.sumario table td:last-child {
+    border-bottom:1px dashed #333 !important;
+}
+.conteudo .capa.sumario table td:first-child {
+    width:220px;
+}
+
+.conteudo p {
+    text-align: justify;
+    font-size: 14px;
+}
+
+.conteudo p.table-ref {
+    font-size: 60%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.conteudo p.caption {
+    text-align: center;
+    font-size: 9px;
+    color:#444;
+    margin-top:0;
+}
+
+.conteudo p img {
+    margin-bottom:30px;
+    width: 500px;
+    height:auto;
+}
+
+.conteudo ul li,
+.conteudo ol li {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.conteudo li.red {
+    background-color: red;
+}
+
+.conteudo ol {
+    list-style-type: lower-latin;
+}
+
+.red-cube {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    margin-right:10px;
+    display: inline-block;
+}
+
+.conteudo .mini-legenda {
+    border-top:1px solid #555;
+}
+.conteudo .mini-legenda ul {
+    margin:0;
+}
+.conteudo .mini-legenda p,
+.conteudo .mini-legenda li {
+    font-size: 50%;
+    margin:0;
+}
+.conteudo .mini-legenda li {
+    line-height: 10px;
+}
+
+.conteudo h1,
+.conteudo h2,
+.conteudo h3,
+.conteudo h4 {
+    color:#4F81BD;
+}
+
+h1.title {
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+h2.sub-title {
+    text-indent: 20px;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 30px
+}
+h3.sub-title {
+    text-indent: 40px;
+}
+h4.sub-title {
+    text-indent: 60px;
+}
+
+.nivel-2 p {
+    margin-left: 20px;
+}
+.nivel-3 p {
+    margin-left: 40px;
+}
+.nivel-4 p {
+    margin-left: 60px;
+}
+
+.conteudo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.conteudo table > thead {
+    border: 1px solid;
+    background-color: #4F81BD;
+    color: #fbfbfb;
+}
+.conteudo table > tbody {
+    border: 1px solid;
+    border-top: 0;
+}
+.conteudo table > thead > tr > th {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.conteudo table > tbody > tr > td {
+    text-align: center;
+    border: 1px solid;
+    font-size: 10px;
+    padding: 2px;
+}
+.conteudo table:not(.registros) > tbody > tr:nth-child(even) {
+    background-color: #DBE5F1;
+}
+
+.conteudo table.endereco > tbody > tr {
+    background-color: transparent !important;
+}
+
+.conteudo table.no-stripes > tbody > tr {
+    background-color: transparent !important;
+}
+
+.conteudo table.registros > tbody > tr:nth-child(even) {
+    background-color: #DBE5F1;
+}
+
+.conteudo table.registros.evidencias > tbody > tr {
+    background-color: #DBE5F1;
+}
+
+.conteudo table.registros.evidencias > tbody > tr:nth-child(3n) {
+    background-color: white;
+}
+
+.conteudo table.registros > tbody p {
+    margin:0;
+}
+
+.conteudo table#trajeto tbody td {
+    padding-left:10px;
+    font-size: 12px;
+}
+.conteudo table#trajeto p {
+    text-align: left;
+    margin:0;
+}
+
+.conteudo ul.no-style {
+    list-style: none;
+}
+
+div.break-page {
+    page-break-after: always;
+}
+
+div.header {
+    position: fixed;
+    font-size: 10px;
+    top: -75px;
+    right: 0;
+    /*height: 100px;*/
+    text-align: right;
+    padding-right: 0;
+    /*border-bottom: 1px solid #241E56;*/
+    /*margin-top: -50px;*/
+}
+
+div.footer {
+    position: fixed;
+    left: 0;
+    bottom: -50px;
+    /*right: 50px;*/
+    /*height: 80px;*/
+    font-size: small;
+    text-align: justify;
+}
+
+div.footer .page{
+    text-align: right;
+}
+
+div.footer .page:after {
+    content: counter(page);
+}
+
+span.page {
+    content: counter(page);
+}
+
+div.footer > table.table-footer {
+    font-family: sans-serif;
+    width: 100%;
+}
+
+
+div.footer > table.table-footer > tbody > tr > td:first-child{
+    text-align: left;
+    width:220px;
+}
+
+div.footer > table.table-footer > tbody > tr > td:nth-child(2){
+    text-align: left;
+    font-weight: normal;
+    width:auto;
+}
+div.footer > table.table-footer > tbody > tr > td:nth-child(2) > p{
+    margin-left: 0;
+    padding-left: 0;
+}
+div.footer > table.table-footer > tbody > tr > td:nth-child(3){
+    text-align: right;
+    font-weight: normal;
+    vertical-align: middle;
+    width:auto;
+}
+
+
+.hide{
+    display: none
+}
+.center{
+    text-align: center !important;
+}
+.negrito{
+    font-weight: bold;
+}
+.pendente {
+    color:red !important;
+}

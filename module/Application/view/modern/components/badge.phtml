@@ -1,0 +1,6 @@
+<?php
+$label = $label ?? '';
+$style = $style ?? '';
+$class = trim('modern-badge ' . $style);
+?>
+<span class="<?= $this->escapeHtmlAttr($class) ?>"><?= $this->escapeHtml($label) ?></span>

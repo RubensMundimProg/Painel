@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rss version="2.0">
+ 
+<channel>
+<generator>Previsão para o Brasil RSS</generator>
+<title>CPTEC/INPE - Previsão para o Brasil</title>
+<link>http://www.cptec.inpe.br</link>
+<description>Centro de Previsão de Tempo e Estudos Climáticos/INPE</description>
+<language>pt-br</language>
+<image>
+<url>http://img0.cptec.inpe.br/~rgrafico/portal_home/img/new_rss.jpg</url>
+<title>CPTEC/INPE</title>
+<link>http://www7.cptec.inpe.br</link>
+<width>144</width>
+<height>58</height>
+</image>
+<item>
+<title>31/10/2016 - Pancadas de chuva em parte do país</title>
+<pubDate>Mon, 31 Oct 2016 00:00:00 -0200</pubDate>
+<description><![CDATA[Nesta segunda-feira (31/10), o dia será com pancadas de chuva em todo Centro-Oeste do país. Estas pancadas virão acompanhadas de descargas elétricas e poderá gerar acumulados expressivos de precipitação em pontos isolados. Na Região Norte, as pancadas de chuva ocorrerão no AM, RR, norte de RO, centro-sul do PA e no TO. Na Região Nordeste, o dia será com pancadas de chuva em grande parte do MA, oeste do PI, oeste e sul da BA. Na Região Sudeste,  ocorrerão pancadas de chuva no decorrer do dia no norte de SP, Triângulo Mineiro e oeste de MG. Em grande parte do Sul do país, litoral de SP, centro de MG e no ES, o dia será com possibilidade de chuva.  ]]></description>
+<link>http://tempo1.cptec.inpe.br</link>
+<author>atendimento@cptec.inpe.br</author>
+<category>Previsão para o Brasil</category>
+<lastBuildDate>31/10/2016 </lastBuildDate>
+</item>
+</channel>
+</rss>

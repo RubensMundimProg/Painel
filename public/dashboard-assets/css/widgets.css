@@ -1,0 +1,76 @@
+body {
+    background-color: #222;
+    /*background-image: url('../img/logo/powered-by-modulo-branco.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    /*background-position: right bottom;*/
+    overflow: hidden;
+}
+
+iframe{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+/*DIMINUINDO OS PADDING*/
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+.row > div{
+    padding-right: 0;
+    padding-left: 0;
+}
+.small-padding-left {
+    padding-right: 0;
+    padding-left: 5px;
+}
+.small-padding-right {
+    padding-right: 5px;
+    padding-left: 0;
+}
+.small-padding {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+.sem-padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+
+
+/*scrollbar customizado*/
+/* Let's get this party started */
+::-webkit-scrollbar {
+    height: 12px;
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #555;
+}
+::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 1);
+}
+::-webkit-resizer {
+    background: rgb(251, 251, 251);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(34, 34, 34);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgb(34, 34, 34);
+}

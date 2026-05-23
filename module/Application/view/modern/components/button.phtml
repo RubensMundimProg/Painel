@@ -1,0 +1,18 @@
+<?php
+$type = $type ?? 'button';
+$style = $style ?? 'primary';
+$label = $label ?? '';
+$href = $href ?? null;
+$attributes = $attributes ?? [];
+$class = trim('btn btn-' . $style . ' ' . ($attributes['class'] ?? ''));
+unset($attributes['class']);
+$attr = '';
+foreach ($attributes as $name => $value) {
+    $attr .= ' ' . $this->escapeHtmlAttr($name) . '="' . $this->escapeHtmlAttr($value) . '"';
+}
+?>
+<?php if ($href) : ?>
+    <a href="<?= $this->escapeHtmlAttr($href) ?>" class="<?= $this->escapeHtmlAttr($class) ?>"<?= $attr ?>><?= $this->escapeHtml($label) ?></a>
+<?php else : ?>
+    <button type="<?= $this->escapeHtmlAttr($type) ?>" class="<?= $this->escapeHtmlAttr($class) ?>"<?= $attr ?>><?= $this->escapeHtml($label) ?></button>
+<?php endif; ?>

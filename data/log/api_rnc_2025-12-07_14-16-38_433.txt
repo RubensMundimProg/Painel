@@ -1,0 +1,1 @@
+{"codigo_origem":19522,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60150 EEEFM DOM PEDRO I","categoria":"4","descricao":"Fiscais volantes e fiscais de banheiro conversando entre si.","origem_informacao":"RNC","nome_usuario":"LUCAS CORREA ROSA","email_usuario":"lucas.correa.eng.14@gmail.com","data_hora":"07\/12\/2025 14:16:39"}

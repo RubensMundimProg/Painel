@@ -1,0 +1,1 @@
+{"codigo_origem":19521,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60144 EEEFM BRIGADEIRO FONTENELLE","categoria":"35","descricao":"O local de exame recebeu um \u00daNICO malote, 78667,  contendo todos os envelopes de provas.","origem_informacao":"RNC","nome_usuario":"NELMA SUELY BARROS FREITAS","email_usuario":"nelmaf8@gmail.com","data_hora":"07\/12\/2025 14:15:37"}

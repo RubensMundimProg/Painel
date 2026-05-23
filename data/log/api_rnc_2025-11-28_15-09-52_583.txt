@@ -1,0 +1,1 @@
+{"codigo_origem":18881,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60126 EEEF JOS\u00c9 VER\u00cdSSIMO","categoria":"2","descricao":"Teste 28\/11","origem_informacao":"RNC","nome_usuario":"PAULO GUILHERME FERNANDES OLIVEIRA","email_usuario":"sigasteste@gmail.com","data_hora":"28\/11\/2025 15:10:32"}

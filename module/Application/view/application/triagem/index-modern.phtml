@@ -1,0 +1,322 @@
+<?php
+$recusados = $recusados ?? false;
+if ($lista instanceof Traversable) {
+    $lista = iterator_to_array($lista);
+}
+
+$categoriasSelecionadas = $categoriasSelecionadas ?? [];
+$baseUrl = $recusados ? '/triagem/recusados' : '/triagem';
+$limparUrl = $recusados ? '/triagem/limpar/recusados' : '/triagem/limpar';
+$tableId = $recusados ? 'modern-recusados-table' : 'modern-triagem-table';
+$kicker = $recusados ? 'Recusados' : 'Triagem';
+$tituloPagina = $recusados ? 'Ocorrências arquivadas' : 'Ocorrências em triagem';
+$totalLabel = $recusados ? 'Arquivadas' : 'Em triagem';
+$emptyText = $recusados
+    ? 'Nenhuma ocorrência arquivada foi encontrada para a avaliação e filtros atuais.'
+    : 'Nenhuma ocorrência em triagem foi encontrada para a avaliação e filtros atuais.';
+
+$form->get('OrigemInformacao')->setAttribute('class', 'form-select')->setLabel('');
+$form->get('UfFiltro')->setAttribute('class', 'form-select')->setLabel('');
+$form->get('DataRegistro')->setAttribute('class', 'form-control datepicker')->setLabel('');
+
+$filtrosAbertos = count($categoriasSelecionadas) > 0
+    || (string)$form->get('OrigemInformacao')->getValue() !== ''
+    || (string)$form->get('UfFiltro')->getValue() !== ''
+    || (string)$form->get('DataRegistro')->getValue() !== '';
+
+$total = count($lista);
+$comAnexo = 0;
+$semProvidencias = 0;
+$categoriasAtivas = [];
+
+foreach ($lista as $statItem) {
+    if ($statItem->hasAnexos()) {
+        $comAnexo++;
+    }
+
+    if (!$statItem->getProvidenciasAdotadas()) {
+        $semProvidencias++;
+    }
+
+    $categoriaStat = (string) $statItem->getCategoria();
+    if ($categoriaStat !== '') {
+        $categoriasAtivas[$categoriaStat] = true;
+    }
+}
+?>
+
+<div class="menu d-none" data-menu="Triagem"></div>
+
+<div class="modern-page" data-menu="<?= $recusados ? 'Recusados' : 'Triagem de Ocorrências' ?>">
+    <header class="modern-page-header">
+        <div>
+            <span class="modern-page-kicker"><?= $this->escapeHtml($kicker) ?></span>
+            <h1 class="modern-page-title"><?= $this->escapeHtml($tituloPagina) ?></h1>
+            <p class="modern-page-subtitle"><?= $this->escapeHtml($sistema ?: 'Avaliação pedagógica não selecionada') ?></p>
+        </div>
+
+        <div class="modern-actions">
+            <a class="btn btn-outline-secondary" href="<?= $this->basePath('/'); ?>">Voltar</a>
+            <?php if ($recusados) : ?>
+                <a class="btn btn-outline-primary" href="<?= $this->basePath('/triagem?ui=modern'); ?>">Em triagem</a>
+            <?php else : ?>
+                <?php if ($this->Perfil('triagem', 'cadastro-ocorrencia')) : ?>
+                    <a class="btn btn-primary" href="<?= $this->basePath('/triagem/cadastro-ocorrencia?ui=modern'); ?>">Nova ocorrência</a>
+                <?php endif; ?>
+                <?php if ($this->Perfil('triagem', 'recusados')) : ?>
+                    <a class="btn btn-outline-primary" href="<?= $this->basePath('/triagem/recusados?ui=modern'); ?>">Recusados</a>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <section class="modern-stat-grid" aria-label="Resumo da triagem">
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($total) ?></span>
+            <span class="modern-stat-label"><?= $this->escapeHtml($totalLabel) ?></span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml(count($categoriasAtivas)) ?></span>
+            <span class="modern-stat-label">Categorias ativas</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($comAnexo) ?></span>
+            <span class="modern-stat-label">Com anexo</span>
+        </div>
+        <div class="modern-stat-card">
+            <span class="modern-stat-value"><?= $this->escapeHtml($semProvidencias) ?></span>
+            <span class="modern-stat-label">Sem providências</span>
+        </div>
+    </section>
+
+    <form action="<?= $this->basePath($baseUrl); ?>" method="get" class="modern-filter">
+        <input type="hidden" name="ui" value="modern">
+
+        <div class="modern-filter-title">
+            <button class="modern-filter-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#triagemFilters" aria-expanded="<?= $filtrosAbertos ? 'true' : 'false' ?>" aria-controls="triagemFilters">
+                <span>Filtros</span>
+                <span class="modern-filter-arrow"></span>
+            </button>
+        </div>
+
+        <div id="triagemFilters" class="collapse <?= $filtrosAbertos ? 'show' : '' ?>">
+            <div class="modern-field">
+                <label>Categorias</label>
+                <div class="modern-chip-group">
+                    <?php $options = $form->get('Categoria')->getOptions(); ?>
+                    <?php foreach ($options['value_options'] as $option) : ?>
+                        <?php if ($option == 'Selecione') continue; ?>
+                        <?php $checked = in_array($option, $categoriasSelecionadas) ? 'checked="checked"' : ''; ?>
+                        <label class="modern-check-chip">
+                            <input type="checkbox" name="Categoria[]" value="<?= $this->escapeHtmlAttr($option) ?>" <?= $checked ?>>
+                            <span><?= $this->escapeHtml($option) ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="modern-form-grid">
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('OrigemInformacao')->getAttribute('id')) ?>">Origem da ocorrência</label>
+                    <?= $this->formElement($form->get('OrigemInformacao')) ?>
+                </div>
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('UfFiltro')->getAttribute('id')) ?>">UF</label>
+                    <?= $this->formElement($form->get('UfFiltro')) ?>
+                </div>
+                <div class="modern-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('DataRegistro')->getAttribute('id')) ?>">Data</label>
+                    <?= $this->formElement($form->get('DataRegistro')) ?>
+                </div>
+            </div>
+
+            <div class="modern-filter-actions">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+                <a href="<?= $this->basePath($limparUrl); ?>" class="btn btn-outline-secondary">Limpar</a>
+            </div>
+        </div>
+    </form>
+
+    <section class="modern-table-card">
+        <div class="modern-table-toolbar">
+            <div>
+                <h2>Lista de ocorrências</h2>
+                <span class="modern-muted"><?= $this->escapeHtml($total) ?> registros encontrados</span>
+            </div>
+            <input class="form-control modern-search" type="search" placeholder="Pesquisar na lista" data-modern-table-search="#<?= $this->escapeHtmlAttr($tableId) ?>" aria-label="Pesquisar na lista">
+        </div>
+
+        <?php if (!$recusados && $this->Perfil('triagem', 'multiplo')) : ?>
+            <div class="modern-bulkbar">
+                <button type="button" class="btn btn-outline-secondary btn-sm arquivar-varios">Arquivar selecionadas</button>
+            </div>
+        <?php endif; ?>
+
+        <div class="modern-table-wrap">
+            <table class="modern-table modern-alert-table modern-triagem-table <?= $total > 0 ? 'datatable' : '' ?>" id="<?= $this->escapeHtmlAttr($tableId) ?>">
+                <thead>
+                <tr>
+                    <?php if (!$recusados && $this->Perfil('triagem', 'multiplo')) : ?>
+                        <th class="modern-check-column"><input type="checkbox" id="modern-select-all"></th>
+                    <?php endif; ?>
+                    <th>Município</th>
+                    <th>Exame</th>
+                    <th>Coordenação</th>
+                    <th>Categoria</th>
+                    <th>Subcategoria</th>
+                    <th>Descrição</th>
+                    <th>Providências</th>
+                    <th>Usuário</th>
+                    <th>Origem</th>
+                    <th>Data/Hora</th>
+                    <th>Anexo</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if ($total > 0) : ?>
+                    <?php foreach ($lista as $item) : ?>
+                        <?php
+                        $id = $item->getId();
+                        $coordenacao = (string)$item->getCoordenacao();
+                        $exameBadge = '';
+                        $exameClass = 'primary';
+
+                        if (stripos($coordenacao, 'ENEM') !== false) {
+                            $exameBadge = 'ENEM';
+                        } elseif (stripos($coordenacao, 'CPNU') !== false) {
+                            $exameBadge = 'CPNU';
+                            $exameClass = 'warning';
+                        }
+                        ?>
+                        <tr data-id="<?= $this->escapeHtmlAttr($id) ?>">
+                            <?php if (!$recusados && $this->Perfil('triagem', 'multiplo')) : ?>
+                                <td data-label="Selecionar">
+                                    <input type="checkbox" class="arquivar-check" data-id="<?= $this->escapeHtmlAttr($id) ?>">
+                                </td>
+                            <?php endif; ?>
+                            <td data-label="Município"><?= $this->escapeHtml($item->getMunicipio()) ?></td>
+                            <td data-label="Exame">
+                                <?php if ($exameBadge) : ?>
+                                    <span class="modern-badge <?= $this->escapeHtmlAttr($exameClass) ?>"><?= $this->escapeHtml($exameBadge) ?></span>
+                                <?php else : ?>
+                                    <span class="modern-muted">-</span>
+                                <?php endif; ?>
+                            </td>
+                            <td data-label="Coordenação"><?= $this->escapeHtml($coordenacao ?: '-') ?></td>
+                            <td data-label="Categoria"><?= $this->escapeHtml($item->getCategoria()) ?></td>
+                            <td data-label="Subcategoria"><?= $this->escapeHtml($item->getSubCategoria() ?: '-') ?></td>
+                            <td class="modern-description" data-label="Descrição"><?= $this->escapeHtml($item->getDescricao()) ?></td>
+                            <td class="modern-description" data-label="Providências"><?= $this->escapeHtml($item->getProvidenciasAdotadas() ?: '-') ?></td>
+                            <td data-label="Usuário"><?= $this->escapeHtml($item->getUsuario()) ?></td>
+                            <td data-label="Origem"><?= $this->escapeHtml($item->getOrigemInformacao()) ?></td>
+                            <td data-label="Data/Hora"><?= $this->escapeHtml($item->getDataHora()) ?></td>
+                            <td class="anexo" data-label="Anexo">
+                                <?php if ($item->hasAnexos()) : ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary view-anexo" data-anexo="<?= $this->escapeHtmlAttr($item->getAnexo()) ?>">
+                                        Ver anexos
+                                    </button>
+                                <?php else : ?>
+                                    <span class="modern-muted">-</span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="hidden-print action" data-label="Ações">
+                                <div class="modern-row-actions">
+                                    <?php if ($this->Perfil('triagem', 'editar-triagem')) : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-primary btn-editar" data-url="/triagem/editar-triagem/<?= $this->escapeHtmlAttr($id) ?>">
+                                            Editar
+                                        </button>
+                                    <?php endif; ?>
+                                    <?php if ($this->Perfil('triagem', 'confirmar-triagem')) : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-success btn-confirma" data-url="/triagem/confirmar-triagem/<?= $this->escapeHtmlAttr($id) ?>">
+                                            Confirmar
+                                        </button>
+                                    <?php endif; ?>
+                                    <?php if (!$recusados && $this->Perfil('triagem', 'confirmar-triagem')) : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-danger btn-confirma" data-url="/triagem/confirmar-triagem/<?= $this->escapeHtmlAttr($id) ?>|2">
+                                            Confirmar e fechar
+                                        </button>
+                                    <?php endif; ?>
+                                    <?php if (!$recusados && $this->Perfil('triagem', 'excluir-triagem')) : ?>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" data-modern-archive="<?= $this->escapeHtmlAttr($id) ?>">
+                                            Arquivar
+                                        </button>
+                                    <?php endif; ?>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                </tbody>
+            </table>
+            <?php if ($total === 0) : ?>
+                <div class="modern-empty" role="status">
+                    <?= $this->escapeHtml($emptyText) ?>
+                    <div class="modern-empty-actions">
+                        <a href="<?= $this->basePath($limparUrl); ?>" class="btn btn-outline-secondary btn-sm">Limpar filtros</a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+</div>
+
+<div class="modal fade msg-confirmacao-acao" id="msg-exclusao" data-bs-backdrop="static" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title h5"></h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <input type="hidden" name="code" class="registro">
+                    <p class="modal-msg"></p>
+                    <div class="modern-modal-actions">
+                        <button type="submit" class="btn btn-primary">Sim</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-dismiss="modal">Não</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('body').on('change', '#modern-select-all', function () {
+            $('.arquivar-check:visible').prop('checked', this.checked);
+        });
+
+        $('body').on('click', '[data-modern-archive]', function () {
+            msgConfirmacao('/triagem/excluir-triagem', $(this).attr('data-modern-archive'), 'exclusao', 'ocorrencia');
+        });
+
+        $('body').on('click', '.arquivar-varios', function () {
+            var dados = [];
+            $('.arquivar-check:checked').each(function () {
+                dados.push($(this).attr('data-id'));
+            });
+
+            if (!dados.length) {
+                showMsg('Selecione pelo menos 1 registro', false, true);
+                return false;
+            }
+
+            $.ajax({
+                url: '/triagem/arquivar-varios',
+                dataType: 'json',
+                type: 'POST',
+                data: {'dados': dados},
+                success: function (res) {
+                    if (res.error) {
+                        showMsg('Erro ao arquivar as ocorrências selecionadas', false, true);
+                        return;
+                    }
+
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>

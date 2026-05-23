@@ -1,0 +1,12 @@
+<?php
+$title = $title ?? 'Filtros';
+$body = $body ?? '';
+$actions = $actions ?? '';
+?>
+<section class="modern-filter">
+    <div class="modern-filter-title">
+        <h2><?= $this->escapeHtml($title) ?></h2>
+        <div class="modern-actions"><?= $actions ?></div>
+    </div>
+    <?= $body ?>
+</section>

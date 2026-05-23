@@ -1,0 +1,8 @@
+<?php
+$message = $message ?? '';
+$style = $style ?? 'info';
+?>
+<div class="alert alert-<?= $this->escapeHtmlAttr($style) ?> alert-dismissible" role="alert">
+    <?= $this->escapeHtml($message) ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" data-dismiss="alert" aria-label="Fechar"></button>
+</div>

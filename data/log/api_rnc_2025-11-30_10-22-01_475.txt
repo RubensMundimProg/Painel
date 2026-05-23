@@ -1,0 +1,1 @@
+{"codigo_origem":18921,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60149 EEEF PROFESSORA DONATILA SANTANA LOPES","categoria":"35","descricao":"No sistema RNC constam 2 malotes, entretanto s\u00f3 um foi entregue.","origem_informacao":"RNC","nome_usuario":"ADRIA EVELLIN GODINHO DE VILHENA","email_usuario":"adriavilhena@gmail.com","data_hora":"30\/11\/2025 10:22:02"}

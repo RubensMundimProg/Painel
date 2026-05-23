@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="<?= $this->basePath('/assets/img/logo/favicon-64.ico'); ?>">
+
+        <title><?= $this->Projeto() ?></title>
+
+        <!-- Bootstrap -->
+        <link href="<?= $this->basePath('/assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/datatable/css/jquery.dataTables.min.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/datepicker/css/datepicker.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/timepicker/css/timepicker.min.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/jquery-ui.min.css'); ?>" rel="stylesheet">
+
+        <link href="<?= $this->basePath('/assets/chosen/css/chosen.min.css'); ?>" rel="stylesheet">
+
+        <!-- FULLCALENDAR -->
+        <link rel="stylesheet" href="/assets/fullcalendar/fullcalendar.css">
+        <link rel="stylesheet" href="/assets/gantt/css/gantt.css">
+
+
+        <!-- CSS Customizado -->
+        <link href="<?= $this->basePath('/assets/css/risk-manager.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/css/relogio.css'); ?>" rel="stylesheet">
+        <link href="<?= $this->basePath('/assets/css/risk-manager-mobile.css'); ?>" media="screen and (max-width: 768px)" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- BaseJS -->
+        <script src="<?= $this->basePath('/assets/jquery/jquery-1.11.1.min.js'); ?>"></script>
+    </head>
+
+    <?php
+    $config = \Estrutura\Service\Config::getConfig('API');
+    $path = $config['baseRM'] . $config['patchRM'] . "/";
+    ?>
+
+    <body>
+        <input type="hidden" value="<?= $this->basePath('/'); ?>" id="path">
+            <div class="container-fluid geral bg-white none-sides-padding">
+
+                <div class="row topo hidden-print">
+                    <div class="col-md-3"><img class="" src="<?= $this->basePath('/assets/img/logo/logo-nova.png'); ?>"></div>
+
+                    <div class="col-md-6">
+                        <div id="relogios" class="row text-center">
+                            <div class="col-md-12">
+                                <div class="fuso">
+                                    <h3 id="rio-branco"></h3>
+                                    <h5>Rio Branco (AC)<br><b>&nbsp;</b></h5>
+                                </div>
+                                <div class="fuso">
+                                    <h3 id="manaus"></h3>
+                                    <h5>Manaus (AM)<br><b>&nbsp;</b></h5>
+                                </div>
+                                <div class="fuso">
+                                    <h3 id="mato-grosso"></h3>
+                                    <h5>Mato Grosso (MT)<br><b>&nbsp;</b></h5>
+                                </div>
+                                <div class="fuso">
+                                    <h3 id="brasilia"></h3>
+                                    <h5>Brasília (DF)<br><b>OFICIAL</b></h5>
+                                </div>
+                                <div class="fuso">
+                                    <h3 id="nordeste"></h3>
+                                    <h5>Nordeste<br><b>&nbsp;</b></h5>
+                                </div>
+                                <div class="fuso">
+                                    <h3 id="fernando"></h3>
+                                    <h5>F. Noronha (PE)<br><b>&nbsp;</b></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="pull-right text-right">
+                            <a href="/ajuda" target="_blank">Ajuda</a>&nbsp;|&nbsp;
+                            <span><?= $this->Usuario()->getNome() ?></span>
+                            <a href="/index/sair" >[ Sair ]</a>
+                            <br>
+                            <div class="form-group text-left" style="margin-bottom: 0; margin-top: 0">
+                                <label for="" class="control-label" style="padding-top: 5px">Avaliação Pedagógica</label>
+                                <?php
+                                $sistema = new \Zend\Session\Container('SistemaSelecionado');
+                                $form = new \Classes\Form\Aviso();
+                                $form->get('AvaliacaoPedagogica')->setAttribute('data-sistema',1)->setValue($sistema->offsetGet('sistema'));
+                                echo $this->formRow($form->get('AvaliacaoPedagogica'));
+                                ?>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <?= $this->render('menu') ?>
+
+                <!--início conteúdo-->
+                <div class="container-fluid">
+                    <?= $this->render('mensagens') ?>
+                    <?= $this->content ?>
+                </div>
+
+            </div>
+
+            <!--fim conteúdo-->
+        <!-- JS's -->
+
+        <script src="<?= $this->basePath('/assets/timepicker/js/timepicker.min.js'); ?>"></script>
+
+        <script src="<?= $this->basePath('/assets/chosen/js/chosen.jquery.min.js'); ?>"></script>
+
+        <script src="<?= $this->basePath('/assets/jquery/jquery-ui-1.11.4/jquery-ui.js'); ?>"></script>
+
+        <script src="<?= $this->basePath('/assets/jquery/jquery-mask/jquery.mask.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/datatable/js/jquery.dataTables.min.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/datatable/js/dataTables.bootstrap.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/js/isLoading.js'); ?>"></script>
+
+        <script src="<?= $this->basePath('/assets/moment/moment.js'); ?>"></script>
+
+        <!--FULLCALENDAR -->
+        <script src="/assets/fullcalendar/fullcalendar.js"></script>
+        <script src="/assets/fullcalendar/fullcalendar.locale.js"></script>
+        <script src="/assets/fullcalendar/fullcalendar-custom.js"></script>
+
+        <!--GANTT-->
+        <script src="/assets/gantt/js/gantt.js"></script>
+        <script src="/assets/gantt/js/gantt-custom.js"></script>
+
+        <script src="<?= $this->basePath('/assets/moment/moment-with-locales.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/moment/moment-timezone-with-data-2010-2020.js'); ?>"></script>
+
+        <script src="<?= $this->basePath('/assets/datepicker/js/bootstrap-datepicker.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/datepicker/locales/bootstrap-datepicker.pt-BR.min.js'); ?>"></script>
+
+        <!-- JS's Customizado -->
+        <script src="<?= $this->basePath('/assets/js/risk-manager.js'); ?>"></script>
+        <script src="<?= $this->basePath('/assets/js/relogio.js'); ?>"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("[data-toggle='tooltip']").tooltip();
+
+                $(".datepicker").datepicker({
+                    format: "dd/mm/yyyy",
+                    autoclose: true,
+                    language: "pt-BR"
+                });
+
+                $(".timepicker").timepicker({
+                        minuteStep: 5,
+                        template: 'dropdown',
+                        showSeconds: false,
+                        showMeridian: false,
+                        defaultTime: 'current'
+                    }
+                );
+            });
+        </script>
+
+        <div class="visible-print">
+            <h3></h3>
+            <div></div>
+        </div>
+
+        <!--inicio do footer-->
+        <div class="footer hidden-print">
+            <div class="container-fluid geral none-sides-padding">
+                <div class="row">
+                    <div class="col-md-2 "><strong>Versão 1.0</strong></div>
+                    <div class="col-md-8 text-center">
+                        <a target="_blank" href="<?= $path; ?>FooterInfo/PrivacyPolicy.aspx">Política de Privacidade</a> | <a target="_blank" href="<?= $path; ?>FooterInfo/UseTerm.aspx">Termos de Uso</a> | <a target="_blank"  href="<?= $path; ?>FooterInfo/SecurityDeclaration.aspx">Declaração de Segurança</a>
+                    </div>
+                    <div class="col-md-2"><img class="pull-right" src="<?= $this->basePath('/assets/img/logo/powered-by-modulo-white.png'); ?>"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modal-progresso" data-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header panel-title">
+                        <h3 class="modal-title">Atualizar Progresso</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="/validados/atualizar" method="post" class="form-ajax" data-acao="Progresso">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="hidden" name="Code" value="" id="codeProgress">
+                                    <textarea name="Comment" id="" cols="30" rows="10" placeholder="Digite o Progresso" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-salvar" type="submit">Salvar</button>
+                                    <button class="btn btn-cancelar cancel-progress" data-dismiss="modal" >Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade" id="modal-status" data-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header panel-title">
+                        <h3 class="modal-title">Fechar Alerta</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="/validados/atualizar" method="post" class="form-ajax" data-acao="Fechar">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="hidden" name="Code" value="" id="codeStatus">
+                                    <select name="Status" id="status-validados" class="form-control" required="required" style="display: none">
+                                        <option value="1">Aberto</option>
+                                        <option value="2">Fechado</option>
+                                    </select>
+                                    <textarea name="Comment" id="observacao-validados" cols="30" rows="10" placeholder="Observação" required="required" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-salvar" type="submit">Salvar</button>
+                                    <button class="btn btn-cancelar cancel-progress" data-dismiss="modal" >Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade" id="view-progresso">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body" style="max-height: 440px; overflow: auto">
+                        <div class="row">
+                            <div class="col-md-12 alerta-atualizacoes"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary cancel-progress" data-dismiss="modal">OK</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="loading-modal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="/assets/img/ico/ajax-loader.gif" alt="" style="width: 100px; margin-right: -33px">
+                        Carregando
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="modal-abstract-form" data-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header panel-title">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Formulário</h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+    <div class="modal fade" id="modal-confirmacao">
+    	<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    				<h4 class="modal-title">Confirmar Ação</h4>
+    			</div>
+    			<div class="modal-body">
+    				Deseja executar a ação?
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-fechar" data-dismiss="modal">Não</button>
+    				<a class="btn btn-check confirmacao-url" href="">Sim</a>
+    			</div>
+    		</div><!-- /.modal-content -->
+    	</div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+        <!--ANEXO-->
+        <div class="modal fade" id="modal-anexo" data-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header panel-title">
+                        <h3 class="modal-title">Anexos</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="anexos-body" style="max-height: 400px">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-cancelar pull-right" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+
+
+    </body>
+</html>

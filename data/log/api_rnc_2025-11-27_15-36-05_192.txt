@@ -1,0 +1,11 @@
+{
+  "codigo_origem": "18656",
+  "municipio": "MG - VESPASIANO",
+  "uf": "MG",
+  "coordenacao": "50006 ESCOLA ESTADUAL MACHADO DE ASSIS",
+  "categoria": "60", 
+  "descricao": "Descricao do teste enviado via Postman para verificar o campo sistema.",
+  "origem_informacao": "RNC",
+  "nome_usuario": "Rubens Rego",
+  "email_usuario": "rubens.rego@modulo.com"
+}

@@ -1,0 +1,1 @@
+{"codigo_origem":19581,"municipio":"PA - Bel\u00e9m","uf":"PA","coordenacao":"60198 PHYSICS AUGUSTO MONTENEGRO","categoria":"3","descricao":"Celular do candidato tocou no momento de realiza\u00e7\u00e3o da prova.","origem_informacao":"RNC","nome_usuario":"DEYSE CRISTINE OLIVEIRA DA CRUZ","email_usuario":"deyse.kk87@gmail.com","data_hora":"07\/12\/2025 15:47:22"}

@@ -1,0 +1,39 @@
+<?php
+$sucesso = $this->flashMessenger()->render(\Laminas\Mvc\Plugin\FlashMessenger\FlashMessenger::NAMESPACE_SUCCESS);
+$error = null;
+
+if ($this->flashMessenger()->getCurrentErrorMessages()) {
+    $error = '<ul><li class="error">' . current($this->flashMessenger()->getCurrentErrorMessages()) . '</li></ul>';
+    $this->flashMessenger()->getPluginFlashMessenger()->clearCurrentMessagesFromContainer();
+} else {
+    $error = $this->flashMessenger()->render(\Laminas\Mvc\Plugin\FlashMessenger\FlashMessenger::NAMESPACE_ERROR);
+}
+
+$info = $this->flashMessenger()->render(\Laminas\Mvc\Plugin\FlashMessenger\FlashMessenger::NAMESPACE_DEFAULT);
+$closeButton = '<button type="button" class="btn-close close" data-bs-dismiss="alert" data-dismiss="alert" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>';
+?>
+
+<?php if ($sucesso || $error || $info) : ?>
+    <div class="container-alertas">
+        <?php if ($sucesso) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= $closeButton ?>
+                <?= $sucesso ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($error) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= $closeButton ?>
+                <?= $error ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($info) : ?>
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <?= $closeButton ?>
+                <?= $info ?>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

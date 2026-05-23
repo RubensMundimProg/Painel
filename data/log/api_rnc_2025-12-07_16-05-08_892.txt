@@ -1,0 +1,1 @@
+{"codigo_origem":19621,"municipio":"PA - Ananindeua","uf":"PA","coordenacao":"60001 ESMAC - ESCOLA SUPERIOR MADRE CELESTE","categoria":"23","descricao":"Energia el\u00e9trica oscilando no local de aplica\u00e7\u00e3o","origem_informacao":"RNC","nome_usuario":"DIENE DE CASSIA BARROS DE OLIVEIRA","email_usuario":"dienecbo@gmail.com","data_hora":"07\/12\/2025 16:05:10"}

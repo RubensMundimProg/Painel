@@ -1,0 +1,15 @@
+<?php
+$title = $title ?? '';
+$body = $body ?? '';
+$class = trim('modern-card ' . ($class ?? ''));
+?>
+<section class="<?= $this->escapeHtmlAttr($class) ?>">
+    <?php if ($title) : ?>
+        <header class="modern-card-header">
+            <h2><?= $this->escapeHtml($title) ?></h2>
+        </header>
+    <?php endif; ?>
+    <div class="modern-card-body">
+        <?= $body ?>
+    </div>
+</section>

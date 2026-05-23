@@ -1,0 +1,1 @@
+{"codigo_origem":19163,"municipio":"GO - Catal\u00e3o","uf":"GO","coordenacao":"20081 COL\u00c9GIO ESTADUAL DONA IAY\u00c1","categoria":"21","descricao":"teste","origem_informacao":"RNC","nome_usuario":"PAULO GUILHERME FERNANDES OLIVEIRA","email_usuario":"sigasteste@gmail.com","data_hora":"07\/12\/2025 08:44:43"}

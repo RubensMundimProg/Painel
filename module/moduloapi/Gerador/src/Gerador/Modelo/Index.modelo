@@ -1,0 +1,43 @@
+<?php
+  /** @var $form \{{namespace}}\Form\{{classe}} */
+  /** @var $lista \{{namespace}}\Service\{{classe}}[] */
+?>
+<div class="page-head">
+    <h2>Lista</h2>
+</div>
+<div class="cl-mcont">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block-flat">
+                <div class="content">
+
+                    <table class="table table-bordered dataTable">
+                        <thead>
+                            <tr>
+                                {{th}}
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php foreach($lista as $item){ ?>
+                            <tr>
+                                {{td}}
+                                <td style="width: 100px">
+                                    <?=\Estrutura\Service\HtmlHelper::botaoAlterar($this->url('application',array('controller'=>$controller,'action'=>'cadastro','id'=>$item->getId())))?>
+                                    <?=\Estrutura\Service\HtmlHelper::botaoExcluir($this->url('application',array('controller'=>$controller,'action'=>'excluir','id'=>$item->getId())))?>
+                                </td>
+                            </tr>
+                        <?php }; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success pull-right" href="<?=$this->url('application',array('controller'=>$controller,'action'=>'cadastro'))?>">Cadastrar</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<?php $urlPainel = \Estrutura\Service\Config::getConfig('url_painel'); ?>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel panel-default weather-panel">
+            <div class="panel-heading weather-panel__header">
+                <div class="weather-panel__title">
+                    <i class="fa fa-cloud weather-panel__icon" aria-hidden="true"></i>
+                    <span>Clima e tempo</span>
+                </div>
+                <div class="weather-panel__meta">
+                    <span id="weather-status-message" class="weather-panel__status"></span>
+                    <span id="weather-updated-at" class="weather-panel__updated"></span>
+                </div>
+            </div>
+            <div class="panel-body weather-panel__body">
+                <div id="weather-error" class="alert alert-danger weather-panel__error hidden" role="alert"></div>
+                <div id="weather-loading" class="weather-panel__loading hidden">
+                    <span class="blink-me">Carregando dados meteorológicos...</span>
+                </div>
+                <div id="weather-alerts" class="weather-alerts"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="rss" class="um-terco"></div>
+    </div>
+</div>

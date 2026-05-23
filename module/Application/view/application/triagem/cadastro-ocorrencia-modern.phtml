@@ -1,0 +1,119 @@
+<?php
+$setClass = function ($name, $class) use ($form) {
+    if (!$form->has($name)) {
+        return;
+    }
+
+    $element = $form->get($name);
+    $current = trim((string)$element->getAttribute('class'));
+    $element->setAttribute('class', trim($current . ' ' . $class));
+};
+
+$setClass('DiaAplicacao', 'form-select');
+$setClass('municipio', 'form-control');
+$setClass('coordenacao', 'form-select');
+$setClass('categoria', 'form-select');
+$setClass('subcategoria', 'form-select');
+$setClass('impacto_aplicacao', 'form-select');
+$setClass('nro_processo', 'form-control');
+$setClass('descricao', 'form-control');
+$setClass('providencias_adotadas', 'form-control');
+$setClass('anexo', 'form-control');
+?>
+
+<div class="menu d-none" data-menu="Ocorrência"></div>
+
+<div class="modern-page" data-menu="Cadastro de Ocorrência">
+    <header class="modern-page-header">
+        <div>
+            <span class="modern-page-kicker">Ocorrência</span>
+            <h1 class="modern-page-title">Cadastrar ocorrência</h1>
+            <p class="modern-page-subtitle"><?= $this->escapeHtml($sistema) ?></p>
+        </div>
+
+        <div class="modern-actions">
+            <a class="btn btn-outline-secondary" href="<?= $this->basePath('/'); ?>">Voltar</a>
+            <?php if ($this->Perfil('triagem', 'index')) : ?>
+                <a class="btn btn-outline-primary" href="<?= $this->basePath('/triagem?ui=modern'); ?>">Abrir triagem</a>
+            <?php endif; ?>
+        </div>
+    </header>
+
+    <section class="modern-card modern-form-card">
+        <header class="modern-card-header">
+            <h2>Dados da ocorrência</h2>
+        </header>
+
+        <div class="modern-card-body">
+            <form action="/triagem/cadastro-ocorrencia" method="post" id="cadastro-alerta" enctype="multipart/form-data" class="cadastro-alerta modern-entry-form">
+                <?= $this->formRowNoLabel($form->get('uf')); ?>
+                <?= $this->formRowNoLabel($form->get('titulo')); ?>
+
+                <div class="modern-form-grid modern-form-grid-two">
+                    <div class="modern-field">
+                        <label>Avaliação pedagógica</label>
+                        <input type="text" class="form-control" value="<?= $this->escapeHtmlAttr($sistema) ?>" disabled>
+                    </div>
+
+                    <div class="modern-field">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('DiaAplicacao')->getAttribute('id')) ?>"><?= ($sistema == 'Enem') ? '*' : '' ?> Dia da aplicação</label>
+                        <?= $this->formRowNoLabel($form->get('DiaAplicacao')); ?>
+                    </div>
+
+                    <div class="modern-field">
+                        <label for="autocomplete-municipio">* Município</label>
+                        <?= $this->formRowNoLabel($form->get('municipio')); ?>
+                    </div>
+
+                    <div class="modern-field">
+                        <label for="autocomplete-coordenacao">Coordenação</label>
+                        <?= $this->formRowNoLabel($form->get('coordenacao')); ?>
+                    </div>
+
+                    <div class="modern-field">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('categoria')->getAttribute('id')) ?>">* Categoria</label>
+                        <?= $this->formRowNoLabel($form->get('categoria')); ?>
+                    </div>
+
+                    <div class="modern-field subcategorias">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('subcategoria')->getAttribute('id')) ?>">Subcategoria</label>
+                        <?= $this->formRowNoLabel($form->get('subcategoria')); ?>
+                    </div>
+
+                    <div class="modern-field impacto-aplicacao">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('impacto_aplicacao')->getAttribute('id')) ?>">* Impacto na aplicação?</label>
+                        <?= $this->formRowNoLabel($form->get('impacto_aplicacao')); ?>
+                    </div>
+
+                    <div class="modern-field nro-processo">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('nro_processo')->getAttribute('id')) ?>">* Nº Processo</label>
+                        <?= $this->formRowNoLabel($form->get('nro_processo')); ?>
+                    </div>
+                </div>
+
+                <div class="modern-form-grid modern-form-grid-two modern-form-grid-text">
+                    <div class="modern-field">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('descricao')->getAttribute('id')) ?>">* Descrição da ocorrência</label>
+                        <?= $this->formRowNoLabel($form->get('descricao')); ?>
+                    </div>
+
+                    <div class="modern-field">
+                        <label for="<?= $this->escapeHtmlAttr($form->get('providencias_adotadas')->getAttribute('id')) ?>">Providências adotadas</label>
+                        <?= $this->formRowNoLabel($form->get('providencias_adotadas')); ?>
+                    </div>
+                </div>
+
+                <div class="modern-field modern-file-field">
+                    <label for="<?= $this->escapeHtmlAttr($form->get('anexo')->getAttribute('id')) ?>">Anexar arquivos</label>
+                    <?= $this->formRowNoLabel($form->get('anexo')->setAttribute('multiple', true)); ?>
+                    <span class="modern-muted">Imagens ou documentos relacionados à ocorrência.</span>
+                </div>
+
+                <div class="modern-form-actions">
+                    <button type="submit" class="btn btn-primary">Salvar ocorrência</button>
+                    <a href="<?= $this->basePath('/'); ?>" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
